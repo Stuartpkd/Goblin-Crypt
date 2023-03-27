@@ -36,3 +36,8 @@ while True:
         print('Invalid name length, please try again.')
     else:
         break
+
+    player_class = input("Well then,  {player_name}")
+    print("1. Warrior")
+    print("2. Mage")
+    print("3. Rogue")
