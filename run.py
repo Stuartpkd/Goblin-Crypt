@@ -2,6 +2,10 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
+# Goblin Crypt
+
+# Code for google api (For player score sheet)
+
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -16,8 +20,19 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
-credits = SHEET.worksheet('credits')
+print("******* Goblin Crypt ********")
+print("******* Enter S to start the game ********")
 
-data = credits.get_all_values()
+while True:
+    start_choice = input()
+    if start_choice.lower() == 's':
+        break
+    else:
+        print("Invalid choice. Please press 's' to start the game.")
 
-print(data)
+while True:
+    player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
+    if len(player_name) <= 4 or len(player_name) >= 13:
+        print('Invalid name length, please try again.')
+    else:
+        break
