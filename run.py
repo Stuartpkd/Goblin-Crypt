@@ -34,6 +34,7 @@ print("******* Enter S to start the game ********")
 while True:
     start_choice = input()
     if start_choice.lower() == 's':
+        clear_screen()
         break
     else:
         print("Invalid choice. Please press 's' to start the game.")
@@ -42,6 +43,7 @@ while True:
     player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
     if len(player_name) <= 4 or len(player_name) >= 13:
         print('Invalid name length, please try again.')
+        clear_screen()
     else:
         break
 
@@ -54,21 +56,25 @@ while True:
     
     if player_class == '1':
         print('Ah, a mighty warrior')
+        clear_screen()
         break
         
     elif player_class == '2':
         print('Ah, a wise mage')
+        clear_screen()
         break
         
     elif player_class == '3':
         print('Ah, a cunning burglar')
+        clear_screen()
         break
         
     else:
         print('Invalid answer, please try again')
+        clear_screen()
         break
 
-while True:                       
+while True:
     enter_dungeon = input("You step out of the dark woods " 
                           "and into a clearing. " 
                           "Your eyes take a moment " 
@@ -93,5 +99,6 @@ while True:
         break
     else:
         print("Invalid choice, please try again.")
+
         
-      
+     
