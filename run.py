@@ -48,7 +48,15 @@ while True:
     if player_class == '1':
         print('Ah, a mighty warrior')
         break
+        
+    if player_class == '2':
+        print('Ah, a wise mage')
+        break
+        
+    if player_class == '3':
+        print('Ah, a cunning burglar')
+        break
     else:
         print('Invalid answer, please try again')
-        break
+        
 
