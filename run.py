@@ -61,17 +61,14 @@ while True:
         
     elif player_class == '2':
         print('Ah, a wise mage')
-        clear_screen()
         break
         
     elif player_class == '3':
         print('Ah, a cunning burglar')
-        clear_screen()
         break
         
     else:
         print('Invalid answer, please try again')
-        clear_screen()
         break
 
 while True:
@@ -100,5 +97,37 @@ while True:
     else:
         print("Invalid choice, please try again.")
 
-        
-     
+while True:
+    mainChamber_choice = input("You enter the first chamber of the dungeon. " 
+                               "Ahead of you are three identical " 
+                               "stairways leading down. " 
+                               "The light from torches mounted on the " 
+                               "walls flickers, casting an eerie "
+                               "glow on the stairs. " 
+                               "The heat emanating from the " 
+                               "torches is palpable, " 
+                               "making the air thick and heavy. Choose "
+                               "your path carefully.")
+    if mainChamber_choice == "1":
+        print("You make your way down the first stairs. " 
+              "You feel one of the steps sink " 
+              "lower than the others, " 
+              "as a poison dart is released " 
+              "from a nearby wall.")
+        break
+    elif mainChamber_choice == "2":
+        print("You cautously move down the second stairs. " 
+              "Your steps echo against the damp stone walls." 
+              "Bending down through an archway, you are met " 
+              "with a large altar with 3 symbols carved into its stone. " 
+              "You can make out a moon, wolf and river from the symbols.")
+        break
+    elif mainChamber_choice == "3":
+        print("You make your way down the first stairs. " 
+              "You feel one of the steps sink " 
+              "lower than the others, " 
+              "as a poison dart is released " 
+              "from a nearby wall.")
+        break
+    else:
+        print("Invalid answer, please try again.")         
