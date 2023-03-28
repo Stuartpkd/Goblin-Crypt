@@ -58,5 +58,32 @@ while True:
         break
     else:
         print('Invalid answer, please try again')
-        
 
+while True:
+    enter_dungeon = input("You step out of the dark woods and into a clearing. " 
+                          "Your eyes take a moment " 
+                          "to adjust to the sudden brightness, " 
+                          "and you inhale deeply, filling your " 
+                          "lungs with the crisp, fresh air. " 
+                          "Ahead of you looms the entrance to "
+                          "a dungeon, the stone walls slick " 
+                          "with moisture and the musty scent of decay " 
+                          "hanging heavy in the air. " 
+                          "You can hear the faint sound of dripping water and "
+                          "the echo of footsteps coming from within. " 
+                          "Will you be brave enough to venture " 
+                          "into the depths of the dungeon, " 
+                          "or will you turn back and seek refuge " 
+                          "in the safety of the woods?")
+    break                      
+                
+while True:                       
+    if enter_dungeon == "y":
+        print("You decend the dungeon stairs, "
+              "to the depths below.")
+    if enter_dungeon == "n":
+        print("You return home and live a " 
+              "very long and boring life.")
+    else:
+        print("Invalid choice, please try again.")
+        break      
