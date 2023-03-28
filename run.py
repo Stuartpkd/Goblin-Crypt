@@ -15,6 +15,8 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
+
+PORT = 8000
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -37,7 +39,16 @@ while True:
     else:
         break
 
-    player_class = input("Well then,  {player_name}")
+while True:    
+    player_class = input(f"Well then, {player_name} what kind of adventurer "
+                         "are you?")
     print("1. Warrior")
     print("2. Mage")
     print("3. Rogue")
+    if player_class == '1':
+        print('Ah, a mighty warrior')
+        break
+    else:
+        print('Invalid answer, please try again')
+        break
+
