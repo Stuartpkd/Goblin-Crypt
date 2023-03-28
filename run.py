@@ -6,6 +6,7 @@
 
 # Code for google api (For player score sheet)
 
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -21,6 +22,11 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
+
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 print("******* Goblin Crypt ********")
 print("******* Enter S to start the game ********")
@@ -39,28 +45,32 @@ while True:
     else:
         break
 
-while True:    
-    player_class = input(f"Well then, {player_name} what kind of adventurer "
-                         "are you?")
+while True:
     print("1. Warrior")
     print("2. Mage")
-    print("3. Rogue")
+    print("3. Rogue")   
+    player_class = input(f"Well then, {player_name} what kind " 
+                         "of adventurer are you?")
+    
     if player_class == '1':
         print('Ah, a mighty warrior')
         break
         
-    if player_class == '2':
+    elif player_class == '2':
         print('Ah, a wise mage')
         break
         
-    if player_class == '3':
+    elif player_class == '3':
         print('Ah, a cunning burglar')
         break
+        
     else:
         print('Invalid answer, please try again')
+        break
 
-while True:
-    enter_dungeon = input("You step out of the dark woods and into a clearing. " 
+while True:                       
+    enter_dungeon = input("You step out of the dark woods " 
+                          "and into a clearing. " 
                           "Your eyes take a moment " 
                           "to adjust to the sudden brightness, " 
                           "and you inhale deeply, filling your " 
@@ -75,15 +85,13 @@ while True:
                           "into the depths of the dungeon, " 
                           "or will you turn back and seek refuge " 
                           "in the safety of the woods?")
-    break                      
-                
-while True:                       
-    if enter_dungeon == "y":
-        print("You decend the dungeon stairs, "
-              "to the depths below.")
-    if enter_dungeon == "n":
-        print("You return home and live a " 
-              "very long and boring life.")
+    if enter_dungeon.lower() == "y":
+        print("You descend the dungeon stairs, to the depths below.")
+        break
+    elif enter_dungeon.lower() == "n":
+        print("You return home and live a very long and boring life.")
+        break
     else:
         print("Invalid choice, please try again.")
-        break      
+        
+      
