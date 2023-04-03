@@ -23,6 +23,8 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
+puzzleRoomPieces = ['moon', 'wolf', 'river']
+playerPuzzleInvt = []
 items = ['crystal', 'Sword', 'key']
 playerInventory = []
 
@@ -50,7 +52,8 @@ while True:
     player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
     if len(player_name) <= 4 or len(player_name) >= 13:
         print('Invalid name length, please try again.')
-        clear_screen()
+        if (player_name) == '':
+            print('You must have a name? Please try again.')
     else:
         break
 
@@ -79,6 +82,7 @@ while True:
         break
 
 while True:
+    clear_screen()
     enter_dungeon = input("You step out of the dark woods " 
                           "and into a clearing. " 
                           "Your eyes take a moment " 
@@ -105,6 +109,7 @@ while True:
         print("Invalid choice, please try again.")
 
 while True:
+    clear_screen()
     mainChamber_choice = input("You enter the first chamber of the dungeon. " 
                                "Ahead of you are three identical " 
                                "stairways leading down. " 
@@ -138,3 +143,7 @@ while True:
         break
     else:
         print("Invalid answer, please try again.")
+
+while True:
+    if mainChamber_choice == "2":
+        print('Text is carved above each ')        
