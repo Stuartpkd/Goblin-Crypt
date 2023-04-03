@@ -23,6 +23,9 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
+items = ['crystal', 'Sword', 'key']
+playerInventory = []
+
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -50,8 +53,8 @@ while True:
 while True:
     print("1. Warrior")
     print("2. Mage")
-    print("3. Rogue")   
-    player_class = input(f"Well then, {player_name} what kind " 
+    print("3. Rogue")  
+    player_class = input(f"Well then, {player_name} what kind "
                          "of adventurer are you?")
     
     if player_class == '1':
@@ -130,4 +133,4 @@ while True:
               "from a nearby wall.")
         break
     else:
-        print("Invalid answer, please try again.")         
+        print("Invalid answer, please try again.")
