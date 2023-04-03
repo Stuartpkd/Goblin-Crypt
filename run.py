@@ -31,6 +31,10 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def gameOver():
+    print('GAMEOVER')
+
+
 print("******* Goblin Crypt ********")
 print("******* Enter S to start the game ********")
 
