@@ -23,12 +23,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
-puzzleRoomPieces = ['coffin', 'candle', 'river']
-playerPuzzleInvt = []
+tabletRoom = False
+
 riddlePartOne = False
 riddlePartTwo = False
 riddlePartThree = False
-items = ['crystal', 'Sword', 'key']
+items = ['crystal', 'sword', 'key']
 playerInventory = []
 
 
@@ -135,12 +135,13 @@ while True:
               "Bending down through an archway, you are met " 
               "with a large altar with 3 texts carved into its stone. " 
               "Each .")
+        tabletRoom = True 
         break
     elif mainChamber_choice == "3":
-        print("You make your way down the first stairs. " 
-              "You feel one of the steps sink " 
-              "lower than the others, " 
-              "as a poison dart is released " 
+        print("The stairs lead down to a dusty room " 
+              "The air is cold and dank. " 
+              "You see a chest in the middle of the room, " 
+              "decomposed skeletons are littered around it. " 
               "from a nearby wall.")
         break
     else:
@@ -157,18 +158,19 @@ while True:
     break
 
 while True:
-    riddleOne = input('Which tablet do you place here?')
-    if riddleOne == 'river':
-        print('The tablet weighs down the plate with a crisp click')
-        riddlePartOne = True
-        break
-    elif riddleOne == 'coffin' or riddleOne == 'candle':
-        print('You hear a loud crunch from above your head')
-        print('The ceiling begins to move towards you')
-        print('The light begins to fade...')
-        break
-    else:
-        print('Invalid input, please try again.')      
+    if tabletRoom is True:
+        riddleOne = input('Which tablet do you place here?')
+        if riddleOne == 'river':
+            print('The tablet weighs down the plate with a crisp click')
+            riddlePartOne = True
+            break
+        elif riddleOne == 'coffin' or riddleOne == 'candle':
+            print('You hear a loud crunch from above your head')
+            print('The ceiling begins to move towards you')
+            print('The light begins to fade...')
+            break
+        else:
+            print('Invalid input, please try again.')      
 
 while True:
     if riddlePartOne is True:
@@ -207,6 +209,17 @@ while True:
         print('A large stone door reveals a tunnel with a red glow')
         print('You proceed onwards.')
         break
-    
-                            
+
+while True:
+    if mainChamber_choice == '3':
+        chestChoice = input('Do you open the chest?')
+    if chestChoice == 'y':
+        print('You are greeted with a gleaming sword wrapped in cloth.')
+        playerInventory.append('sword')
+    elif chestChoice == 'n':
+        print('You think it is probably best to leave it be')
+        print('You continue onwards into the dungeon.')
+        break    
+
+
 
