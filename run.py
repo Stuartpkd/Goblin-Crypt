@@ -160,6 +160,7 @@ while True:
     riddleOne = input('Which tablet do you place here?')
     if riddleOne == 'river':
         print('The tablet weighs down the plate with a crisp click')
+        riddlePartOne = True
         break
     elif riddleOne == 'coffin' or riddleOne == 'candle':
         print('You hear a loud crunch from above your head')
@@ -169,6 +170,43 @@ while True:
     else:
         print('Invalid input, please try again.')      
 
-    
+while True:
+    if riddlePartOne is True:
+        riddleTwo = input('I look taller when I am young. '
+                          'As I grow old I become shorter.')
+        if riddleTwo == 'candle':  
+            print('The tablet weighs down the plate with a crisp click')
+            riddlePartTwo = True
+            break
+        elif riddleTwo == 'coffin' or 'river':
+            print('You hear a loud crunch from above your head')
+            print('The ceiling begins to move towards you')
+            print('The light begins to fade...')
+            break
+        else:
+            print('Incorrect answer, please try again')
 
+while True:
+    if riddlePartOne is True:
+        riddleTwo = input('Who makes it, has no need of it. '
+                          'Who buys it, has no use for it.')
+        if riddleTwo == 'coffin':  
+            print('The tablet weighs down the plate with a crisp click')
+            riddlePartThree = True
+            break
+        elif riddleTwo == 'candle' or 'river':
+            print('You hear a loud crunch from above your head')
+            print('The ceiling begins to move towards you')
+            print('The light begins to fade...')
+            break
+        else:
+            print('Incorrect answer, please try again')
+
+while True:
+    if riddlePartThree is True:
+        print('A large stone door reveals a tunnel with a red glow')
+        print('You proceed onwards.')
+        break
+    
+                            
 
