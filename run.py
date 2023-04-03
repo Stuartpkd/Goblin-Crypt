@@ -23,8 +23,11 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
-puzzleRoomPieces = ['moon', 'wolf', 'river']
+puzzleRoomPieces = ['coffin', 'candle', 'river']
 playerPuzzleInvt = []
+riddlePartOne = False
+riddlePartTwo = False
+riddlePartThree = False
 items = ['crystal', 'Sword', 'key']
 playerInventory = []
 
@@ -82,7 +85,6 @@ while True:
         break
 
 while True:
-    clear_screen()
     enter_dungeon = input("You step out of the dark woods " 
                           "and into a clearing. " 
                           "Your eyes take a moment " 
@@ -131,8 +133,8 @@ while True:
         print("You cautously move down the second stairs. " 
               "Your steps echo against the damp stone walls." 
               "Bending down through an archway, you are met " 
-              "with a large altar with 3 symbols carved into its stone. " 
-              "You can make out a moon, wolf and river from the symbols.")
+              "with a large altar with 3 texts carved into its stone. " 
+              "Each .")
         break
     elif mainChamber_choice == "3":
         print("You make your way down the first stairs. " 
@@ -146,4 +148,27 @@ while True:
 
 while True:
     if mainChamber_choice == "2":
-        print('Text is carved above each ')        
+        print('3 small tablets are laid out in front of you.')
+        print('Each has an engraving carved into it.')
+        print('You see a river, a candle and a coffin')
+        print('Below each riddle is a plate for each tablet.')
+        print('Solve each riddle and place the tablets correctly.\n\n')
+        print("Riddle 1: I have a bed but don't sleep, a bank but no money.")
+    break
+
+while True:
+    riddleOne = input('Which tablet do you place here?')
+    if riddleOne == 'river':
+        print('The tablet weighs down the plate with a crisp click')
+        break
+    elif riddleOne == 'coffin' or riddleOne == 'candle':
+        print('You hear a loud crunch from above your head')
+        print('The ceiling begins to move towards you')
+        print('The light begins to fade...')
+        break
+    else:
+        print('Invalid input, please try again.')      
+
+    
+
+
