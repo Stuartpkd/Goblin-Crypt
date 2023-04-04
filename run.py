@@ -60,6 +60,7 @@ while True:
         break
 
 while True:
+    clear_screen()
     print("1. Warrior")
     print("2. Mage")
     print("3. Rogue")  
@@ -67,8 +68,27 @@ while True:
                          "of adventurer are you?\n")
     
     if player_class == '1':
+        print("""      _,.
+    ,` -.)
+   ( _/-\\-._
+  /,|`--._,-^|            ,
+  \_| |`-._/||          ,'|
+    |  `-, / |         /  /
+    |     || |        /  /
+     `r-._||/   __   /  /
+ __,-<_     )`-/  `./  /
+'  \   `---'   \   /  /
+    |           |./  /
+    /           //  /
+\_/' \         |/  /
+ |    |   _,^-'/  /
+ |    , ``  (\/  /_
+  \,.->._    \X-=/^
+  (  /   `-._//^`
+   `Y-.____(__}
+    |     {__)
+          """)
         print('Ah, a mighty warrior')
-        clear_screen()
         break
         
     elif player_class == '2':
