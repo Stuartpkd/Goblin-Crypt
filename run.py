@@ -49,7 +49,7 @@ while True:
         clear_screen()
         break
     else:
-        print("Invalid choice. Please press 's' to start the game.")
+        print("Invalid choice. Please enter 's' to start the game.")
 
 while True:
     player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
@@ -65,7 +65,7 @@ while True:
     print("2. Mage")
     print("3. Rogue")  
     player_class = input(f"Well then, {player_name} what kind "
-                         "of adventurer are you?")
+                         "of adventurer are you?\n")
     
     if player_class == '1':
         print('Ah, a mighty warrior')
@@ -100,7 +100,7 @@ while True:
                           "Will you be brave enough to venture " 
                           "into the depths of the dungeon, " 
                           "or will you turn back and seek refuge " 
-                          "in the safety of the woods?")
+                          "in the safety of the woods?\n")
     if enter_dungeon.lower() == "y":
         print("You descend the dungeon stairs, to the depths below.")
         break
@@ -121,7 +121,7 @@ while True:
                                "The heat emanating from the " 
                                "torches is palpable, " 
                                "making the air thick and heavy. Choose "
-                               "your path carefully.")
+                               "your path carefully.\n")
     if mainChamber_choice == "1":
         print("You make your way down the first stairs. " 
               "You feel one of the steps sink " 
@@ -159,7 +159,7 @@ while True:
 
 while True:
     if tabletRoom is True:
-        riddleOne = input('Which tablet do you place here?')
+        riddleOne = input('Which tablet do you place here?\n')
         if riddleOne == 'river':
             print('The tablet weighs down the plate with a crisp click')
             riddlePartOne = True
@@ -175,7 +175,7 @@ while True:
 while True:
     if riddlePartOne is True:
         riddleTwo = input('I look taller when I am young. '
-                          'As I grow old I become shorter.')
+                          'As I grow old I become shorter.\n')
         if riddleTwo == 'candle':  
             print('The tablet weighs down the plate with a crisp click')
             riddlePartTwo = True
@@ -191,7 +191,7 @@ while True:
 while True:
     if riddlePartOne is True:
         riddleTwo = input('Who makes it, has no need of it. '
-                          'Who buys it, has no use for it.')
+                          'Who buys it, has no use for it.\n')
         if riddleTwo == 'coffin':  
             print('The tablet weighs down the plate with a crisp click')
             riddlePartThree = True
@@ -219,7 +219,5 @@ while True:
     elif chestChoice == 'n':
         print('You think it is probably best to leave it be')
         print('You continue onwards into the dungeon.')
-        break    
-
-
+        break
 
