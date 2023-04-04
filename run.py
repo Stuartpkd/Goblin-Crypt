@@ -38,10 +38,20 @@ def clear_screen():
 
 def gameOver():
     print('GAMEOVER')
+    play_again = input('Would you like to try again? (y/n)')
+    if play_again == 'y':
+        startGame()
+    elif play_again == 'n':
+        exit()
+    else:
+        print('Invalid input, please try again')        
 
 
 def startGame():
-    print("******* Goblin Crypt ********")
+    """
+    Hello world
+    """
+    print("******* Goblin - Crypt ********")
     print("******* Enter S to start the game ********")
     while True:
         start_choice = input()
@@ -108,9 +118,9 @@ while True:
         break
 
 while True:
-    enter_dungeon = input("You step out of the dark woods " 
-                          "and into a clearing. " 
-                          "Your eyes take a moment " 
+    enter_dungeon = input("You step out of the dark woods "
+                          "and into a clearing. "
+                          "Your eyes take a moment "
                           "to adjust to the sudden brightness, " 
                           "and you inhale deeply, filling your " 
                           "lungs with the crisp, fresh air. " 
