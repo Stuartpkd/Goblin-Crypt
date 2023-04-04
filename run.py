@@ -53,10 +53,9 @@ while True:
 
 while True:
     player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
-    if len(player_name) <= 4 or len(player_name) >= 13:
+    if len(player_name) <= 4 or len(player_name) >= 13 or player_name == '':
+        clear_screen()
         print('Invalid name length, please try again.')
-        if (player_name) == '':
-            print('You must have a name? Please try again.')
     else:
         break
 
@@ -220,4 +219,6 @@ while True:
         print('You think it is probably best to leave it be')
         print('You continue onwards into the dungeon.')
         break
+    else:
+        print('Invalid input, please try again.')
 
