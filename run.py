@@ -40,16 +40,20 @@ def gameOver():
     print('GAMEOVER')
 
 
-print("******* Goblin Crypt ********")
-print("******* Enter S to start the game ********")
+def startGame():
+    print("******* Goblin Crypt ********")
+    print("******* Enter S to start the game ********")
+    while True:
+        start_choice = input()
+        if start_choice.lower() == 's':
+            clear_screen()
+            break
+        else:
+            print("Invalid choice. Please enter 's' to start the game.")
 
-while True:
-    start_choice = input()
-    if start_choice.lower() == 's':
-        clear_screen()
-        break
-    else:
-        print("Invalid choice. Please enter 's' to start the game.")
+
+startGame()
+
 
 while True:
     player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
