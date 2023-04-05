@@ -221,8 +221,8 @@ while True:
     if TABLET_ROOM is True:
         riddleOne = input('Which tablet do you place here? ' 
                           '(coffin, candle or river)\n')
+        riddleOne = riddleOne.lower()
         if riddleOne == 'river':
-            print('The tablet weighs down the plate with a crisp click\n')
             RIDDLE_ONE = True
             break
         elif riddleOne == 'coffin' or riddleOne == 'candle':
@@ -236,12 +236,13 @@ while True:
 while True:
     if RIDDLE_ONE is True:
         clear_screen()
+        print('The tablet weighs down the plate with a crisp click\n')
         print('You look to the next riddle:\n')
         riddleTwo = input('I look taller when I am young. '
                           'As I grow old I become shorter. '
                           '(coffin, candle or river)\n')
+        riddleTwo = riddleTwo.lower()
         if riddleTwo == 'candle':
-            print('The tablet weighs down the plate with a crisp click')
             RIDDLE_TWO = True
             break
         elif riddleTwo == 'coffin' or 'river':
@@ -250,15 +251,16 @@ while True:
             print('The light begins to fade...')
             break
         else:
-            print('Incorrect answer, please try again')
+            invalid_input()
 
 while True:
     if RIDDLE_TWO is True:
-        riddleTwo = input('Who makes it, has no need of it. '
-                          'Who buys it, has no use for it.\n')
-        if riddleTwo == 'coffin':  
+        riddleThree = input('Who makes it, has no need of it. '
+                            'Who buys it, has no use for it.\n')
+        riddleThree = riddleThree.lower()
+        if riddleTwo == 'coffin':
             print('The tablet weighs down the plate with a crisp click')
-            riddlePartThree = True
+            RIDDLE_THREE = True
             break
         elif riddleTwo == 'candle' or 'river':
             print('You hear a loud crunch from above your head')
@@ -266,10 +268,10 @@ while True:
             print('The light begins to fade...')
             break
         else:
-            print('Incorrect answer, please try again')
+            invalid_input()
 
 while True:
-    if riddlePartThree is True:
+    if RIDDLE_THREE is True:
         print('A large stone door reveals a tunnel with a red glow')
         print('You proceed onwards.')
         break
