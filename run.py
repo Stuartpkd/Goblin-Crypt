@@ -6,7 +6,8 @@
 
 # Code for google api (For player score sheet)
 
-import os, sys
+import os
+import sys
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -108,25 +109,22 @@ while True:
         break
 
 while True:
-    print("1. Warrior")
-    print("2. Mage")
-    print("3. Rogue")  
+    print("1. Warrior\n")
+    print("2. Mage\n")
+    print("3. Rogue\n")  
     player_class_choice = input(f"Well then, {player_name} what kind "
-                                "of adventurer are you? (1, 2 or 3)\n")
+                                "of adventurer are you? (1, 2 or 3)\n\n")
     
     if player_class_choice == '1':
         PLAYER_CLASS = 'warrior'
-        print('Ah, a mighty warrior')
         break
        
     elif player_class_choice == '2':
         PLAYER_CLASS = 'mage'
-        print('Ah, a wise mage')
         break
         
     elif player_class_choice == '3':
         PLAYER_CLASS = 'rogue'
-        print('Ah, a cunning rogue')
         break
         
     else:
@@ -135,6 +133,14 @@ while True:
 
 
 while True:
+    if PLAYER_CLASS == 'warrior':
+        print("Ah, a mighty warrior.\n")
+    elif PLAYER_CLASS == 'mage':
+        print("Ah, a wise mage.\n")
+    elif PLAYER_CLASS == 'rogue':
+        print('Ah, a cunning rogue.\n')
+    else:
+        break
     enter_dungeon = input("You step out of the dark woods "
                           "and into a clearing. "
                           "Your eyes take a moment "
