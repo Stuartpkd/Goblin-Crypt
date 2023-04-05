@@ -24,17 +24,17 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
 # Classes
-WARRIOR_CLASS = False
-MAGE_CLASS = False
-BURGLAR_CLASS = False
+PLAYER_CLASS = ''
 
 # Rooms
 TABLET_ROOM = False
 
-#Riddles
+# Riddles
 RIDDLE_ONE = False
 RIDDLE_TWO = False
 RIDDLE_THREE = False
+
+# Items
 items = ['crystal', 'sword', 'key']
 playerInventory = []
 
@@ -46,7 +46,12 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def gameOver():
+def game_over():
+    """
+    Prints game over to the player
+    Resets values and then starts game if yes
+    Ends program if no.
+    """
     print('GAMEOVER')
     play_again = input('Would you like to try again? (y/n)')
     if play_again == 'y':
@@ -54,7 +59,7 @@ def gameOver():
     elif play_again == 'n':
         exit()
     else:
-        print('Invalid input, please try again')       
+        print('Invalid input, please try again') 
 
 
 def start_game():
@@ -84,12 +89,12 @@ def no_choice():
     """
     Function printing empty input
     """
-    print('You did not enter anything, please try again.')    
+    print('You did not enter anything, please try again.')  
 
 
 start_game()
 
-
+# User inputs their name
 while True:
     player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
     if len(player_name) <= 4 or len(player_name) >= 13 or player_name == '':
@@ -103,39 +108,22 @@ while True:
     print("1. Warrior")
     print("2. Mage")
     print("3. Rogue")  
-    player_class = input(f"Well then, {player_name} what kind "
-                         "of adventurer are you?\n")
+    player_class_choice = input(f"Well then, {player_name} what kind "
+                                "of adventurer are you? (1, 2 or 3)\n")
     
-    if player_class == '1':
-        print("""      _,.
-    ,` -.)
-   ( _/-\\-._
-  /,|`--._,-^|            ,
-  \_| |`-._/||          ,'|
-    |  `-, / |         /  /
-    |     || |        /  /
-     `r-._||/   __   /  /
- __,-<_     )`-/  `./  /
-'  \   `---'   \   /  /
-    |           |./  /
-    /           //  /
-\_/' \         |/  /
- |    |   _,^-'/  /
- |    , ``  (\/  /_
-  \,.->._    \X-=/^
-  (  /   `-._//^`
-   `Y-.____(__}
-    |     {__)
-          """)
+    if player_class_choice == '1':
+        PLAYER_CLASS = 'warrior'
         print('Ah, a mighty warrior')
         break
-        
-    elif player_class == '2':
+       
+    elif player_class_choice == '2':
+        PLAYER_CLASS = 'mage'
         print('Ah, a wise mage')
         break
         
-    elif player_class == '3':
-        print('Ah, a cunning burglar')
+    elif player_class_choice == '3':
+        PLAYER_CLASS = 'rogue'
+        print('Ah, a cunning rogue')
         break
         
     else:
