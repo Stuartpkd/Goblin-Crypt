@@ -42,8 +42,9 @@ global RIDDLE_THREE
 RIDDLE_THREE = False
 
 # Items
-items = ['crystal', 'sword', 'key']
-playerInventory = []
+PLAYER_SWORD = ''
+PLAYER_CRYSTAL = ''
+PLAYER_KEY = ''
 
 
 def clear_screen():
@@ -110,6 +111,7 @@ while True:
     else:
         break
 
+# Class choice for player
 while True:
     print("1. Warrior\n")
     print("2. Mage\n")
@@ -133,7 +135,7 @@ while True:
         sys.stdout.write("\033[F\033[K" * 4)
         invalid_input()
 
-
+# Introduction to dungeon
 while True:
     clear_screen()
     if PLAYER_CLASS == 'warrior':
@@ -168,6 +170,7 @@ while True:
     else:
         print("Invalid choice, please try again.")
 
+# Main chamber choices (Tunnels 1 - 3)
 while True:
     clear_screen()
     mainChamber_choice = input("You enter the first chamber of the dungeon. " 
@@ -207,85 +210,24 @@ while True:
     else:
         print("Invalid answer, please try again.")
 
-while True:
-    if TABLET_ROOM is True:
-        print('3 small tablets are laid out in front of you.')
-        print('Each has an engraving carved into it.')
-        print('You see a river, a candle and a coffin')
-        print('Below each riddle is a plate for each tablet.')
-        print('Solve each riddle and place the tablets correctly.\n')
-        print("Riddle 1: I have a bed but don't sleep, a bank but no money.\n")
-    break
 
+# Chest room choices
 while True:
-    if TABLET_ROOM is True:
-        riddleOne = input('Which tablet do you place here? ' 
-                          '(coffin, candle or river)\n')
-        riddleOne = riddleOne.lower()
-        if riddleOne == 'river':
-            RIDDLE_ONE = True
-            break
-        elif riddleOne == 'coffin' or riddleOne == 'candle':
-            print('You hear a loud crunch from above your head')
-            print('The ceiling begins to move towards you')
-            print('The light begins to fade...\n')
-            exit()
-        else:
-            invalid_input()
-
-while True:
-    if RIDDLE_ONE is True:
-        clear_screen()
-        print('The tablet weighs down the plate with a crisp click\n')
-        print('You look to the next riddle:\n')
-        riddleTwo = input('I look taller when I am young. '
-                          'As I grow old I become shorter. '
-                          '(coffin, candle or river)\n')
-        riddleTwo = riddleTwo.lower()
-        if riddleTwo == 'candle':
-            RIDDLE_TWO = True
-            break
-        elif riddleTwo == 'coffin' or 'river':
-            print('You hear a loud crunch from above your head')
-            print('The ceiling begins to move towards you')
-            print('The light begins to fade...')
-            break
-        else:
-            invalid_input()
-
-while True:
-    if RIDDLE_TWO is True:
-        riddleThree = input('Who makes it, has no need of it. '
-                            'Who buys it, has no use for it.\n')
-        riddleThree = riddleThree.lower()
-        if riddleTwo == 'coffin':
-            print('The tablet weighs down the plate with a crisp click')
-            RIDDLE_THREE = True
-            break
-        elif riddleTwo == 'candle' or 'river':
-            print('You hear a loud crunch from above your head')
-            print('The ceiling begins to move towards you')
-            print('The light begins to fade...')
-            break
-        else:
-            invalid_input()
-
-while True:
-    if RIDDLE_THREE is True:
-        print('A large stone door reveals a tunnel with a red glow')
-        print('You proceed onwards.')
+    if CHEST_ROOM is True:
+        chestChoice = input('Do you open the chest? (y or n)\n')
+        chestChoice = chestChoice.lower()
         break
-
-while True:
-    if mainChamber_choice == '3':
-        chestChoice = input('Do you open the chest?')
-    if chestChoice == 'y':
-        print('You are greeted with a gleaming sword wrapped in cloth.')
-        playerInventory.append('sword')
+    elif chestChoice == 'y':
+        print('You are greeted with a gleaming sword wrapped in cloth.\n')
+        print('You place it onto your belt.\n')
+        PLAYER_SWORD = 'held'
+        break   
     elif chestChoice == 'n':
         print('You think it is probably best to leave it be')
-        print('You continue onwards into the dungeon.')
+        print('You continue onwards into the dungeon.\n')
         break
     else:
         print('Invalid input, please try again.')
+
+
 
