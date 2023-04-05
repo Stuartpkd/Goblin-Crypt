@@ -133,6 +133,7 @@ while True:
 
 
 while True:
+    clear_screen()
     if PLAYER_CLASS == 'warrior':
         print("Ah, a mighty warrior.\n")
     elif PLAYER_CLASS == 'mage':
@@ -158,11 +159,14 @@ while True:
                           "or will you turn back and seek refuge "
                           "in the safety of the woods? (y or n)\n")
     if enter_dungeon.lower() == "y":
-        print("You descend the dungeon stairs, to the depths below.")
+        clear_screen()
+        print("You descend the dungeon stairs, to the depths below.\n")
         break
     elif enter_dungeon.lower() == "n":
-        print("You return home and live a very long and boring life.")
-        break
+        clear_screen()
+        print("You return home and live a very long and boring life.\n")
+        exit()
+        
     else:
         print("Invalid choice, please try again.")
 
