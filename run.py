@@ -23,16 +23,26 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
-tabletRoom = False
+# Classes
+WARRIOR_CLASS = False
+MAGE_CLASS = False
+BURGLAR_CLASS = False
 
-riddlePartOne = False
-riddlePartTwo = False
-riddlePartThree = False
+# Rooms
+TABLET_ROOM = False
+
+#Riddles
+RIDDLE_ONE = False
+RIDDLE_TWO = False
+RIDDLE_THREE = False
 items = ['crystal', 'sword', 'key']
 playerInventory = []
 
 
 def clear_screen():
+    """
+    Clears the terminal screen
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
@@ -44,12 +54,13 @@ def gameOver():
     elif play_again == 'n':
         exit()
     else:
-        print('Invalid input, please try again')        
+        print('Invalid input, please try again')       
 
 
 def start_game():
     """
-    Hello world
+    Function that shows player start game choice.
+    Validates input and then starts game.
     """
     print("******* Goblin - Crypt ********")
     print("******* Enter S to start the game ********")
@@ -63,10 +74,16 @@ def start_game():
 
 
 def invalid_input():
+    """
+    Function for printing invalid choice
+    """
     print("Invalid choice, please try again")
 
 
 def no_choice():
+    """
+    Function printing empty input
+    """
     print('You did not enter anything, please try again.')    
 
 
