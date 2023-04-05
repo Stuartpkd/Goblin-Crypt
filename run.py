@@ -40,14 +40,14 @@ def gameOver():
     print('GAMEOVER')
     play_again = input('Would you like to try again? (y/n)')
     if play_again == 'y':
-        startGame()
+        start_game()
     elif play_again == 'n':
         exit()
     else:
         print('Invalid input, please try again')        
 
 
-def startGame():
+def start_game():
     """
     Hello world
     """
@@ -62,16 +62,18 @@ def startGame():
             print("Invalid choice. Please enter 's' to start the game.")
 
 
-startGame()
+def user_name():
+    while True:
+        player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
+        if len(player_name) <= 4 or len(player_name) >= 13 or player_name == '':
+            clear_screen()
+            print('Invalid name length, please try again.')
+        else:
+            break
 
 
-while True:
-    player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
-    if len(player_name) <= 4 or len(player_name) >= 13 or player_name == '':
-        clear_screen()
-        print('Invalid name length, please try again.')
-    else:
-        break
+start_game()
+
 
 while True:
     clear_screen()
