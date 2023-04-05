@@ -6,7 +6,7 @@
 
 # Code for google api (For player score sheet)
 
-import os
+import os, sys
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -27,11 +27,15 @@ SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 PLAYER_CLASS = ''
 
 # Rooms
+global TABLET_ROOM
 TABLET_ROOM = False
 
 # Riddles
+global RIDDLE_ONE
 RIDDLE_ONE = False
+global RIDDLE_TWO
 RIDDLE_TWO = False
+global RIDDLE_THREE
 RIDDLE_THREE = False
 
 # Items
@@ -83,14 +87,14 @@ def invalid_input():
     Function for printing invalid choice
     """
     print("Invalid choice, please try again")
-
+    
 
 def no_choice():
     """
     Function printing empty input
     """
-    print('You did not enter anything, please try again.')  
-
+    print('You did not enter anything, please try again.')
+      
 
 start_game()
 
@@ -104,7 +108,6 @@ while True:
         break
 
 while True:
-    clear_screen()
     print("1. Warrior")
     print("2. Mage")
     print("3. Rogue")  
@@ -127,26 +130,27 @@ while True:
         break
         
     else:
-        print('Invalid answer, please try again')
-        break
+        sys.stdout.write("\033[F\033[K" * 4)
+        invalid_input()
+
 
 while True:
     enter_dungeon = input("You step out of the dark woods "
                           "and into a clearing. "
                           "Your eyes take a moment "
-                          "to adjust to the sudden brightness, " 
-                          "and you inhale deeply, filling your " 
-                          "lungs with the crisp, fresh air. " 
+                          "to adjust to the sudden brightness, "
+                          "and you inhale deeply, filling your "
+                          "lungs with the crisp, fresh air. "
                           "Ahead of you looms the entrance to "
-                          "a dungeon, the stone walls slick " 
-                          "with moisture and the musty scent of decay " 
-                          "hanging heavy in the air. " 
+                          "a dungeon, the stone walls slick "
+                          "with moisture and the musty scent of decay "
+                          "hanging heavy in the air. "
                           "You can hear the faint sound of dripping water and "
-                          "the echo of footsteps coming from within. " 
-                          "Will you be brave enough to venture " 
-                          "into the depths of the dungeon, " 
-                          "or will you turn back and seek refuge " 
-                          "in the safety of the woods?\n")
+                          "the echo of footsteps coming from within. "
+                          "Will you be brave enough to venture "
+                          "into the depths of the dungeon, "
+                          "or will you turn back and seek refuge "
+                          "in the safety of the woods? (y or n)\n")
     if enter_dungeon.lower() == "y":
         print("You descend the dungeon stairs, to the depths below.")
         break
