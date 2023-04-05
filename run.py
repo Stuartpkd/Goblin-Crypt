@@ -210,6 +210,92 @@ while True:
     else:
         print("Invalid answer, please try again.")
 
+# Riddle room choices
+while True:
+    if TABLET_ROOM is True:
+        print('3 small tablets are laid out in front of you.')
+        print('Each has an engraving carved into it.')
+        print('You see a river, a candle and a coffin')
+        print('Below each riddle is a plate for each tablet.')
+        print('Solve each riddle and place the tablets correctly.\n')
+        print("Riddle 1: I have a bed but don't sleep, a bank but no money.\n")
+    break
+
+while True:
+    if TABLET_ROOM is True:
+        while True:
+            riddleOne = input('Which tablet do you place here? ' 
+                              '(coffin, candle or river)\n')
+            riddleOne = riddleOne.lower()
+            if riddleOne in ['candle', 'coffin', 'river']:
+                break
+            else:
+                invalid_input()
+
+        if riddleOne == 'river':
+            RIDDLE_ONE = True
+            break
+        elif riddleOne == 'coffin' or riddleOne == 'candle':
+            print('You hear a loud crunch from above your head')
+            print('The ceiling begins to move towards you')
+            print('The light begins to fade...\n')
+            exit()
+
+while True:
+    if RIDDLE_ONE is True:
+        clear_screen()
+        print('The tablet weighs down the plate with a crisp click\n')
+        print('You look to the next riddle:\n')
+        while True:
+            riddleTwo = input('I look taller when I am young. '
+                              'As I grow old I become shorter. '
+                              '(coffin, candle or river)\n')
+            riddleTwo = riddleTwo.lower()
+            if riddleTwo in ['candle', 'coffin', 'river']:
+                break
+            else:
+                invalid_input()
+
+        if riddleTwo == 'candle':
+            RIDDLE_TWO = True
+            break
+        elif riddleTwo == 'coffin' or 'river':
+            print('You hear a loud crunch from above your head')
+            print('The ceiling begins to move towards you')
+            print('The light begins to fade...')
+            exit()
+
+while True:
+    if RIDDLE_TWO is True:
+        clear_screen()
+        print('The tablet weighs down the plate with a crisp click\n')
+        print('You look to the next riddle:\n')
+        while True:
+            riddleThree = input('Who makes it, has no need of it. '
+                                'Who buys it, has no use for it. ' 
+                                '(coffin, candle or river)\n')
+            riddleThree = riddleThree.lower()
+            if riddleThree in ['candle', 'coffin', 'river']:
+                break
+            else:
+                invalid_input()
+
+        if riddleThree == 'coffin':
+            print('The tablet weighs down the plate with a crisp click')
+            RIDDLE_THREE = True
+            break
+        elif riddleThree == 'candle' or 'river':
+            print('You hear a loud crunch from above your head')
+            print('The ceiling begins to move towards you')
+            print('The light begins to fade...')
+            exit()
+
+while True:
+    if RIDDLE_THREE is True:
+        print('A large stone door reveals a tunnel with a red glow')
+        print('You proceed onwards.')
+        break
+
 
 # Chest room choices
 while True:
@@ -228,6 +314,4 @@ while True:
         break
     else:
         print('Invalid input, please try again.')
-
-
 
