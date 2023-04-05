@@ -30,6 +30,8 @@ PLAYER_CLASS = ''
 # Rooms
 global TABLET_ROOM
 TABLET_ROOM = False
+global CHEST_ROOM
+CHEST_ROOM = False
 
 # Riddles
 global RIDDLE_ONE
@@ -143,17 +145,14 @@ while True:
     else:
         break
     enter_dungeon = input("You step out of the dark woods "
-                          "and into a clearing. "
+                          "and into a clearing.\n "
                           "Your eyes take a moment "
                           "to adjust to the sudden brightness, "
                           "and you inhale deeply, filling your "
-                          "lungs with the crisp, fresh air. "
+                          "lungs with the crisp, fresh air.\n "
                           "Ahead of you looms the entrance to "
                           "a dungeon, the stone walls slick "
-                          "with moisture and the musty scent of decay "
-                          "hanging heavy in the air. "
-                          "You can hear the faint sound of dripping water and "
-                          "the echo of footsteps coming from within. "
+                          "with moisture and the musty scent of decay.\n "
                           "Will you be brave enough to venture "
                           "into the depths of the dungeon, "
                           "or will you turn back and seek refuge "
@@ -165,8 +164,7 @@ while True:
     elif enter_dungeon.lower() == "n":
         clear_screen()
         print("You return home and live a very long and boring life.\n")
-        exit()
-        
+        exit()   
     else:
         print("Invalid choice, please try again.")
 
@@ -181,21 +179,22 @@ while True:
                                "The heat emanating from the " 
                                "torches is palpable, " 
                                "making the air thick and heavy. Choose "
-                               "your path carefully.\n")
+                               "your path carefully. (1, 2, or 3)\n")
     if mainChamber_choice == "1":
         print("You make your way down the first stairs. " 
               "You feel one of the steps sink " 
               "lower than the others, " 
               "as a poison dart is released " 
-              "from a nearby wall.")
-        break
+              "from a nearby wall.\n")
+        exit()
+        
     elif mainChamber_choice == "2":
         print("You cautously move down the second stairs. " 
               "Your steps echo against the damp stone walls." 
               "Bending down through an archway, you are met " 
               "with a large altar with 3 texts carved into its stone. " 
-              "Each .")
-        tabletRoom = True 
+              "Each.\n")
+        TABLET_ROOM = True
         break
     elif mainChamber_choice == "3":
         print("The stairs lead down to a dusty room " 
@@ -203,42 +202,47 @@ while True:
               "You see a chest in the middle of the room, " 
               "decomposed skeletons are littered around it. " 
               "from a nearby wall.")
+        CHEST_ROOM = True
         break
     else:
         print("Invalid answer, please try again.")
 
 while True:
-    if mainChamber_choice == "2":
+    if TABLET_ROOM is True:
         print('3 small tablets are laid out in front of you.')
         print('Each has an engraving carved into it.')
         print('You see a river, a candle and a coffin')
         print('Below each riddle is a plate for each tablet.')
-        print('Solve each riddle and place the tablets correctly.\n\n')
-        print("Riddle 1: I have a bed but don't sleep, a bank but no money.")
+        print('Solve each riddle and place the tablets correctly.\n')
+        print("Riddle 1: I have a bed but don't sleep, a bank but no money.\n")
     break
 
 while True:
-    if tabletRoom is True:
-        riddleOne = input('Which tablet do you place here?\n')
+    if TABLET_ROOM is True:
+        riddleOne = input('Which tablet do you place here? ' 
+                          '(coffin, candle or river)\n')
         if riddleOne == 'river':
-            print('The tablet weighs down the plate with a crisp click')
-            riddlePartOne = True
+            print('The tablet weighs down the plate with a crisp click\n')
+            RIDDLE_ONE = True
             break
         elif riddleOne == 'coffin' or riddleOne == 'candle':
             print('You hear a loud crunch from above your head')
             print('The ceiling begins to move towards you')
-            print('The light begins to fade...')
-            break
+            print('The light begins to fade...\n')
+            exit()
         else:
-            print('Invalid input, please try again.')      
+            invalid_input()
 
 while True:
-    if riddlePartOne is True:
+    if RIDDLE_ONE is True:
+        clear_screen()
+        print('You look to the next riddle:\n')
         riddleTwo = input('I look taller when I am young. '
-                          'As I grow old I become shorter.\n')
-        if riddleTwo == 'candle':  
+                          'As I grow old I become shorter. '
+                          '(coffin, candle or river)\n')
+        if riddleTwo == 'candle':
             print('The tablet weighs down the plate with a crisp click')
-            riddlePartTwo = True
+            RIDDLE_TWO = True
             break
         elif riddleTwo == 'coffin' or 'river':
             print('You hear a loud crunch from above your head')
@@ -249,7 +253,7 @@ while True:
             print('Incorrect answer, please try again')
 
 while True:
-    if riddlePartOne is True:
+    if RIDDLE_TWO is True:
         riddleTwo = input('Who makes it, has no need of it. '
                           'Who buys it, has no use for it.\n')
         if riddleTwo == 'coffin':  
