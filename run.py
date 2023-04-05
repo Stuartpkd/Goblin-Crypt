@@ -62,18 +62,24 @@ def start_game():
             print("Invalid choice. Please enter 's' to start the game.")
 
 
-def user_name():
-    while True:
-        player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
-        if len(player_name) <= 4 or len(player_name) >= 13 or player_name == '':
-            clear_screen()
-            print('Invalid name length, please try again.')
-        else:
-            break
+def invalid_input():
+    print("Invalid choice, please try again")
+
+
+def no_choice():
+    print('You did not enter anything, please try again.')    
 
 
 start_game()
 
+
+while True:
+    player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
+    if len(player_name) <= 4 or len(player_name) >= 13 or player_name == '':
+        clear_screen()
+        print('Invalid name length, please try again.')
+    else:
+        break
 
 while True:
     clear_screen()
