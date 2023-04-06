@@ -8,6 +8,7 @@
 
 import os
 import gspread
+import time
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -42,6 +43,13 @@ PLAYER_CRYSTAL = ''
 PLAYER_KEY = ''
 
 
+def print_with_delay(text, delay=0.05):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(delay)
+    print()
+
+
 def clear_screen():
     """
     Clears the terminal screen
@@ -70,6 +78,7 @@ def start_game():
     Function that shows player start game choice.
     Validates input and then starts game.
     """
+    print_with_delay('Hello, world!', delay=0.2)
     print("******* Goblin - Crypt ********")
     print("******* Enter S to start the game ********")
     while True:
