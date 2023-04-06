@@ -27,18 +27,13 @@ SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 PLAYER_CLASS = ''
 
 # Rooms
-global TABLET_ROOM
-TABLET_ROOM = False
 
+TABLET_ROOM = False
+CRYSTAL_ROOM = False
 CHEST_ROOM = False
 
-# Riddles
-global RIDDLE_ONE
-RIDDLE_ONE = False
-global RIDDLE_TWO
-RIDDLE_TWO = False
-global RIDDLE_THREE
-RIDDLE_THREE = False
+# Goblin Language
+GOBLIN_LANGUAGE = False
 
 # Items
 PLAYER_SWORD = ''
@@ -78,7 +73,7 @@ def start_game():
     print("******* Enter S to start the game ********")
     while True:
         start_choice = input()
-        if start_choice.lower() == 's':
+        if start_choice.lower().strip() == 's':
             clear_screen()
             break
         else:
@@ -117,6 +112,7 @@ while True:
     print("3. Rogue\n")  
     player_class_choice = input(f"Well then, {player_name} what kind "
                                 "of adventurer are you? (1, 2 or 3)\n\n")
+    player_class_choice = player_class_choice.lower().strip()
     
     if player_class_choice == '1':
         PLAYER_CLASS = 'warrior'
@@ -157,11 +153,11 @@ while True:
                           "into the depths of the dungeon, "
                           "or will you turn back and seek refuge "
                           "in the safety of the woods? (y or n)\n")
-    if enter_dungeon.lower() == "y":
+    if enter_dungeon.lower().strip() == "y":
         clear_screen()
         print("You descend the dungeon stairs, to the depths below.\n")
         break
-    elif enter_dungeon.lower() == "n":
+    elif enter_dungeon.lower().strip() == "n":
         clear_screen()
         print("You return home and live a very long and boring life.\n")
         exit()   
@@ -181,6 +177,7 @@ while True:
                                "torches is palpable, " 
                                "making the air thick and heavy. Choose "
                                "your path carefully. (1, 2, or 3)\n")
+    mainChamber_choice = mainChamber_choice.lower().strip()
     if mainChamber_choice == "1":
         print("You make your way down the first stairs. " 
               "You feel one of the steps sink " 
@@ -207,6 +204,7 @@ while True:
         break
     else:
         print("Invalid answer, please try again.")
+        continue
 
 # Riddle room choices
 
@@ -223,11 +221,12 @@ if TABLET_ROOM is True and CHEST_ROOM is False:
     while True:
         riddleOne = input('Which tablet do you place here? ' 
                           '(coffin, candle or river)\n')
-        riddleOne = riddleOne.lower()
+        riddleOne = riddleOne.lower().strip()
         if riddleOne in ['candle', 'coffin', 'river']:
             break
         else:
             invalid_input()
+            continue
     if riddleOne == 'river':
         RIDDLE_ONE = True   
     elif riddleOne == 'coffin' or riddleOne == 'candle':
@@ -244,7 +243,7 @@ if RIDDLE_ONE is True and CHEST_ROOM is False:
         riddleTwo = input('I look taller when I am young. '
                           'As I grow old I become shorter. '
                           '(coffin, candle or river)\n')
-        riddleTwo = riddleTwo.lower()
+        riddleTwo = riddleTwo.lower().strip()
         if riddleTwo in ['candle', 'coffin', 'river']:
             break
         elif riddleTwo == 'candle':
@@ -256,6 +255,7 @@ if RIDDLE_ONE is True and CHEST_ROOM is False:
             exit()
         else:
             invalid_input()
+            continue
 
 RIDDLE_TWO = True
 if RIDDLE_TWO is True and CHEST_ROOM is False:
@@ -266,7 +266,7 @@ if RIDDLE_TWO is True and CHEST_ROOM is False:
         riddleThree = input('Who makes it, has no need of it. '
                             'Who buys it, has no use for it. ' 
                             '(coffin, candle or river)\n')
-        riddleThree = riddleThree.lower()
+        riddleThree = riddleThree.lower().strip()
         if riddleThree in ['candle', 'coffin', 'river']:
             break
         elif riddleThree == 'coffin':
@@ -280,11 +280,13 @@ if RIDDLE_TWO is True and CHEST_ROOM is False:
             exit()
         else:
             invalid_input()
+            continue
 
 RIDDLE_THREE = True
 if RIDDLE_THREE is True and CHEST_ROOM is False:
     while True:
         TABLET_ROOM = False
+        CRYSTAL_ROOM = True
         print('A large stone door reveals a tunnel with a red glow')
         print('You proceed onwards.')
         break
@@ -296,7 +298,7 @@ if CHEST_ROOM is True and TABLET_ROOM is False:
     while True:
         clear_screen()
         chestChoice = input('Do you open the chest? (y or n)\n')
-        chestChoice = chestChoice.lower()
+        chestChoice = chestChoice.lower().strip()
         if chestChoice == 'y':
             print('You are greeted with a gleaming sword wrapped in cloth.\n')
             print('You place it onto your belt.\n')
@@ -308,4 +310,39 @@ if CHEST_ROOM is True and TABLET_ROOM is False:
             break
         else:
             print('Invalid input, please try again.')
+            continue
 
+# Crystal room choices
+if CRYSTAL_ROOM is True and CHEST_ROOM is False:
+    while True:
+        clear_screen()
+        print('PLAYER_CLASS: ', PLAYER_CLASS)
+        crystalChoice = input('After following the tunnel you come ' 
+                              'to a large altar with a red crystal '
+                              'hovering above it.\n '
+                              'You feel yourself drawn towards it...\n'
+                              'Do you take the crystal? (y or n)\n')
+        crystalChoice = crystalChoice.lower().strip()
+        if crystalChoice == 'y' and PLAYER_CLASS == 'mage':
+            print('You clasp your hand around the crystal.\n '
+                  'A powerful surge rockets through your body! '
+                  'The knowledge and history of the goblins '
+                  'begins rushing through your mind '
+                  'Their culture and language is clear to you now.')
+            GOBLIN_LANGUAGE = True
+            break
+        elif (crystalChoice == 'y' and
+              (PLAYER_CLASS == 'warrior' or PLAYER_CLASS == 'rogue')):
+            print('You clasp your hand around the crystal.\n '
+                  'A powerful surge rockets through your body! '
+                  'Thousands of voices begin to pierce your mind,\n '
+                  'unintelligable images and symbols burn into your eyes. '
+                  'Your vision fails you and you fall to the floor.\n')
+            exit()
+        elif crystalChoice == 'n':
+            print('Mother always said not to touch glowing crystals,\n'
+                  'Best to move on.')
+            break
+        else:
+            invalid_input()
+            continue
