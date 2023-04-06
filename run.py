@@ -297,13 +297,15 @@ if CHEST_ROOM is True and TABLET_ROOM is False:
         clear_screen()
         chestChoice = input('Do you open the chest? (y or n)\n')
         chestChoice = chestChoice.lower()
-    if chestChoice == 'y':
-        print('You are greeted with a gleaming sword wrapped in cloth.\n')
-        print('You place it onto your belt.\n')
-        PLAYER_SWORD = 'held'
-    elif chestChoice == 'n':
-        print('You think it is probably best to leave it be')
-        print('You continue onwards into the dungeon.\n')
-    else:
-        print('Invalid input, please try again.')
+        if chestChoice == 'y':
+            print('You are greeted with a gleaming sword wrapped in cloth.\n')
+            print('You place it onto your belt.\n')
+            PLAYER_SWORD = 'held'
+            break
+        elif chestChoice == 'n':
+            print('You think it is probably best to leave it be')
+            print('You continue onwards into the dungeon.\n')
+            break
+        else:
+            print('Invalid input, please try again.')
 
