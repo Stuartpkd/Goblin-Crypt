@@ -31,6 +31,7 @@ PLAYER_CLASS = ''
 TABLET_ROOM = False
 CRYSTAL_ROOM = False
 CHEST_ROOM = False
+GOBLIN_ROOM = False
 
 # Goblin Language
 GOBLIN_LANGUAGE = False
@@ -235,6 +236,7 @@ if TABLET_ROOM is True and CHEST_ROOM is False:
         print('The light begins to fade...\n')
         exit()
 
+RIDDLE_ONE = True
 if RIDDLE_ONE is True and CHEST_ROOM is False:
     clear_screen()
     print('The tablet weighs down the plate with a crisp click\n')
@@ -296,17 +298,18 @@ if RIDDLE_THREE is True and CHEST_ROOM is False:
 
 if CHEST_ROOM is True and TABLET_ROOM is False:
     while True:
-        clear_screen()
         chestChoice = input('Do you open the chest? (y or n)\n')
         chestChoice = chestChoice.lower().strip()
         if chestChoice == 'y':
             print('You are greeted with a gleaming sword wrapped in cloth.\n')
             print('You place it onto your belt.\n')
             PLAYER_SWORD = 'held'
+            GOBLIN_ROOM = True
             break
         elif chestChoice == 'n':
             print('You think it is probably best to leave it be')
             print('You continue onwards into the dungeon.\n')
+            GOBLIN_ROOM = True
             break
         else:
             print('Invalid input, please try again.')
@@ -330,6 +333,7 @@ if CRYSTAL_ROOM is True and CHEST_ROOM is False:
                   'begins rushing through your mind '
                   'Their culture and language is clear to you now.')
             GOBLIN_LANGUAGE = True
+            GOBLIN_ROOM = True
             break
         elif (crystalChoice == 'y' and
               (PLAYER_CLASS == 'warrior' or PLAYER_CLASS == 'rogue')):
@@ -342,7 +346,27 @@ if CRYSTAL_ROOM is True and CHEST_ROOM is False:
         elif crystalChoice == 'n':
             print('Mother always said not to touch glowing crystals,\n'
                   'Best to move on.')
+            GOBLIN_ROOM = True
             break
         else:
             invalid_input()
             continue
+
+# Goblin room
+if GOBLIN_ROOM is True:
+    while True:
+        print('As you approach the next room, you hear\n '
+              'strange voices ahead.\n'
+              'Pearing around the small doorway to the room,'
+              'you see a group of goblins. They are gathered '
+              'around a pile of gold.\n\n'
+              'The room is covered in various trinkets and objects.\n'
+              'These goblins clearly have a hoarding issue...\n\n'
+              'You remain hidden in the doorway.')
+        print('What shall you do? (1, 2, 3 or 4)\n\n'
+              '1. Fight them?\n'
+              '2. Sneak by them?\n'
+              '3. Distract them?\n'
+              '4. Speak to them?\n')
+        break
+
