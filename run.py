@@ -7,7 +7,6 @@
 # Code for google api (For player score sheet)
 
 import os
-import sys
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -220,7 +219,7 @@ if TABLET_ROOM is True and CHEST_ROOM is False:
     print("Riddle 1: I have a bed but don't sleep, a bank but no money.\n")
     
 
-if TABLET_ROOM is True:
+if TABLET_ROOM is True and CHEST_ROOM is False:
     while True:
         riddleOne = input('Which tablet do you place here? ' 
                           '(coffin, candle or river)\n')
@@ -237,7 +236,7 @@ if TABLET_ROOM is True:
         print('The light begins to fade...\n')
         exit()
 
-if RIDDLE_ONE is True:
+if RIDDLE_ONE is True and CHEST_ROOM is False:
     clear_screen()
     print('The tablet weighs down the plate with a crisp click\n')
     print('You look to the next riddle:\n')
@@ -258,8 +257,8 @@ if RIDDLE_ONE is True:
         else:
             invalid_input()
 
-
-if RIDDLE_TWO is True:
+RIDDLE_TWO = True
+if RIDDLE_TWO is True and CHEST_ROOM is False:
     clear_screen()
     print('The tablet weighs down the plate with a crisp click\n')
     print('You look to the next riddle:\n')
@@ -270,10 +269,7 @@ if RIDDLE_TWO is True:
         riddleThree = riddleThree.lower()
         if riddleThree in ['candle', 'coffin', 'river']:
             break
-        else:
-            invalid_input()
-
-        if riddleThree == 'coffin':
+        elif riddleThree == 'coffin':
             print('The tablet weighs down the plate with a crisp click')
             RIDDLE_THREE = True
             break
@@ -282,27 +278,32 @@ if RIDDLE_TWO is True:
             print('The ceiling begins to move towards you')
             print('The light begins to fade...')
             exit()
+        else:
+            invalid_input()
 
-
-if RIDDLE_THREE is True:
-    TABLET_ROOM = False
-    print('A large stone door reveals a tunnel with a red glow')
-    print('You proceed onwards.')
+RIDDLE_THREE = True
+if RIDDLE_THREE is True and CHEST_ROOM is False:
+    while True:
+        TABLET_ROOM = False
+        print('A large stone door reveals a tunnel with a red glow')
+        print('You proceed onwards.')
+        break
     
 
 # Chest room choices
 
-CHEST_ROOM = True
-if CHEST_ROOM:
-    chestChoice = input('Do you open the chest? (y or n)\n')
-    chestChoice = chestChoice.lower()
-elif chestChoice == 'y':
-    print('You are greeted with a gleaming sword wrapped in cloth.\n')
-    print('You place it onto your belt.\n')
-    PLAYER_SWORD = 'held'   
-elif chestChoice == 'n':
-    print('You think it is probably best to leave it be')
-    print('You continue onwards into the dungeon.\n')
-else:
-    print('Invalid input, please try again.')
+if CHEST_ROOM is True and TABLET_ROOM is False:
+    while True:
+        clear_screen()
+        chestChoice = input('Do you open the chest? (y or n)\n')
+        chestChoice = chestChoice.lower()
+    if chestChoice == 'y':
+        print('You are greeted with a gleaming sword wrapped in cloth.\n')
+        print('You place it onto your belt.\n')
+        PLAYER_SWORD = 'held'
+    elif chestChoice == 'n':
+        print('You think it is probably best to leave it be')
+        print('You continue onwards into the dungeon.\n')
+    else:
+        print('Invalid input, please try again.')
 
