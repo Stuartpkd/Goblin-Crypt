@@ -78,7 +78,7 @@ def start_game():
     Function that shows player start game choice.
     Validates input and then starts game.
     """
-    print_with_delay('Hello, world!', delay=0.2)
+    
     print("******* Goblin - Crypt ********")
     print("******* Enter S to start the game ********")
     while True:
@@ -328,7 +328,6 @@ if CHEST_ROOM is True and TABLET_ROOM is False:
 if CRYSTAL_ROOM is True and CHEST_ROOM is False:
     while True:
         clear_screen()
-        print('PLAYER_CLASS: ', PLAYER_CLASS)
         crystalChoice = input('After following the tunnel you come ' 
                               'to a large altar with a red crystal '
                               'hovering above it.\n '
@@ -377,5 +376,27 @@ if GOBLIN_ROOM is True:
               '2. Sneak by them?\n'
               '3. Distract them?\n'
               '4. Speak to them?\n')
-        break
+        goblinChoice = input()
+        goblinChoice = goblinChoice.lower().strip()
+        if (goblinChoice == '1' and 
+           (PLAYER_CLASS == 'warrior' or PLAYER_SWORD == 'held')):
+            print_with_delay('You dispatch the goblins with ease.\n'
+                             'They are no match for your '
+                             'fighting prowess.\n\n'
+                             'With a flurry of blows and cuts they are '
+                             'left lifeless on the ground.')
+            break
+        elif goblinChoice == '1':
+            print_with_delay('You are quickly overwhelmed by the goblins.\n'
+                             'They scratch and tear at you until you lose '
+                             'balance and hit the floor.\n\n'
+                             'The last thing you see is '
+                             'them looting your bag.')
+            break
+        else:
+            invalid_input()
+            continue
+
+             
+        
 
