@@ -9,6 +9,7 @@
 import os
 import gspread
 import time
+import random
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -102,7 +103,7 @@ def no_choice():
     Function printing empty input
     """
     print('You did not enter anything, please try again.')
-      
+
 
 start_game()
 
@@ -409,6 +410,26 @@ if GOBLIN_ROOM is True:
                              'The group of goblins turn to you '
                              'with a gleeful look in their eye. '
                              'There is no escape...\n')
+            break
+        elif goblinChoice == '3':
+            random_choice = random.randint(1, 10)
+            if random_choice == 8:
+                print_with_delay('You throw a nearby chalice over the heads '
+                                 'of the goblins.\n'
+                                 'It crashes into a structurally '
+                                 'unstable pile of loot.\n' 
+                                 'This seems to send the '
+                                 'goblins into hysterics.\n '
+                                 'Leaving you time to make your ' 
+                                 'way out of the room.')
+                break
+            elif random_choice != 8:
+                print_with_delay('Your pathetic attempt at throwing a nearby '
+                                 'chalice results in ir striking one of the '
+                                 'goblins in the head.\n'
+                                 'In your final moments, ' 
+                                 'you feel quite foolish.\n')
+                break	
         else:
             invalid_input()
             continue
