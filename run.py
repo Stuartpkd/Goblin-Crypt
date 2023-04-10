@@ -400,6 +400,15 @@ if GOBLIN_ROOM is True:
                              'You manage to reach the end of the room unseen.'
                              'Sneaking through the doorway, you '
                              'continue on through the dungeon.\n')
+            break
+        elif goblinChoice == '2':
+            print_with_delay('Clinging to the edges of the room,'
+                             'you make your way through the shadows.'
+                             'Cloak gets snagged on an exposed nail and'
+                             'brings down a shelf of loot and trinkets.'
+                             'The group of goblins turn to you '
+                             'with a gleeful look in their eye. '
+                             'There is no escape...\n')
         else:
             invalid_input()
             continue
