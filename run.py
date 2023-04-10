@@ -429,7 +429,27 @@ if GOBLIN_ROOM is True:
                                  'goblins in the head.\n'
                                  'In your final moments, ' 
                                  'you feel quite foolish.\n')
-                break	
+                break
+        elif (goblinChoice == '4' and 
+              (GOBLIN_LANGUAGE is True and PLAYER_CLASS == 'mage')):
+            print_with_delay('With your new found ' 
+                             'understanding of goblin tongue, '
+                             'you are able to make out what ' 
+                             'the goblins are saying.\n'
+                             'They are upset over how much '
+                             'they have to pay to their goblin leader.\n'
+                             'You greet them in your best goblin accent.\n'
+                             'They are very impressed with your handle '
+                             'of the language.\n'
+                             'After exchanging pleasantries you tell them, '
+                             'of the wonders of tax fraud.\n'
+                             'A simple way for them to keep ' 
+                             'their hard earned gold.\n\n'
+                             'The goblins are ecstatic with their new '
+                             'found financial powers and let you go onwards '
+                             'through the dungeon. They even give you some '
+                             'gold for the tip.\n')
+
         else:
             invalid_input()
             continue
