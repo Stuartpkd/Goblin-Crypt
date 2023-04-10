@@ -449,6 +449,12 @@ if GOBLIN_ROOM is True:
                              'found financial powers and let you go onwards '
                              'through the dungeon. They even give you some '
                              'gold for the tip.\n')
+            break
+        elif goblinChoice == '4':
+            print_with_delay('For some strange reason you felt it '
+                             'correct to try and reason with the goblins.'
+                             'You quickly find out you do not speak their '
+                             'language have made a grave mistake.\n')
 
         else:
             invalid_input()
