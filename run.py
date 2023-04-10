@@ -393,6 +393,13 @@ if GOBLIN_ROOM is True:
                              'The last thing you see is '
                              'them looting your bag.')
             break
+        elif goblinChoice == '2' and PLAYER_CLASS == 'rogue':
+            print_with_delay('Clinging to the edges of the room,'
+                             'you make your way through the shadows.'
+                             'The goblins continue to bicker over their gold.'
+                             'You manage to reach the end of the room unseen.'
+                             'Sneaking through the doorway, you '
+                             'continue on through the dungeon.\n')
         else:
             invalid_input()
             continue
