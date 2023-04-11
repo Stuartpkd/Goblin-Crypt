@@ -34,6 +34,7 @@ TABLET_ROOM = False
 CRYSTAL_ROOM = False
 CHEST_ROOM = False
 GOBLIN_ROOM = False
+BOSS_ROOM = False
 
 # Goblin Language
 GOBLIN_LANGUAGE = False
@@ -476,8 +477,7 @@ if (PLAYER_CLASS == 'warrior' and SEARCH_GOBLIN is True or
             print_with_delay('The goblins seem interested in collecting '
                              'snails and dirt.\n'
                              'However on the last goblin you find a large'
-                             'brass key.\n'
-                             'Do you take the key? (y or n)\n')
+                             'brass key.\n')
             TAKE_KEY = True
             break
         elif goblin_search == 'n':
@@ -486,5 +486,28 @@ if (PLAYER_CLASS == 'warrior' and SEARCH_GOBLIN is True or
                              'Perhaps it is best to keep moving.\n\n'
                              'You continue down a stone stairway, '
                              'the air begins to smell foul...\n')
+            BOSS_ROOM = True
             break
+        else:
+            invalid_input()
+            continue
+
+if TAKE_KEY is True:
+    while True:
+        print_with_delay('Do you take the key? (y or n)')
+        take_goblin_key = input()
+        take_goblin_key = take_goblin_key.lower().strip()
+        if take_goblin_key == 'y':
+            print_with_delay('You tie the key to your belt and '
+                             'make your way onwards.\n')
+            GOBLIN_KEY = True
+            break
+        elif take_goblin_key == 'n':
+            print_with_delay("You're feeling quite remorseful about "
+                             "barging into their home and killing them.\n"
+                             "Perhaps looting them might be over-doing it.\n")
+            break
+        else:
+            invalid_input()
+            continue
 
