@@ -500,14 +500,32 @@ if TAKE_KEY is True:
         if take_goblin_key == 'y':
             print_with_delay('You tie the key to your belt and '
                              'make your way onwards.\n')
+            BOSS_ROOM = True
             GOBLIN_KEY = True
             break
         elif take_goblin_key == 'n':
             print_with_delay("You're feeling quite remorseful about "
                              "barging into their home and killing them.\n"
                              "Perhaps looting them might be over-doing it.\n")
+            BOSS_ROOM = True
             break
         else:
             invalid_input()
             continue
 
+
+if BOSS_ROOM is True:
+    while True:
+        print_with_delay('You enter a large hall with a ' 
+                         'skull encrusted throne.\n'
+                         'Sitting a top the throne is a large goblin, much'
+                         'larger then the others you have seen.\n'
+                         'It is adorned in human bones and skulls.\n'
+                         'His bulbous belly protrudes from '
+                         'beneath a tattered red robe, and his skin is a '
+                         'sickly green hue.\n'
+                         "The king's maw hangs open, revealing a " 
+                         "mouth full of sharp, rotting teeth. " 
+                         "He grips a rusted battle axe in one " 
+                         "meaty hand, ready to defend "
+                         "his throne at all costs.")
