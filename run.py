@@ -392,6 +392,7 @@ if GOBLIN_ROOM is True:
                              'fighting prowess.\n\n'
                              'With a flurry of blows and cuts they are '
                              'left lifeless on the ground.')
+            SEARCH_GOBLIN = True
             break
         elif goblinChoice == '1':
             print_with_delay('You are quickly overwhelmed by the goblins.\n'
@@ -399,7 +400,6 @@ if GOBLIN_ROOM is True:
                              'balance and hit the floor.\n\n'
                              'The last thing you see is '
                              'them looting your bag.')
-            SEARCH_GOBLIN = True
             break
         elif goblinChoice == '2' and PLAYER_CLASS == 'rogue':
             print_with_delay('Clinging to the edges of the room,'
@@ -515,28 +515,62 @@ if TAKE_KEY is True:
 
 
 if BOSS_ROOM is True:
+    PLAYER_HEALTH = 100
+    BOSS_HEALTH = 100
+    print_with_delay('You enter a large hall with a '
+                     'skull encrusted throne.\n'
+                     'Sitting a top the throne is a large goblin, much'
+                     'larger then the others you have seen.\n'
+                     'It is adorned in human bones and skulls.\n'
+                     'His bulbous belly protrudes from '
+                     'beneath a tattered red robe, and his skin is a '
+                     'sickly green hue.\n'
+                     "The king's maw hangs open, revealing a "
+                     "mouth full of sharp, rotting teeth. "
+                     "He grips a rusted battle axe in one "
+                     "meaty hand, ready to defend "
+                     "his throne at all costs.")
     while True:
-        print_with_delay('You enter a large hall with a '
-                         'skull encrusted throne.\n'
-                         'Sitting a top the throne is a large goblin, much'
-                         'larger then the others you have seen.\n'
-                         'It is adorned in human bones and skulls.\n'
-                         'His bulbous belly protrudes from '
-                         'beneath a tattered red robe, and his skin is a '
-                         'sickly green hue.\n'
-                         "The king's maw hangs open, revealing a "
-                         "mouth full of sharp, rotting teeth. "
-                         "He grips a rusted battle axe in one "
-                         "meaty hand, ready to defend "
-                         "his throne at all costs.")
-        PLAYER_HEALTH = 100
-        BOSS_HEALTH = 100
         choices = ['slash', 'parry', 'thrust']
         player_fight_choice = input()
         player_fight_choice = player_fight_choice.lower().strip()
         boss_choice = random.choice(choices)
-        if player_fight_choice == 'slash' and boss_choice == 'parry':
+        print('Player Health:', PLAYER_HEALTH)
+        print('Goblin King Health:', BOSS_HEALTH)
+        # Slash beats parry
+        if player_fight_choice == 'parry' and boss_choice == 'slash':
+            # Player loses
             PLAYER_HEALTH -= 10
-        elif player_fight_choice == 'parry' and boss_choice == 'slash':
+            print_with_delay('You took a hit!')
+        elif player_fight_choice == 'slash' and boss_choice == 'parry':
+            # Player wins
             BOSS_HEALTH -= 10
+            print_with_delay('You landed a hit!')
+        # Parry beats thrust
+        elif player_fight_choice == 'thrust' and boss_choice == 'parry':
+            # Player loses
+            print_with_delay('You took a hit!')
+            PLAYER_HEALTH -= 10
+        elif player_fight_choice == 'parry' and boss_choice == 'thrust':
+            # Player wins
+            BOSS_HEALTH -= 10
+            print_with_delay('You landed a hit!')
+        # Thrust beats slash
+        elif player_fight_choice == 'slash' and boss_choice == 'thrust':
+            # Player loses
+            print_with_delay('You took a hit!')
+            PLAYER_HEALTH -= 10
+        elif player_fight_choice == 'thrust' and boss_choice == 'slash':
+            # Player wins
+            BOSS_HEALTH -= 10
+            print_with_delay('You landed a hit!')
+        else:
+            invalid_input()
+            continue
 
+        if PLAYER_HEALTH == 0:
+            print_with_delay('You have been defeated!')
+            break
+        elif BOSS_HEALTH == 0:
+            print_with_delay('You have won!')
+            break
