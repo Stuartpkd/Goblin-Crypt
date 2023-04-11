@@ -516,7 +516,7 @@ if TAKE_KEY is True:
 
 if BOSS_ROOM is True:
     while True:
-        print_with_delay('You enter a large hall with a ' 
+        print_with_delay('You enter a large hall with a '
                          'skull encrusted throne.\n'
                          'Sitting a top the throne is a large goblin, much'
                          'larger then the others you have seen.\n'
@@ -524,8 +524,19 @@ if BOSS_ROOM is True:
                          'His bulbous belly protrudes from '
                          'beneath a tattered red robe, and his skin is a '
                          'sickly green hue.\n'
-                         "The king's maw hangs open, revealing a " 
-                         "mouth full of sharp, rotting teeth. " 
-                         "He grips a rusted battle axe in one " 
+                         "The king's maw hangs open, revealing a "
+                         "mouth full of sharp, rotting teeth. "
+                         "He grips a rusted battle axe in one "
                          "meaty hand, ready to defend "
                          "his throne at all costs.")
+        PLAYER_HEALTH = 100
+        BOSS_HEALTH = 100
+        choices = ['slash', 'parry', 'thrust']
+        player_fight_choice = input()
+        player_fight_choice = player_fight_choice.lower().strip()
+        boss_choice = random.choice(choices)
+        if player_fight_choice == 'slash' and boss_choice == 'parry':
+            PLAYER_HEALTH -= 10
+        elif player_fight_choice == 'parry' and boss_choice == 'slash':
+            BOSS_HEALTH -= 10
+
