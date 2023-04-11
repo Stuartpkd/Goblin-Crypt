@@ -42,6 +42,11 @@ GOBLIN_LANGUAGE = False
 PLAYER_SWORD = ''
 PLAYER_CRYSTAL = ''
 PLAYER_KEY = ''
+GOBLIN_KEY = False
+
+# Actions
+SEARCH_GOBLIN = False
+TAKE_KEY = False
 
 
 def print_with_delay(text, delay=0.05):
@@ -393,6 +398,7 @@ if GOBLIN_ROOM is True:
                              'balance and hit the floor.\n\n'
                              'The last thing you see is '
                              'them looting your bag.')
+            SEARCH_GOBLIN = True
             break
         elif goblinChoice == '2' and PLAYER_CLASS == 'rogue':
             print_with_delay('Clinging to the edges of the room,'
@@ -455,11 +461,30 @@ if GOBLIN_ROOM is True:
                              'correct to try and reason with the goblins.'
                              'You quickly find out you do not speak their '
                              'language have made a grave mistake.\n')
-
         else:
             invalid_input()
             continue
 
-             
-        
+if (PLAYER_CLASS == 'warrior' and SEARCH_GOBLIN is True or
+   (PLAYER_SWORD == 'held' and SEARCH_GOBLIN is True)):
+    while True:
+        print_with_delay('The goblins lay still before you.\n'
+                         'Do you search their bodies? (y or n)\n')
+        goblin_search = input()
+        goblin_search = goblin_search.lower().strip()
+        if goblin_search == 'y':
+            print_with_delay('The goblins seem interested in collecting '
+                             'snails and dirt.\n'
+                             'However on the last goblin you find a large'
+                             'brass key.\n'
+                             'Do you take the key? (y or n)\n')
+            TAKE_KEY = True
+            break
+        elif goblin_search == 'n':
+            print_with_delay('Your head is swimming after the fight with '
+                             'the goblin group.\n'
+                             'Perhaps it is best to keep moving.\n\n'
+                             'You continue down a stone stairway, '
+                             'the air begins to smell foul...\n')
+            break
 
