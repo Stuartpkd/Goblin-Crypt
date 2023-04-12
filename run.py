@@ -540,8 +540,7 @@ if LOCKED_DOOR is True:
 
 if OPEN_LOCKED_DOOR is True:
     while True:
-        print_with_delay('You try the door and realise it is locked. '
-                         'Probably for good reason...\n\n')
+        print_with_delay('Probably for good reason...\n\n')
         if GOBLIN_KEY is True:
             print_with_delay('You remember the key you got off the goblins!\n'
                              'You try it in the door and it makes a satisfying'
@@ -601,6 +600,8 @@ if GOBLIN_CRYPT is True:
             break
 
 if CROWN_RIDDLE is True:
+    wrong_answer_count = 0
+    print(wrong_answer_count)
     while True:
         print_with_delay('Engraved in the band of the crown you see '
                          'the words:\n\n'
@@ -610,7 +611,6 @@ if CROWN_RIDDLE is True:
                          'And empty holes it fills. '
                          'It comes out first and follows after, '
                          'Ends life, kills laughter.')
-        wrong_answer_count = 0
         crown_riddle_answer = input()
         crown_riddle_answer = crown_riddle_answer.lower().strip()
         if crown_riddle_answer == 'dark':
@@ -622,7 +622,17 @@ if CROWN_RIDDLE is True:
                              'grinds and scrapes open.\n'
                              'Fresh air pours into the crypt.\n')
             OUTRO = True
+            break      
+        elif wrong_answer_count == 5:
+            print_with_delay('The crown begins to shake and tremble.\n'
+                             'The crypts ceilings begin to crack and '
+                             'crumble.\n'
+                             'You are buried alive within the tomb.')
             break
+        else:
+            print_with_delay('Nothing seems to happen...\n\n')
+            wrong_answer_count += 1
+            continue
             
 
 if BOSS_ROOM is True:
