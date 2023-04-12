@@ -554,17 +554,30 @@ if OPEN_LOCKED_DOOR is True:
             break
 
 if GOBLIN_CRYPT is True:
+    print_with_delay('As you descend down the damp, musty ' 
+                     'stairs into the goblin crypt, the ' 
+                     'flicker of your torch casts eerie ' 
+                     'shadows on the moss-covered walls.\n\nThe stale ' 
+                     'air is thick with the smell of decay and ' 
+                     'the sound of dripping water '
+                     'echoes in the distance.\n\n ' 
+                     'In front of you, you see three wooden ' 
+                     'coffins, each one ornately decorated '
+                     'with carvings of twisted vines and skulls.\n\n')
     while True:
-        print_with_delay('As you descend down the damp, musty ' 
-                         'stairs into the goblin crypt, the ' 
-                         'flicker of your torch casts eerie ' 
-                         'shadows on the moss-covered walls.\n\nThe stale ' 
-                         'air is thick with the smell of decay and ' 
-                         'the sound of dripping water '
-                         'echoes in the distance.\n\n ' 
-                         'In front of you, you see three wooden ' 
-                         'coffins, each one ornately decorated '
-                         'with carvings of twisted vines and skulls.\n\n')            
+        print_with_delay('Perhaps one of the coffins contains a way out.\n'
+                         'Which coffin do you search? (1, 2 or 3)\n')
+        coffin_choice = input()
+        coffin_choice = coffin_choice.lower().strip()
+        if coffin_choice == '1':
+            print_with_delay('You slide the coffin lid off, it '
+                             'falls to the ground and shatters in a mist '
+                             'of splinters and dust.\n\n'
+                             'Gazing back into the coffin you see a nest '
+                             'of venomous vipers staring back at you.\n\n'
+                             'They lunge towards you, you do your best to '
+                             'get them off you but its too late...\n')
+            break            
 
 if BOSS_ROOM is True:
     PLAYER_HEALTH = 100
