@@ -36,8 +36,8 @@ CHEST_ROOM = False
 GOBLIN_ROOM = False
 BOSS_ROOM = False
 LOCKED_DOOR = False
-OPEN_LOCKED_DOOR = False
 GOBLIN_CRYPT = False
+OUTRO = False
 
 # Goblin Language
 GOBLIN_LANGUAGE = False
@@ -51,6 +51,8 @@ GOBLIN_KEY = False
 # Actions
 SEARCH_GOBLIN = False
 TAKE_KEY = False
+OPEN_LOCKED_DOOR = False
+CROWN_RIDDLE = False
 
 
 def print_with_delay(text, delay=0.05):
@@ -584,15 +586,8 @@ if GOBLIN_CRYPT is True:
                              'He is buried with stolen jewelry and '
                              'trinkets.\n'
                              'Placed on top of his skull is a crown '
-                             'plastered with precious gems and metals.\n\n'
-                             'Engraved in the band of the crown you see '
-                             'the words:\n\n'
-                             'It cannot be seen, cannot be felt, '
-                             'Cannot be heard, cannot be smelt. '
-                             'It lies behind stars and under hills, '
-                             'And empty holes it fills. '
-                             'It comes out first and follows after, '
-                             'Ends life, kills laughter.')
+                             'plastered with precious gems and metals.\n\n')
+            CROWN_RIDDLE = True
             break
         elif coffin_choice == '3':
             print_with_delay('As you begin to push the lid from the '
@@ -604,7 +599,31 @@ if GOBLIN_CRYPT is True:
                              'you are a part of the '
                              'dungeon forever now...\n')
             break
-                    
+
+if CROWN_RIDDLE is True:
+    while True:
+        print_with_delay('Engraved in the band of the crown you see '
+                         'the words:\n\n'
+                         'It cannot be seen, cannot be felt, '
+                         'Cannot be heard, cannot be smelt. '
+                         'It lies behind stars and under hills, '
+                         'And empty holes it fills. '
+                         'It comes out first and follows after, '
+                         'Ends life, kills laughter.')
+        wrong_answer_count = 0
+        crown_riddle_answer = input()
+        crown_riddle_answer = crown_riddle_answer.lower().strip()
+        if crown_riddle_answer == 'dark':
+            print_with_delay('You utter the words dark, all of the gem '
+                             'begin to glow and vibrate.\n'
+                             'The wall behind lights up with glyphs '
+                             'and symbols similar to the crown.\n'
+                             'A hidden door is revealed as the stone '
+                             'grinds and scrapes open.\n'
+                             'Fresh air pours into the crypt.\n')
+            OUTRO = True
+            break
+            
 
 if BOSS_ROOM is True:
     PLAYER_HEALTH = 100
