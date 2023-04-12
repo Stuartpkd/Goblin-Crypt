@@ -594,6 +594,16 @@ if GOBLIN_CRYPT is True:
                              'It comes out first and follows after, '
                              'Ends life, kills laughter.')
             break
+        elif coffin_choice == '3':
+            print_with_delay('As you begin to push the lid from the '
+                             'coffin, a boney and decomposing hand grabs '
+                             'your wrist.\n\n'
+                             'You are dragged into the coffin and the lid is'
+                             'placed back on top.\n'
+                             'Sealing you in the coffin, '
+                             'you are a part of the '
+                             'dungeon forever now...\n')
+            break
                     
 
 if BOSS_ROOM is True:
