@@ -552,7 +552,19 @@ if OPEN_LOCKED_DOOR is True:
                              'get out of this dungeon.\n')
             BOSS_ROOM = True
             break
-            
+
+if GOBLIN_CRYPT is True:
+    while True:
+        print_with_delay('As you descend down the damp, musty ' 
+                         'stairs into the goblin crypt, the ' 
+                         'flicker of your torch casts eerie ' 
+                         'shadows on the moss-covered walls.\n\nThe stale ' 
+                         'air is thick with the smell of decay and ' 
+                         'the sound of dripping water '
+                         'echoes in the distance.\n\n ' 
+                         'In front of you, you see three wooden ' 
+                         'coffins, each one ornately decorated '
+                         'with carvings of twisted vines and skulls.\n\n')            
 
 if BOSS_ROOM is True:
     PLAYER_HEALTH = 100
