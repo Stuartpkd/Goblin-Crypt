@@ -36,6 +36,7 @@ CHEST_ROOM = False
 GOBLIN_ROOM = False
 BOSS_ROOM = False
 LOCKED_DOOR = False
+OPEN_LOCKED_DOOR = False
 
 # Goblin Language
 GOBLIN_LANGUAGE = False
@@ -515,13 +516,24 @@ if TAKE_KEY is True:
             continue
 
 if LOCKED_DOOR is True:
-    print_with_delay('As you make your way along a eerily quiet hallway,'
-                     'you spot a door covered in goblin skulls.\n\n'
-                     'Do you try open it? (y or n)\n')
-    try_locked_door = input()
-    try_locked_door = try_locked_door.lower().strip()
-    if try_locked_door == 'y':
-        print_with_delay('You try the handle and realise it is locked.\n')
+    while True:
+        print_with_delay('As you make your way along a eerily quiet hallway,'
+                         'you spot a door covered in goblin skulls.\n\n'
+                         'Do you try open it? (y or n)\n')
+        try_locked_door = input()
+        try_locked_door = try_locked_door.lower().strip()
+        if try_locked_door == 'y':
+            print_with_delay('You try the handle and realise it is locked.\n')
+            OPEN_LOCKED_DOOR = True
+            break
+        elif try_locked_door == 'n':
+            print_with_delay('The fact it is covered in goblin skulls makes '
+                             'you feel that you are not '
+                             'supposed to be in there.\n')
+            break
+        else:
+            invalid_input()
+            continue
 
 if BOSS_ROOM is True:
     PLAYER_HEALTH = 100
@@ -544,8 +556,8 @@ if BOSS_ROOM is True:
         player_fight_choice = input()
         player_fight_choice = player_fight_choice.lower().strip()
         boss_choice = random.choice(choices)
-        print('Player Health:', PLAYER_HEALTH)
-        print('Goblin King Health:', BOSS_HEALTH)
+        print_with_delay('Player Health:', PLAYER_HEALTH)
+        print_with_delay('Goblin King Health:', BOSS_HEALTH)
         # Slash beats parry
         if player_fight_choice == 'parry' and boss_choice == 'slash':
             # Player loses
