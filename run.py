@@ -35,6 +35,7 @@ CRYSTAL_ROOM = False
 CHEST_ROOM = False
 GOBLIN_ROOM = False
 BOSS_ROOM = False
+LOCKED_DOOR = False
 
 # Goblin Language
 GOBLIN_LANGUAGE = False
@@ -500,19 +501,27 @@ if TAKE_KEY is True:
         if take_goblin_key == 'y':
             print_with_delay('You tie the key to your belt and '
                              'make your way onwards.\n')
-            BOSS_ROOM = True
+            LOCKED_DOOR = True
             GOBLIN_KEY = True
             break
         elif take_goblin_key == 'n':
             print_with_delay("You're feeling quite remorseful about "
                              "barging into their home and killing them.\n"
                              "Perhaps looting them might be over-doing it.\n")
-            BOSS_ROOM = True
+            LOCKED_DOOR = True
             break
         else:
             invalid_input()
             continue
 
+if LOCKED_DOOR is True:
+    print_with_delay('As you make your way along a eerily quiet hallway,'
+                     'you spot a door covered in goblin skulls.\n\n'
+                     'Do you try open it? (y or n)\n')
+    try_locked_door = input()
+    try_locked_door = try_locked_door.lower().strip()
+    if try_locked_door == 'y':
+        print_with_delay('You try the handle and realise it is locked.\n')
 
 if BOSS_ROOM is True:
     PLAYER_HEALTH = 100
