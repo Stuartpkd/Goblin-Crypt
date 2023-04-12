@@ -577,7 +577,24 @@ if GOBLIN_CRYPT is True:
                              'of venomous vipers staring back at you.\n\n'
                              'They lunge towards you, you do your best to '
                              'get them off you but its too late...\n')
-            break            
+            break
+        elif coffin_choice == '2':
+            print_with_delay('The coffin lid reveals the skeleton of '
+                             'a past goblin king.\n'
+                             'He is buried with stolen jewelry and '
+                             'trinkets.\n'
+                             'Placed on top of his skull is a crown '
+                             'plastered with precious gems and metals.\n\n'
+                             'Engraved in the band of the crown you see '
+                             'the words:\n\n'
+                             'It cannot be seen, cannot be felt, '
+                             'Cannot be heard, cannot be smelt. '
+                             'It lies behind stars and under hills, '
+                             'And empty holes it fills. '
+                             'It comes out first and follows after, '
+                             'Ends life, kills laughter.')
+            break
+                    
 
 if BOSS_ROOM is True:
     PLAYER_HEALTH = 100
