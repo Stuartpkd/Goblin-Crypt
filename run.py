@@ -37,6 +37,7 @@ GOBLIN_ROOM = False
 BOSS_ROOM = False
 LOCKED_DOOR = False
 OPEN_LOCKED_DOOR = False
+GOBLIN_CRYPT = False
 
 # Goblin Language
 GOBLIN_LANGUAGE = False
@@ -534,6 +535,24 @@ if LOCKED_DOOR is True:
         else:
             invalid_input()
             continue
+
+if OPEN_LOCKED_DOOR is True:
+    while True:
+        print_with_delay('You try the door and realise it is locked. '
+                         'Probably for good reason...\n\n')
+        if GOBLIN_KEY is True:
+            print_with_delay('You remember the key you got off the goblins!\n'
+                             'You try it in the door and it makes a satisfying'
+                             'click when turned.\n')
+            GOBLIN_CRYPT = True
+            break
+        elif GOBLIN_KEY is False:
+            print_with_delay('You have no way of getting through this door.\n'
+                             'It is best to move on, time to '
+                             'get out of this dungeon.\n')
+            BOSS_ROOM = True
+            break
+            
 
 if BOSS_ROOM is True:
     PLAYER_HEALTH = 100
