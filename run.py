@@ -288,7 +288,11 @@ def main():
             print('You hear a loud crunch from above your head')
             print('The ceiling begins to move towards you')
             print('The light begins to fade...\n')
-            exit()
+            player_title = player_name
+            player_class_upload = PLAYER_CLASS
+            death_reason = 'Crushed like a pancake.'
+            upload_data(player_title, player_class_upload, death_reason)
+            game_over()
 
     RIDDLE_ONE = True
     if RIDDLE_ONE is True and CHEST_ROOM is False:
@@ -308,7 +312,11 @@ def main():
                 print('You hear a loud crunch from above your head')
                 print('The ceiling begins to move towards you')
                 print('The light begins to fade...')
-                exit()
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Crushed like a pancake.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
             else:
                 invalid_input()
                 continue
@@ -333,7 +341,11 @@ def main():
                 print('You hear a loud crunch from above your head')
                 print('The ceiling begins to move towards you')
                 print('The light begins to fade...')
-                exit()
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Crushed like a pancake.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
             else:
                 invalid_input()
                 continue
@@ -395,7 +407,11 @@ def main():
                       'Thousands of voices begin to pierce your mind,\n '
                       'unintelligable images and symbols burn into your eyes. '
                       'Your vision fails you and you fall to the floor.\n')
-                exit()
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Mind filled with cosmic horrors.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
             elif crystalChoice == 'n':
                 print('Mother always said not to touch glowing crystals,\n'
                       'Best to move on.')
@@ -439,6 +455,11 @@ def main():
                                  'balance and hit the floor.\n\n'
                                  'The last thing you see is '
                                  'them looting your bag.')
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Terrible at sword-fighting.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
                 break
             elif goblinChoice == '2' and PLAYER_CLASS == 'rogue':
                 print_with_delay('Clinging to the edges of the room,'
@@ -458,6 +479,11 @@ def main():
                                  'The group of goblins turn to you '
                                  'with a gleeful look in their eye. '
                                  'There is no escape...\n')
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Caught sneaking by goblins.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
                 break
             elif goblinChoice == '3':
                 random_choice = random.randint(1, 10)
@@ -479,6 +505,12 @@ def main():
                                      'goblins in the head.\n'
                                      'In your final moments, ' 
                                      'you feel quite foolish.\n')
+                    player_title = player_name
+                    player_class_upload = PLAYER_CLASS
+                    death_reason = 'Throws like a sloth.'
+                    upload_data(player_title, player_class_upload, 
+                                death_reason)
+                    game_over()
                     break
             elif (goblinChoice == '4' and 
                   (GOBLIN_LANGUAGE is True and PLAYER_CLASS == 'mage')):
@@ -508,6 +540,11 @@ def main():
                                  'correct to try and reason with the goblins.'
                                  'You quickly find out you do not speak their '
                                  'language have made a grave mistake.\n')
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Tried to reason with goblins.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
             else:
                 invalid_input()
                 continue
