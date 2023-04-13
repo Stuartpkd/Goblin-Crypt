@@ -32,6 +32,21 @@ def upload_data(player_title, player_class_upload, death_reason):
     player_death.append_row(row)
 
 
+def show_tombstone():
+    clear_screen()
+    player_death = SHEET.worksheet('credits')
+    adventurer_name = player_death.col_values(1)
+    adventurer_class = player_death.col_values(2)
+    adventurer_death = player_death.col_values(3)
+    
+    print(f"""{"Adventurer":<20} {"Class":<20} {"Cause of death":<20}""")
+
+    # Print data
+    for name, adv_class, death in zip(adventurer_name, 
+                                      adventurer_class, adventurer_death):
+        print(f"""{name:<20} {adv_class:<20} {death:<20}""")
+
+
 def invalid_input():
     """
     Function for printing invalid choice
@@ -114,13 +129,18 @@ def main():
         """
         print("     ******* Goblin - Crypt ********")
         print("******* Enter S to start the game ********")
+        print("******* Enter T to show past adventures ********")
         while True:
             start_choice = input()
             if start_choice.lower().strip() == 's':
                 clear_screen()
                 break
+            elif start_choice.lower().strip() == 't':
+                show_tombstone()
+                continue
             else:
                 print("Invalid choice. Please enter 's' to start the game.")
+                continue
 
     start_game()
 
