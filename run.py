@@ -26,6 +26,12 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
 
+def upload_data(player_title, player_class_upload, death_reason):
+    row = [player_title, player_class_upload, death_reason]
+    player_death = SHEET.worksheet('credits')
+    player_death.append_row(row)
+
+
 def invalid_input():
     """
     Function for printing invalid choice
@@ -106,7 +112,7 @@ def main():
         Function that shows player start game choice.
         Validates input and then starts game.
         """
-        print("******* Goblin - Crypt ********")
+        print("     ******* Goblin - Crypt ********")
         print("******* Enter S to start the game ********")
         while True:
             start_choice = input()
@@ -120,8 +126,10 @@ def main():
 
     # User inputs their name
     while True:
-        player_name = input('Adventurer, what is your name? (5 - 12 characters): ')
-        if len(player_name) <= 4 or len(player_name) >= 13 or player_name == '':
+        player_name = input('Adventurer, what is your '
+                            'name? (5 - 12 characters): ')
+        if (len(player_name) <= 4 or 
+           len(player_name) >= 13 or player_name == ''):
             clear_screen()
             print('Invalid name length, please try again.')
         else:
@@ -207,6 +215,10 @@ def main():
                   "lower than the others, " 
                   "as a poison dart is released " 
                   "from a nearby wall.\n")
+            player_title = player_name
+            player_class_upload = PLAYER_CLASS
+            death_reason = 'Poison dart to the neck.'
+            upload_data(player_title, player_class_upload, death_reason)
             game_over()
             break
             
