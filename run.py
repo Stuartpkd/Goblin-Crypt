@@ -534,6 +534,7 @@ def main():
                                  'through the dungeon. ' 
                                  'They even give you some '
                                  'gold for the tip.\n')
+                LOCKED_DOOR = True
                 break
             elif goblinChoice == '4':
                 print_with_delay('For some strange reason you felt it '
