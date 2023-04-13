@@ -546,6 +546,7 @@ def main():
                 death_reason = 'Tried to reason with goblins.'
                 upload_data(player_title, player_class_upload, death_reason)
                 game_over()
+                break
             else:
                 invalid_input()
                 continue
@@ -752,45 +753,55 @@ def main():
                          "mouth full of sharp, rotting teeth. "
                          "He grips a rusted battle axe in one "
                          "meaty hand, ready to defend "
-                         "his throne at all costs.")
+                         "his throne at all costs.\n\n"
+                         "He lunges off his throne to attack.\n")
         while True:
+            print_with_delay('How do you attack? (slash, parry or thrust)\n')
             choices = ['slash', 'parry', 'thrust']
             player_fight_choice = input()
             player_fight_choice = player_fight_choice.lower().strip()
             boss_choice = random.choice(choices)
-            print_with_delay('Player Health:', PLAYER_HEALTH)
-            print_with_delay('Goblin King Health:', BOSS_HEALTH)
+            print('Player Health:', PLAYER_HEALTH)
+            print('Goblin King Health:', BOSS_HEALTH)
             # Slash beats parry
             if player_fight_choice == 'parry' and boss_choice == 'slash':
                 # Player loses
                 PLAYER_HEALTH -= 10
-                print_with_delay('You took a hit!')
+                print('You took a hit!')
+                continue
             elif player_fight_choice == 'slash' and boss_choice == 'parry':
                 # Player wins
                 BOSS_HEALTH -= 10
-                print_with_delay('You landed a hit!')
+                print('You landed a hit!')
+                continue
             # Parry beats thrust
             elif player_fight_choice == 'thrust' and boss_choice == 'parry':
                 # Player loses
-                print_with_delay('You took a hit!')
                 PLAYER_HEALTH -= 10
+                print('You took a hit!')
+                continue
             elif player_fight_choice == 'parry' and boss_choice == 'thrust':
                 # Player wins
                 BOSS_HEALTH -= 10
-                print_with_delay('You landed a hit!')
+                print('You landed a hit!')
+                continue
             # Thrust beats slash
             elif player_fight_choice == 'slash' and boss_choice == 'thrust':
                 # Player loses
-                print_with_delay('You took a hit!')
                 PLAYER_HEALTH -= 10
+                print('You took a hit!')
+                continue
             elif player_fight_choice == 'thrust' and boss_choice == 'slash':
                 # Player wins
                 BOSS_HEALTH -= 10
-                print_with_delay('You landed a hit!')
+                print('You landed a hit!')
+                continue
+            elif player_fight_choice == boss_choice:
+                # draw
+                print('Your attacks bounce off eachother.')
             else:
                 invalid_input()
                 continue
-
             if PLAYER_HEALTH == 0:
                 print_with_delay('You have been defeated!')
                 player_title = player_name
