@@ -663,6 +663,11 @@ def main():
                                  'of venomous vipers staring back at you.\n\n'
                                  'They lunge towards you, you do your best to '
                                  'get them off you but its too late...\n')
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Why did it have to be snakes?'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
                 break
             elif coffin_choice == '2':
                 print_with_delay('The coffin lid reveals the skeleton of '
@@ -684,6 +689,11 @@ def main():
                                  'Sealing you in the coffin, '
                                  'you are a part of the '
                                  'dungeon forever now...\n')
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Entombed in a coffin forever.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
                 break
 
     if CROWN_RIDDLE is True:
@@ -715,6 +725,11 @@ def main():
                                  'The crypts ceilings begin to crack and '
                                  'crumble.\n'
                                  'You are buried alive within the tomb.')
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Buried alive.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
                 break
             else:
                 print_with_delay('Nothing seems to happen...\n\n')
@@ -777,6 +792,11 @@ def main():
 
             if PLAYER_HEALTH == 0:
                 print_with_delay('You have been defeated!')
+                player_title = player_name
+                player_class_upload = PLAYER_CLASS
+                death_reason = 'Cut in half.'
+                upload_data(player_title, player_class_upload, death_reason)
+                game_over()
                 break
             elif BOSS_HEALTH == 0:
                 print_with_delay('You have won!')
