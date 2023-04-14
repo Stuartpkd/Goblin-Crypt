@@ -45,7 +45,16 @@ def show_tombstone():
     for name, adv_class, death in zip(adventurer_name, 
                                       adventurer_class, adventurer_death):
         print(f"""{name:<20} {adv_class:<20} {death:<20}""")
-
+    while True:
+        escape = input('Enter x to return to main menu.')
+        escape = escape.lower().strip()
+        if escape == 'x':
+            main()
+            break
+        else:
+            invalid_input()
+            continue
+    
 
 def invalid_input():
     """
@@ -617,6 +626,7 @@ def main():
                                  'in goblin skulls makes '
                                  'you feel that you are not '
                                  'supposed to be in there.\n')
+                BOSS_ROOM = True
                 break
             else:
                 invalid_input()
