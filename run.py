@@ -38,11 +38,11 @@ def show_tombstone():
     adventurer_name = player_death.col_values(1)
     adventurer_class = player_death.col_values(2)
     adventurer_death = player_death.col_values(3)
-    
+
     print(f"""{"Adventurer":<20} {"Class":<20} {"Cause of death":<20}""")
 
     # Print data
-    for name, adv_class, death in zip(adventurer_name, 
+    for name, adv_class, death in zip(adventurer_name,
                                       adventurer_class, adventurer_death):
         print(f"""{name:<20} {adv_class:<20} {death:<20}""")
     while True:
@@ -54,7 +54,7 @@ def show_tombstone():
         else:
             invalid_input()
             continue
-    
+
 
 def invalid_input():
     """
@@ -175,12 +175,12 @@ def main():
         player_class_choice = input(f"Well then, {player_name} what kind "
                                     "of adventurer are you? (1, 2 or 3)\n\n")
         player_class_choice = player_class_choice.lower().strip()
-        
+
         if player_class_choice == '1':
             PLAYER_CLASS = 'warrior'
             clear_screen()
             break
-        
+
         elif player_class_choice == '2':
             PLAYER_CLASS = 'mage'
             clear_screen()
@@ -193,7 +193,7 @@ def main():
 
         elif player_class_choice == '':
             no_choice()
-            continue    
+            continue
         else:
             invalid_input()
             continue
@@ -297,10 +297,10 @@ def main():
         print('Below each riddle is a plate for each tablet.')
         print('Solve each riddle and place the tablets correctly.\n')
         print("Riddle 1: I have a bed but don't sleep, a bank but no money.\n")
-        
+
     if TABLET_ROOM is True and CHEST_ROOM is False:
         while True:
-            riddleOne = input('Which tablet do you place here? ' 
+            riddleOne = input('Which tablet do you place here? '
                               '(coffin, candle or river)\n')
             riddleOne = riddleOne.lower().strip()
             if riddleOne in ['candle', 'coffin', 'river']:
@@ -309,7 +309,7 @@ def main():
                 invalid_input()
                 continue
         if riddleOne == 'river':
-            RIDDLE_ONE = True   
+            RIDDLE_ONE = True
         elif riddleOne == 'coffin' or riddleOne == 'candle':
             print('You hear a loud crunch from above your head')
             print('The ceiling begins to move towards you')
@@ -346,7 +346,7 @@ def main():
             death_reason = 'Crushed like a pancake.'
             upload_data(player_title, player_class_upload, death_reason)
             game_over()
-            
+
     RIDDLE_TWO = True
     if RIDDLE_TWO is True and CHEST_ROOM is False:
         clear_screen()
@@ -354,7 +354,7 @@ def main():
         print('You look to the next riddle:\n')
         while True:
             riddleThree = input('Who makes it, has no need of it. '
-                                'Who buys it, has no use for it. ' 
+                                'Who buys it, has no use for it. '
                                 '(coffin, candle or river)\n')
             riddleThree = riddleThree.lower().strip()
             if riddleThree in ['candle', 'coffin', 'river']:
@@ -374,7 +374,7 @@ def main():
             death_reason = 'Crushed like a pancake.'
             upload_data(player_title, player_class_upload, death_reason)
             game_over()
-            
+
     RIDDLE_THREE = True
     if RIDDLE_THREE is True and CHEST_ROOM is False:
         while True:
@@ -384,7 +384,7 @@ def main():
             print('A large stone door reveals a tunnel with a red glow\n')
             print('You proceed onwards.\n')
             break
-        
+
 # Chest room choices
 
     if CHEST_ROOM is True and TABLET_ROOM is False:
@@ -476,7 +476,7 @@ def main():
                   '4. Speak to them?\n')
             goblinChoice = input()
             goblinChoice = goblinChoice.lower().strip()
-            if (goblinChoice == '1' and 
+            if (goblinChoice == '1' and
                (PLAYER_CLASS == 'warrior' or PLAYER_SWORD == 'held')):
                 clear_screen()
                 print_with_delay('You dispatch the goblins with ease.\n'
@@ -554,11 +554,11 @@ def main():
                     player_title = player_name
                     player_class_upload = PLAYER_CLASS
                     death_reason = 'Throws like a sloth.'
-                    upload_data(player_title, player_class_upload, 
+                    upload_data(player_title, player_class_upload,
                                 death_reason)
                     game_over()
                     break
-            elif (goblinChoice == '4' and 
+            elif (goblinChoice == '4' and
                   (GOBLIN_LANGUAGE is True and PLAYER_CLASS == 'mage')):
                 clear_screen()
                 print_with_delay('With your new found '
