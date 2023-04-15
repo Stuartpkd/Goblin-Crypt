@@ -363,7 +363,7 @@ def main():
                 invalid_input()
                 continue
         if riddleThree == 'coffin':
-            print('The tablet weighs down the plate with a crisp click')
+            print('The tablet weighs down the plate with a crisp click\n')
             RIDDLE_THREE = True
         elif riddleThree == 'candle' or 'river':
             print('You hear a loud crunch from above your head')
@@ -378,10 +378,11 @@ def main():
     RIDDLE_THREE = True
     if RIDDLE_THREE is True and CHEST_ROOM is False:
         while True:
+            clear_screen()
             TABLET_ROOM = False
             CRYSTAL_ROOM = True
-            print('A large stone door reveals a tunnel with a red glow')
-            print('You proceed onwards.')
+            print('A large stone door reveals a tunnel with a red glow\n')
+            print('You proceed onwards.\n')
             break
         
 # Chest room choices
@@ -400,7 +401,7 @@ def main():
                 break
             elif chestChoice == 'n':
                 clear_screen()
-                print('You think it is probably best to leave it be\n')
+                print('You think it is probably best to leave it be.\n')
                 print('You continue onwards into the dungeon.\n')
                 GOBLIN_ROOM = True
                 break
@@ -414,28 +415,30 @@ def main():
     # Crystal room choices
     if CRYSTAL_ROOM is True and CHEST_ROOM is False:
         while True:
-            clear_screen()
             crystalChoice = input('After following the tunnel you come '
-                                  'to a large altar with a red crystal '
-                                  'hovering above it.\n '
-                                  'You feel yourself drawn towards it...\n'
+                                  'to a large\naltar with a red crystal '
+                                  'hovering above it.\n'
+                                  'You feel yourself drawn towards it...\n\n'
                                   'Do you take the crystal? (y or n)\n')
             crystalChoice = crystalChoice.lower().strip()
             if crystalChoice == 'y' and PLAYER_CLASS == 'mage':
-                print('You clasp your hand around the crystal.\n '
-                      'A powerful surge rockets through your body! '
+                clear_screen()
+                print('You clasp your hand around the crystal.\n'
+                      'A powerful surge rockets through your body!\n'
                       'The knowledge and history of the goblins '
-                      'begins rushing through your mind '
-                      'Their culture and language is clear to you now.')
+                      'begins rushing\nthrough your mind.\n'
+                      'Their culture and language is clear to you now.\n')
                 GOBLIN_LANGUAGE = True
                 GOBLIN_ROOM = True
                 break
             elif (crystalChoice == 'y' and
                   (PLAYER_CLASS == 'warrior' or PLAYER_CLASS == 'rogue')):
-                print('You clasp your hand around the crystal.\n '
-                      'A powerful surge rockets through your body! '
-                      'Thousands of voices begin to pierce your mind,\n '
-                      'unintelligable images and symbols burn into your eyes. '
+                clear_screen()
+                print('You clasp your hand around the crystal.\n'
+                      'A powerful surge rockets through your body!\n'
+                      'Thousands of voices begin to pierce your mind,\n'
+                      'unintelligable images and symbols '
+                      'burn into your eyes.\n'
                       'Your vision fails you and you fall to the floor.\n')
                 player_title = player_name
                 player_class_upload = PLAYER_CLASS
@@ -443,10 +446,14 @@ def main():
                 upload_data(player_title, player_class_upload, death_reason)
                 game_over()
             elif crystalChoice == 'n':
+                clear_screen()
                 print('Mother always said not to touch glowing crystals,\n'
-                      'Best to move on.')
+                      'Best to move on.\n')
                 GOBLIN_ROOM = True
                 break
+            elif crystalChoice == '':
+                no_choice()
+                continue
             else:
                 invalid_input()
                 continue
@@ -454,10 +461,10 @@ def main():
     # Goblin room
     if GOBLIN_ROOM is True:
         while True:
-            print('As you approach the next room, you hear\n '
-                  'strange voices ahead.\n'
-                  'Pearing around the small doorway to the room,'
-                  'you see a group of goblins. They are gathered '
+            print('As you approach the next room, you hear\n'
+                  'strange voices ahead.\n\n'
+                  'Pearing around the small doorway to the room,\n'
+                  'you see a group of goblins.\nThey are gathered '
                   'around a pile of gold.\n\n'
                   'The room is covered in various trinkets and objects.\n'
                   'These goblins clearly have a hoarding issue...\n\n'
@@ -471,6 +478,7 @@ def main():
             goblinChoice = goblinChoice.lower().strip()
             if (goblinChoice == '1' and 
                (PLAYER_CLASS == 'warrior' or PLAYER_SWORD == 'held')):
+                clear_screen()
                 print_with_delay('You dispatch the goblins with ease.\n'
                                  'They are no match for your '
                                  'fighting prowess.\n\n'
@@ -479,7 +487,8 @@ def main():
                 SEARCH_GOBLIN = True
                 break
             elif goblinChoice == '1':
-                print_with_delay('You are quickly overwhelmed ' 
+                clear_screen()
+                print_with_delay('You are quickly overwhelmed '
                                  'by the goblins.\n'
                                  'They scratch and tear at you until you lose '
                                  'balance and hit the floor.\n\n'
@@ -492,22 +501,26 @@ def main():
                 game_over()
                 break
             elif goblinChoice == '2' and PLAYER_CLASS == 'rogue':
+                clear_screen()
                 print_with_delay('Clinging to the edges of the room,'
                                  'you make your way through the shadows.'
                                  'The goblins continue to '
                                  'bicker over their gold.'
-                                 'You manage to reach the ' 
+                                 'You manage to reach the '
                                  'end of the room unseen.'
                                  'Sneaking through the doorway, you '
                                  'continue on through the dungeon.\n')
+                LOCKED_DOOR = True
                 break
             elif goblinChoice == '2':
-                print_with_delay('Clinging to the edges of the room,'
-                                 'you make your way through the shadows.'
-                                 'Cloak gets snagged on an exposed nail and'
-                                 'brings down a shelf of loot and trinkets.'
+                clear_screen()
+                print_with_delay('Clinging to the edges of the room, '
+                                 'you make your\nway through the shadows. '
+                                 'Your cloak gets snagged '
+                                 'on an\nexposed nail and '
+                                 'brings down a shelf of loot and trinkets.\n'
                                  'The group of goblins turn to you '
-                                 'with a gleeful look in their eye. '
+                                 'with a gleeful look in their eye.\n\n'
                                  'There is no escape...\n')
                 player_title = player_name
                 player_class_upload = PLAYER_CLASS
@@ -518,22 +531,25 @@ def main():
             elif goblinChoice == '3':
                 random_choice = random.randint(1, 10)
                 if random_choice == 8:
+                    clear_screen()
                     print_with_delay('You throw a nearby '
                                      'chalice over the heads '
                                      'of the goblins.\n'
                                      'It crashes into a structurally '
-                                     'unstable pile of loot.\n' 
+                                     'unstable pile of loot.\n'
                                      'This seems to send the '
-                                     'goblins into hysterics.\n '
-                                     'Leaving you time to make your ' 
+                                     'goblins into hysterics.\n'
+                                     'Leaving you time to make your '
                                      'way out of the room.')
+                    LOCKED_DOOR = True
                     break
                 elif random_choice != 8:
-                    print_with_delay('Your pathetic attempt at ' 
+                    clear_screen()
+                    print_with_delay('Your pathetic attempt at '
                                      'throwing a nearby '
-                                     'chalice results in striking one of the '
+                                     'chalice\nresults in striking one of the '
                                      'goblins in the head.\n'
-                                     'In your final moments, ' 
+                                     'In your final moments, '
                                      'you feel quite foolish.\n')
                     player_title = player_name
                     player_class_upload = PLAYER_CLASS
@@ -544,29 +560,31 @@ def main():
                     break
             elif (goblinChoice == '4' and 
                   (GOBLIN_LANGUAGE is True and PLAYER_CLASS == 'mage')):
-                print_with_delay('With your new found ' 
+                clear_screen()
+                print_with_delay('With your new found '
                                  'understanding of goblin tongue, '
-                                 'you are able to make out what ' 
+                                 'you are able to make out what '
                                  'the goblins are saying.\n'
                                  'They are upset over how much '
                                  'they have to pay to their goblin leader.\n'
                                  'You greet them in your best goblin accent.\n'
                                  'They are very impressed with your handle '
                                  'of the language.\n'
-                                 'After exchanging pleasantries ' 
+                                 'After exchanging pleasantries '
                                  'you tell them, '
                                  'of the wonders of tax fraud.\n'
-                                 'A simple way for them to keep ' 
+                                 'A simple way for them to keep '
                                  'their hard earned gold.\n\n'
                                  'The goblins are ecstatic with their new '
                                  'found financial powers '
                                  'and let you go onwards '
-                                 'through the dungeon. ' 
+                                 'through the dungeon. '
                                  'They even give you some '
                                  'gold for the tip.\n')
                 LOCKED_DOOR = True
                 break
             elif goblinChoice == '4':
+                clear_screen()
                 print_with_delay('For some strange reason you felt it '
                                  'correct to try and reason with the goblins.'
                                  'You quickly find out you do not speak their '
@@ -577,6 +595,9 @@ def main():
                 upload_data(player_title, player_class_upload, death_reason)
                 game_over()
                 break
+            elif goblinChoice == '':
+                no_choice()
+                continue
             else:
                 invalid_input()
                 continue
