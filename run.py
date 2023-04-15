@@ -60,7 +60,7 @@ def invalid_input():
     """
     Function for printing invalid choice
     """
-    print("Invalid choice, please try again\n")
+    print("Invalid choice, please try again\n\n")
 
 
 def no_choice():
@@ -216,9 +216,9 @@ def main():
                               "lungs with the crisp air.\n"
                               "Ahead of you looms the entrance to "
                               "a dungeon, the stone walls slick\n"
-                              "with moisture and the scent of decay.\n"
+                              "with moisture and the scent of decay.\n\n"
                               "Will you be brave enough to venture "
-                              "into the depths of the dungeon?\n\n"
+                              "into the depths of the dungeon?\n"
                               "Or will you turn back "
                               "and seek refuge (y or n)\n")
         if enter_dungeon.lower().strip() == "y":
@@ -493,7 +493,7 @@ def main():
                                  'They scratch and tear at you until you lose '
                                  'balance and hit the floor.\n\n'
                                  'The last thing you see is '
-                                 'them looting your bag.')
+                                 'them looting your bag.\n')
                 player_title = player_name
                 player_class_upload = PLAYER_CLASS
                 death_reason = 'Terrible at sword-fighting.'
@@ -502,12 +502,12 @@ def main():
                 break
             elif goblinChoice == '2' and PLAYER_CLASS == 'rogue':
                 clear_screen()
-                print_with_delay('Clinging to the edges of the room,'
-                                 'you make your way through the shadows.'
+                print_with_delay('Clinging to the edges of the room, '
+                                 'you make your\nway through the shadows. '
                                  'The goblins continue to '
-                                 'bicker over their gold.'
+                                 'bicker over their gold.\n'
                                  'You manage to reach the '
-                                 'end of the room unseen.'
+                                 'end of the room unseen.\n\n'
                                  'Sneaking through the doorway, you '
                                  'continue on through the dungeon.\n')
                 LOCKED_DOOR = True
@@ -540,7 +540,7 @@ def main():
                                      'This seems to send the '
                                      'goblins into hysterics.\n'
                                      'Leaving you time to make your '
-                                     'way out of the room.')
+                                     'way out of the room.\n')
                     LOCKED_DOOR = True
                     break
                 elif random_choice != 8:
@@ -562,21 +562,21 @@ def main():
                   (GOBLIN_LANGUAGE is True and PLAYER_CLASS == 'mage')):
                 clear_screen()
                 print_with_delay('With your new found '
-                                 'understanding of goblin tongue, '
+                                 'understanding of goblin tongue,\n'
                                  'you are able to make out what '
-                                 'the goblins are saying.\n'
+                                 'the goblins are saying.\n\n'
                                  'They are upset over how much '
                                  'they have to pay to their goblin leader.\n'
                                  'You greet them in your best goblin accent.\n'
                                  'They are very impressed with your handle '
-                                 'of the language.\n'
+                                 'of the language.\n\n'
                                  'After exchanging pleasantries '
-                                 'you tell them, '
-                                 'of the wonders of tax fraud.\n'
+                                 'you tell them about '
+                                 'the wonders of tax fraud.\n'
                                  'A simple way for them to keep '
                                  'their hard earned gold.\n\n'
                                  'The goblins are ecstatic with their new '
-                                 'found financial powers '
+                                 'found financial powers\n'
                                  'and let you go onwards '
                                  'through the dungeon. '
                                  'They even give you some '
@@ -586,9 +586,10 @@ def main():
             elif goblinChoice == '4':
                 clear_screen()
                 print_with_delay('For some strange reason you felt it '
-                                 'correct to try and reason with the goblins.'
+                                 'correct\nto try and reason '
+                                 'with the goblins.\n'
                                  'You quickly find out you do not speak their '
-                                 'language have made a grave mistake.\n')
+                                 'language and\nhave made a grave mistake.\n')
                 player_title = player_name
                 player_class_upload = PLAYER_CLASS
                 death_reason = 'Tried to reason with goblins.'
@@ -610,6 +611,7 @@ def main():
             goblin_search = input()
             goblin_search = goblin_search.lower().strip()
             if goblin_search == 'y':
+                clear_screen()
                 print_with_delay('The goblins seem interested in collecting '
                                  'snails and dirt.\n'
                                  'However on the last goblin you find a large'
@@ -617,6 +619,7 @@ def main():
                 TAKE_KEY = True
                 break
             elif goblin_search == 'n':
+                clear_screen()
                 print_with_delay('Your head is swimming after the fight with '
                                  'the goblin group.\n'
                                  'Perhaps it is best to keep moving.\n\n'
