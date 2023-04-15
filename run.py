@@ -606,7 +606,7 @@ def main():
     if (PLAYER_CLASS == 'warrior' and SEARCH_GOBLIN is True or
        (PLAYER_SWORD == 'held' and SEARCH_GOBLIN is True)):
         while True:
-            print_with_delay('The goblins lay still before you.\n'
+            print_with_delay('The goblins lay still before you.\n\n'
                              'Do you search their bodies? (y or n)\n')
             goblin_search = input()
             goblin_search = goblin_search.lower().strip()
@@ -614,7 +614,7 @@ def main():
                 clear_screen()
                 print_with_delay('The goblins seem interested in collecting '
                                  'snails and dirt.\n'
-                                 'However on the last goblin you find a large'
+                                 'However on the last goblin you find a large '
                                  'brass key.\n')
                 TAKE_KEY = True
                 break
@@ -637,15 +637,17 @@ def main():
             take_goblin_key = input()
             take_goblin_key = take_goblin_key.lower().strip()
             if take_goblin_key == 'y':
+                clear_screen()
                 print_with_delay('You tie the key to your belt and '
                                  'make your way onwards.\n')
                 LOCKED_DOOR = True
                 GOBLIN_KEY = True
                 break
             elif take_goblin_key == 'n':
+                clear_screen()
                 print_with_delay("You're feeling quite remorseful about "
                                  "barging into their home and killing them.\n"
-                                 "Perhaps looting them " 
+                                 "Perhaps looting them "
                                  "might be over-doing it.\n")
                 LOCKED_DOOR = True
                 break
@@ -655,18 +657,20 @@ def main():
 
     if LOCKED_DOOR is True:
         while True:
-            print_with_delay('As you make your way ' 
-                             'along a eerily quiet hallway,'
+            print_with_delay('As you make your way '
+                             'along a eerily quiet hallway,\n'
                              'you spot a door covered in goblin skulls.\n\n'
                              'Do you try open it? (y or n)\n')
             try_locked_door = input()
             try_locked_door = try_locked_door.lower().strip()
             if try_locked_door == 'y':
+                clear_screen()
                 print_with_delay('You try the handle and '
                                  'realise it is locked.\n')
                 OPEN_LOCKED_DOOR = True
                 break
             elif try_locked_door == 'n':
+                clear_screen()
                 print_with_delay('The fact it is covered '
                                  'in goblin skulls makes '
                                  'you feel that you are not '
@@ -679,12 +683,12 @@ def main():
 
     if OPEN_LOCKED_DOOR is True:
         while True:
-            print_with_delay('Probably for good reason...\n\n')
+            print_with_delay('Probably for good reason...\n')
             if GOBLIN_KEY is True:
-                print_with_delay('You remember the key you ' 
+                print_with_delay('You remember the key you '
                                  'got off the goblins!\n'
                                  'You try it in the door '
-                                 'and it makes a satisfying'
+                                 'and it makes a\nsatisfying '
                                  'click when turned.\n')
                 GOBLIN_CRYPT = True
                 break
@@ -697,24 +701,26 @@ def main():
                 break
 
     if GOBLIN_CRYPT is True:
-        print_with_delay('As you descend down the damp, musty ' 
-                         'stairs into the goblin crypt, the ' 
-                         'flicker of your torch casts eerie ' 
-                         'shadows on the moss-covered walls.\n\nThe stale ' 
-                         'air is thick with the smell of decay and ' 
+        print_with_delay('You descend down the damp and musty '
+                         'stairs into the goblin crypt.\nThe '
+                         'flicker of your torch casts eerie '
+                         'shadows on the moss-covered walls.\n\nThe stale '
+                         'air is thick with the smell of decay and\n'
                          'the sound of dripping water '
-                         'echoes in the distance.\n\n ' 
-                         'In front of you, you see three wooden ' 
-                         'coffins, each one ornately decorated '
+                         'echoes in the distance.\n\n'
+                         'In front of you, you see three wooden '
+                         'coffins,\neach one ornately decorated '
                          'with carvings of twisted vines and skulls.\n\n')
         while True:
-            print_with_delay('Perhaps one of the coffins contains a way out.\n'
+            print_with_delay('Perhaps one of the coffins '
+                             'contains a way out.\n\n'
                              'Which coffin do you search? (1, 2 or 3)\n')
             coffin_choice = input()
             coffin_choice = coffin_choice.lower().strip()
             if coffin_choice == '1':
+                clear_screen()
                 print_with_delay('You slide the coffin lid off, it '
-                                 'falls to the ground and shatters in a mist '
+                                 'falls to the ground and\nshatters in a mist '
                                  'of splinters and dust.\n\n'
                                  'Gazing back into the coffin you see a nest '
                                  'of venomous vipers staring back at you.\n\n'
@@ -727,21 +733,23 @@ def main():
                 game_over()
                 break
             elif coffin_choice == '2':
+                clear_screen()
                 print_with_delay('The coffin lid reveals the skeleton of '
                                  'a past goblin king.\n'
                                  'He is buried with stolen jewelry and '
                                  'trinkets.\n'
                                  'Placed on top of his skull is a crown '
                                  'plastered with precious '
-                                 'gems and metals.\n\n')
+                                 'gems and metals.\n')
                 CROWN_RIDDLE = True
                 break
             elif coffin_choice == '3':
+                clear_screen()
                 print_with_delay('As you begin to push the lid from the '
-                                 'coffin, a boney and decomposing hand grabs '
+                                 'coffin,\na boney and decomposing hand grabs '
                                  'your wrist.\n\n'
                                  'You are dragged into the '
-                                 'coffin and the lid is'
+                                 'coffin and the lid is '
                                  'placed back on top.\n'
                                  'Sealing you in the coffin, '
                                  'you are a part of the '
@@ -755,19 +763,20 @@ def main():
 
     if CROWN_RIDDLE is True:
         wrong_answer_count = 0
-        print(wrong_answer_count)
         while True:
             print_with_delay('Engraved in the band of the crown you see '
                              'the words:\n\n'
                              'It cannot be seen, cannot be felt, '
-                             'Cannot be heard, cannot be smelt. '
-                             'It lies behind stars and under hills, '
+                             'cannot be heard,\ncannot be smelt. '
+                             'It lies behind stars and under hills,\n'
                              'And empty holes it fills. '
-                             'It comes out first and follows after, '
-                             'Ends life, kills laughter.')
+                             'It comes out first and follows after,\n'
+                             'ends life, kills laughter.\n\n'
+                             'What word will you speak?\n')
             crown_riddle_answer = input()
             crown_riddle_answer = crown_riddle_answer.lower().strip()
             if crown_riddle_answer == 'dark':
+                clear_screen()
                 print_with_delay('You utter the words dark, all of the gem '
                                  'begin to glow and vibrate.\n'
                                  'The wall behind lights up with glyphs '
@@ -776,7 +785,10 @@ def main():
                                  'grinds and scrapes open.\n'
                                  'Fresh air pours into the crypt.\n')
                 OUTRO = True
-                break      
+                break
+            elif crown_riddle_answer == '':
+                no_choice()
+                continue
             elif wrong_answer_count == 5:
                 print_with_delay('The crown begins to shake and tremble.\n'
                                  'The crypts ceilings begin to crack and '
