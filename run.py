@@ -391,6 +391,7 @@ def main():
             chestChoice = input('Do you open the chest? (y or n)\n')
             chestChoice = chestChoice.lower().strip()
             if chestChoice == 'y':
+                clear_screen()
                 print('You are greeted with a gleaming '
                       'sword wrapped in cloth.\n')
                 print('You place it onto your belt.\n')
@@ -398,10 +399,14 @@ def main():
                 GOBLIN_ROOM = True
                 break
             elif chestChoice == 'n':
-                print('You think it is probably best to leave it be')
+                clear_screen()
+                print('You think it is probably best to leave it be\n')
                 print('You continue onwards into the dungeon.\n')
                 GOBLIN_ROOM = True
                 break
+            elif chestChoice == '':
+                no_choice()
+                continue
             else:
                 print('Invalid input, please try again.')
                 continue
@@ -410,7 +415,7 @@ def main():
     if CRYSTAL_ROOM is True and CHEST_ROOM is False:
         while True:
             clear_screen()
-            crystalChoice = input('After following the tunnel you come ' 
+            crystalChoice = input('After following the tunnel you come '
                                   'to a large altar with a red crystal '
                                   'hovering above it.\n '
                                   'You feel yourself drawn towards it...\n'
