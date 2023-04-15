@@ -293,7 +293,7 @@ def main():
     if TABLET_ROOM is True and CHEST_ROOM is False:
         print('3 small tablets are laid out in front of you.')
         print('Each has an engraving carved into it.')
-        print('You see a river, a candle and a coffin')
+        print('You see a river, a candle and a coffin.')
         print('Below each riddle is a plate for each tablet.')
         print('Solve each riddle and place the tablets correctly.\n')
         print("Riddle 1: I have a bed but don't sleep, a bank but no money.\n")
@@ -332,21 +332,21 @@ def main():
             riddleTwo = riddleTwo.lower().strip()
             if riddleTwo in ['candle', 'coffin', 'river']:
                 break
-            elif riddleTwo == 'candle':
-                RIDDLE_TWO = True
-            elif riddleTwo == 'coffin' or 'river':
-                print('You hear a loud crunch from above your head')
-                print('The ceiling begins to move towards you')
-                print('The light begins to fade...')
-                player_title = player_name
-                player_class_upload = PLAYER_CLASS
-                death_reason = 'Crushed like a pancake.'
-                upload_data(player_title, player_class_upload, death_reason)
-                game_over()
             else:
                 invalid_input()
                 continue
-
+        if riddleTwo == 'candle':
+            RIDDLE_TWO = True
+        elif riddleTwo == 'coffin' or 'river':
+            print('You hear a loud crunch from above your head')
+            print('The ceiling begins to move towards you')
+            print('The light begins to fade...')
+            player_title = player_name
+            player_class_upload = PLAYER_CLASS
+            death_reason = 'Crushed like a pancake.'
+            upload_data(player_title, player_class_upload, death_reason)
+            game_over()
+            
     RIDDLE_TWO = True
     if RIDDLE_TWO is True and CHEST_ROOM is False:
         clear_screen()
@@ -359,23 +359,22 @@ def main():
             riddleThree = riddleThree.lower().strip()
             if riddleThree in ['candle', 'coffin', 'river']:
                 break
-            elif riddleThree == 'coffin':
-                print('The tablet weighs down the plate with a crisp click')
-                RIDDLE_THREE = True
-                break
-            elif riddleThree == 'candle' or 'river':
-                print('You hear a loud crunch from above your head')
-                print('The ceiling begins to move towards you')
-                print('The light begins to fade...')
-                player_title = player_name
-                player_class_upload = PLAYER_CLASS
-                death_reason = 'Crushed like a pancake.'
-                upload_data(player_title, player_class_upload, death_reason)
-                game_over()
             else:
                 invalid_input()
                 continue
-
+        if riddleThree == 'coffin':
+            print('The tablet weighs down the plate with a crisp click')
+            RIDDLE_THREE = True
+        elif riddleThree == 'candle' or 'river':
+            print('You hear a loud crunch from above your head')
+            print('The ceiling begins to move towards you')
+            print('The light begins to fade...')
+            player_title = player_name
+            player_class_upload = PLAYER_CLASS
+            death_reason = 'Crushed like a pancake.'
+            upload_data(player_title, player_class_upload, death_reason)
+            game_over()
+            
     RIDDLE_THREE = True
     if RIDDLE_THREE is True and CHEST_ROOM is False:
         while True:
