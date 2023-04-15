@@ -162,7 +162,7 @@ def main():
                             'name? (5 - 12 characters):\n')
         if (len(player_name) <= 4 or
            len(player_name) >= 13 or player_name == ''):
-            print('Invalid name length, please try again.')
+            print('Invalid name length, please try again.\n')
         else:
             clear_screen()
             break
@@ -185,7 +185,7 @@ def main():
             PLAYER_CLASS = 'mage'
             clear_screen()
             break
-            
+
         elif player_class_choice == '3':
             PLAYER_CLASS = 'rogue'
             clear_screen()
@@ -219,7 +219,7 @@ def main():
                               "with moisture and the scent of decay.\n"
                               "Will you be brave enough to venture "
                               "into the depths of the dungeon?\n\n"
-                              "Or will you turn back"
+                              "Or will you turn back "
                               "and seek refuge (y or n)\n")
         if enter_dungeon.lower().strip() == "y":
             clear_screen()
@@ -238,24 +238,24 @@ def main():
 
     # Main chamber choices (Tunnels 1 - 3)
     while True:
-        clear_screen()
-        mainChamber_choice = input("You enter the first " 
-                                   "chamber of the dungeon. " 
-                                   "Ahead of you are three identical " 
-                                   "stairways leading down. " 
-                                   "The light from torches mounted on the " 
-                                   "walls flickers, casting an eerie "
-                                   "glow on the stairs. " 
-                                   "The heat emanating from the " 
-                                   "torches is palpable, " 
-                                   "making the air thick and heavy. Choose "
-                                   "your path carefully. (1, 2, or 3)\n")
+        mainChamber_choice = input("You enter the first "
+                                   "chamber of the dungeon.\n"
+                                   "Ahead of you are three identical "
+                                   "stairways leading down.\n"
+                                   "The light from torches mounted on the "
+                                   "walls flickers,\ncasting an eerie "
+                                   "glow on the stairs.\n\n"
+                                   "The heat emanating from the "
+                                   "torches is palpable,\n"
+                                   "making the air thick and heavy.\n\nChoose "
+                                   "your path carefully: (1, 2, or 3)\n")
         mainChamber_choice = mainChamber_choice.lower().strip()
         if mainChamber_choice == "1":
-            print("You make your way down the first stairs. " 
-                  "You feel one of the steps sink " 
-                  "lower than the others, " 
-                  "as a poison dart is released " 
+            clear_screen()
+            print("You make your way down the first stairs. "
+                  "You feel\none of the steps sink "
+                  "lower than the others,\n"
+                  "as a poison dart is released "
                   "from a nearby wall.\n")
             player_title = player_name
             player_class_upload = PLAYER_CLASS
@@ -263,25 +263,29 @@ def main():
             upload_data(player_title, player_class_upload, death_reason)
             game_over()
             break
-            
+
         elif mainChamber_choice == "2":
-            print("You cautously move down the second stairs. " 
-                  "Your steps echo against the damp stone walls." 
-                  "Bending down through an archway, you are met " 
-                  "with a large altar with 3 texts carved into its stone. " 
-                  "Each.\n")
+            clear_screen()
+            print("You cautously move down the second stairs.\n"
+                  "Your steps echo against the damp stone walls.\n"
+                  "Bending down through an archway, you are met\n"
+                  "with a large altar with 3 texts carved into it's stone.\n"
+                  "Each text is a riddle to be solved.\n")
             TABLET_ROOM = True
             break
         elif mainChamber_choice == "3":
-            print("The stairs lead down to a dusty room " 
-                  "The air is cold and dank. " 
-                  "You see a chest in the middle of the room, " 
-                  "decomposed skeletons are littered around it. " 
-                  "from a nearby wall.")
+            clear_screen()
+            print("The stairs lead down to a dusty room "
+                  "The air is cold and dank.\n"
+                  "You see a chest in the middle of the room,\n"
+                  "decomposed skeletons are littered around it.\n")
             CHEST_ROOM = True
             break
+        elif mainChamber_choice == '':
+            no_choice()
+            continue
         else:
-            print("Invalid answer, please try again.")
+            invalid_input()
             continue
 
     # Riddle room choices
