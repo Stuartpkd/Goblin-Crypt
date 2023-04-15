@@ -60,14 +60,14 @@ def invalid_input():
     """
     Function for printing invalid choice
     """
-    print("Invalid choice, please try again")
+    print("Invalid choice, please try again\n")
 
 
 def no_choice():
     """
     Function printing empty input
     """
-    print('You did not enter anything, please try again.')
+    print('You did not enter anything, please try again.\n')
 
 
 def print_with_delay(text, delay=0.05):
@@ -82,6 +82,28 @@ def clear_screen():
     Clears the terminal screen
     """
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def game_over():
+    """
+    Prints game over to the player
+    Resets values and then starts game if yes
+    Ends program if no.
+    """
+    print('GAMEOVER'
+          'Would you like to play again? (y or n)\n')
+    play_again = input()
+    play_again = play_again.lower().strip()
+    while True:
+        if play_again == 'y':
+            main()
+            break
+        elif play_again == 'n':
+            print_with_delay('Farewell Adventurer!')
+            exit()
+        else:
+            invalid_input()
+            continue
 
 
 def main():
@@ -110,32 +132,12 @@ def main():
     OPEN_LOCKED_DOOR = False
     CROWN_RIDDLE = False
 
-    def game_over():
-        """
-        Prints game over to the player
-        Resets values and then starts game if yes
-        Ends program if no.
-        """
-        print('GAMEOVER'
-              'Would you like to play again? (y or n)\n')
-        play_again = input()
-        play_again = play_again.lower().strip()
-        while True:
-            if play_again == 'y':
-                main()
-                break
-            elif play_again == 'n':
-                print_with_delay('Farewell Adventurer!')
-                exit()
-            else:
-                invalid_input()
-                continue
-        
     def start_game():
         """
         Function that shows player start game choice.
         Validates input and then starts game.
         """
+        clear_screen()
         print("     ******* Goblin - Crypt ********")
         print("******* Enter S to start the game ********")
         print("******* Enter T to show past adventures ********")
@@ -148,7 +150,8 @@ def main():
                 show_tombstone()
                 continue
             else:
-                print("Invalid choice. Please enter 's' to start the game.")
+                print("Invalid choice. Please enter 's' to start the game.\n\n"
+                      "Or enter 't' to view past adventurers.")
                 continue
 
     start_game()
@@ -156,41 +159,47 @@ def main():
     # User inputs their name
     while True:
         player_name = input('Adventurer, what is your '
-                            'name? (5 - 12 characters): ')
-        if (len(player_name) <= 4 or 
+                            'name? (5 - 12 characters):\n')
+        if (len(player_name) <= 4 or
            len(player_name) >= 13 or player_name == ''):
-            clear_screen()
             print('Invalid name length, please try again.')
         else:
+            clear_screen()
             break
 
     # Class choice for player
     while True:
         print("1. Warrior\n")
         print("2. Mage\n")
-        print("3. Rogue\n")  
+        print("3. Rogue\n")
         player_class_choice = input(f"Well then, {player_name} what kind "
                                     "of adventurer are you? (1, 2 or 3)\n\n")
         player_class_choice = player_class_choice.lower().strip()
         
         if player_class_choice == '1':
             PLAYER_CLASS = 'warrior'
+            clear_screen()
             break
         
         elif player_class_choice == '2':
             PLAYER_CLASS = 'mage'
+            clear_screen()
             break
             
         elif player_class_choice == '3':
             PLAYER_CLASS = 'rogue'
+            clear_screen()
             break
-            
+
+        elif player_class_choice == '':
+            no_choice()
+            continue    
         else:
             invalid_input()
+            continue
 
     # Introduction to dungeon
     while True:
-        clear_screen()
         if PLAYER_CLASS == 'warrior':
             print("Ah, a mighty warrior.\n")
         elif PLAYER_CLASS == 'mage':
@@ -200,18 +209,18 @@ def main():
         else:
             break
         enter_dungeon = input("You step out of the dark woods "
-                              "and into a clearing.\n "
+                              "and into a clearing.\n"
                               "Your eyes take a moment "
-                              "to adjust to the sudden brightness, "
-                              "and you inhale deeply, filling your "
-                              "lungs with the crisp, fresh air.\n "
+                              "to adjust to the sudden brightness.\n"
+                              "You inhale deeply, filling your "
+                              "lungs with the crisp air.\n"
                               "Ahead of you looms the entrance to "
-                              "a dungeon, the stone walls slick "
-                              "with moisture and the musty scent of decay.\n "
+                              "a dungeon, the stone walls slick\n"
+                              "with moisture and the scent of decay.\n"
                               "Will you be brave enough to venture "
-                              "into the depths of the dungeon, "
-                              "or will you turn back and seek refuge "
-                              "in the safety of the woods? (y or n)\n")
+                              "into the depths of the dungeon?\n\n"
+                              "Or will you turn back"
+                              "and seek refuge (y or n)\n")
         if enter_dungeon.lower().strip() == "y":
             clear_screen()
             print("You descend the dungeon stairs, to the depths below.\n")
@@ -219,9 +228,13 @@ def main():
         elif enter_dungeon.lower().strip() == "n":
             clear_screen()
             print("You return home and live a very long and boring life.\n")
-            exit()   
+            exit()
+        elif enter_dungeon == '':
+            no_choice()
+            continue
         else:
-            print("Invalid choice, please try again.")
+            invalid_input()
+            continue
 
     # Main chamber choices (Tunnels 1 - 3)
     while True:
