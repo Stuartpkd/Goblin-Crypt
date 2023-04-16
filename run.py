@@ -903,7 +903,14 @@ def main():
                 break
             elif BOSS_HEALTH == 0:
                 clear_screen()
-                print_with_delay('You have won!')
+                print_with_delay('You have slain the Goblin King!\n'
+                                 'After taking his crown and riches,\n'
+                                 'you make your way behind the throne.\n\n'
+                                 'A cave path blows fresh air on your face\n'
+                                 'You sprint towards the '
+                                 'light and are greeted\n'
+                                 'with the sun on your face.\n\n'
+                                 'You are free!\n')
                 OUTRO = True
                 break
 
