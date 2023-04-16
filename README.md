@@ -127,6 +127,24 @@ To include more complicated logic, I added a class choice at the start of the ga
 
 Lastly the player is able to name themselves, so that they feel more invested in their character.
 
+# Dependencies
+
+## Import os
+
+This import allowed me to create functions that would clear the screen of excess text when I needed it.
+
+## Import Gspread
+
+This import allowed me to hook up my game to my Google spreadsheet. This way I was able tp push and pull data from the sheet to my game.
+
+## Import Random
+
+This import was used to create random number generation when the computer needed to make a choice of it's own.
+
+## Google Auth
+
+Lastly this was put in place to give my code access to the Google sheets Api.
+
 # Technologies
 
 1. [Python](https://www.python.org/)
