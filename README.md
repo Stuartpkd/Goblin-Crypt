@@ -170,9 +170,33 @@ This game can be quite punishing, so I included an option to let the player star
 
 Being able to name a character is always important. It keeps the player invested in their character, also makes for a funny scenario when the name is etched into the tombstone for other players to see.
 
+### Testing check list
+
+As there is a lot of outcomes and options in my game. I needed a way to make sure each section was being tested properly and being held to good standards. So I created a simple checklist to go through each section.
+
+![An image showing my testing check list.](assets/images/checkList.png)
+
 ## Python Validation
 
 I validated my Python code frequently throughout the development process. I was quite lucky as once I had created a template for each scenario in the game, it was easier to avoid bad code. The only issue that came up sometimes was trailing whitespace.
+
+## Bugs
+
+Bug 1.
+
+![An image showing my testing check list.](assets/images/bug1.png.png)
+
+## Deployment
+
+I deployed my game to Heroku using these steps:
+
+1. Sign into Heroku.
+2. Select create a new app (You will have to have your payment option set up to do this).
+3. At the top of your project select settings.
+4. Navigate your way to the pages section of settings.
+5. Select source and then select "Main" (It can also show up as master for some people)
+6. Click save.
+7. The page will generate a url, this will be where your page is hosted. (Be aware this may take a few minutes.)
 
 
 
