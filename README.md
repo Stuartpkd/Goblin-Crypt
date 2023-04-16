@@ -205,6 +205,58 @@ Bug 1.
 
 ## Deployment
 
+How to set up a Google Api:
+
+1. Go to the Google cloud api and create a new project.
+
+![An image showing a new project in Google api.](assets/images/google1.png)
+
+2. After creating the project, select it and then choose api & services and then choose library.
+
+![An image showing the menu of Apis and services](assets/images/google2.png)
+
+3. Search for the Google drive Api and add it to your project.
+
+![An image showing different Apis in Google cloud.](assets/images/google3.png)
+
+4. Click on manage and then click on credentials.
+
+![An image showing different Apis in Google cloud.](assets/images/google4.png)
+
+5. Select create credentials and then select the Google Drive Api.
+
+![An image showing credential types.](assets/images/google5.png)
+
+6. Click done and then create a service account name and click done.
+
+![An image showing service account details.](assets/images/google6.png)
+
+7. In the role dropdown box select basic and then select editor and press continue.
+
+![An image showing service access for the project.](assets/images/google7.png)
+
+8. These options can be left blank, click done.
+
+![An image showing options to grant other users access.](assets/images/google8.png)
+
+9. On the next page your service account will have been created.
+
+![A page showing service accounts.](assets/images/google9.png)
+
+10. Click on the email that you gave and then click on keys.
+
+![An image showing service account details.](assets/images/google10.png)
+
+11. Click on add new key and then select json.
+
+![An image showing a key creator.](assets/images/google11.png)
+
+12. Keep this file and name is 'creds.json' as it will be used by your code to gain access to your spreadsheet.
+
+13. Lastly add the Google sheets Api to your Google cloud.
+
+![An image showing a key creator.](assets/images/google12.png)
+
 I deployed my game to Heroku using these steps:
 
 1. Type 'pip3 freeze > requirements.txt' into your terminal. This makes sure Heroku has up to date dependencies before you deploy.
