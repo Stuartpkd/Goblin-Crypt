@@ -823,7 +823,7 @@ def main():
                          "meaty hand,\nready to defend "
                          "his throne at all costs.\n\n"
                          "He lunges off his throne to attack.\n")
-        while True:
+        while PLAYER_HEALTH > 0 and BOSS_HEALTH > 0:
             print_with_delay('How do you attack? (slash, parry or thrust)\n')
             choices = ['slash', 'parry', 'thrust']
             player_fight_choice = input()
@@ -892,33 +892,43 @@ def main():
             else:
                 invalid_input()
                 continue
-            if PLAYER_HEALTH == 0:
-                clear_screen()
-                print_with_delay('You have been defeated!')
-                player_title = player_name
-                player_class_upload = PLAYER_CLASS
-                death_reason = 'Cut in half.'
-                upload_data(player_title, player_class_upload, death_reason)
-                game_over()
-                break
-            elif BOSS_HEALTH == 0:
-                clear_screen()
-                print_with_delay('You have slain the Goblin King!\n'
-                                 'After taking his crown and riches,\n'
-                                 'you make your way behind the throne.\n\n'
-                                 'A cave path blows fresh air on your face\n'
-                                 'You sprint towards the '
-                                 'light and are greeted\n'
-                                 'with the sun on your face.\n\n'
-                                 'You are free!\n')
-                OUTRO = True
-                break
+
+            # end first if
+            print("Out of the first if statement")
+
+        if PLAYER_HEALTH == 0:
+            # is player dead
+            print("Player dead")
+            clear_screen()
+            print_with_delay('You have been defeated!')
+            player_title = player_name
+            player_class_upload = PLAYER_CLASS
+            death_reason = 'Cut in half.'
+            upload_data(player_title, player_class_upload, death_reason)
+            game_over()
+
+        elif BOSS_HEALTH == 0:
+            # is boss dead
+            print("boss is dead")
+            clear_screen()
+            print_with_delay('You have slain the Goblin King!\n'
+                             'After taking his crown and riches,\n'
+                             'you make your way behind the throne.\n\n'
+                             'A cave path blows fresh air on your face\n'
+                             'You sprint towards the '
+                             'light and are greeted\n'
+                             'with the sun on your face.\n\n'
+                             'You are free!\n')
+            OUTRO = True
+
+            # out of second if
+            print("out of second if statement")
 
     if OUTRO is True:
         while True:
             print_with_delay('Congratulations adventurer!\n'
-                             'You bested the Goblin Crypt and\n'
-                             'escaped with your life. You return home'
+                             'You bested the Goblin Crypt and '
+                             'escaped with your life. You return home '
                              'with an incredible story to tell!\n\n')
             play_again = input('Would you like to play again? (y or n)\n')
             play_again = play_again.lower().strip()
@@ -936,6 +946,6 @@ def main():
             else:
                 invalid_input()
                 continue
-            
+
 
 main()
