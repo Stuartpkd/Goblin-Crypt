@@ -65,6 +65,61 @@ To help the user achieve their desired experience, these features were included:
 * A series of choices allowing the user to rely on probability.
 * The game can be quite difficult, which promotes the player to keep playing to learn the best tactics.
 
+## Cheat sheet
+
+The game has many options and many ways to die. So below is a list on how to get through each section without dying.
+
+### Opening choice of 3 tunnels
+
+Here choose tunnel 2 or 3 as number 1 will kill you.
+
+### Riddle room
+
+Here are the answers to the riddles in order:
+River
+Candle
+Coffin
+
+### Chest room
+
+Open the chest and take the sword as it will allow you to fight the goblins later.
+
+### Crystal room
+
+You may only take the crystal if you chose mage at the start. Otherwise do not take it.
+
+### Goblin room
+
+You may fight and win against the goblins if you are a warrior or have the sword from the chest.
+If you fight and kill the goblins you can search them to find a key. Take this to unlock the second option to beat the game.
+
+You may sneak if you are a rogue, do not choose this option if you are another class.
+
+The distract has a 1 in 10 chance of succeeding.
+
+Talking to them is only possible if you are a mage and you took the crystal from earlier.
+
+### Locked door
+
+This can only be opened if you killed and looted the goblins. 
+If you do not have the key it will send you on to the boss room.
+
+### Goblin crypt
+
+If you managed to open the door, you will have 3 coffins to choose from. Choose number 2.
+You will be asked another riddle then, the answer is 'dark'. If you give a wrong answer 5 times you will die.
+Answering correctly will win the game.
+
+### Goblin King
+
+This boss fight is based around rock paper scissors. 
+Rock = slash
+Paper = thrust 
+Scissors = parry
+
+Sadly this encounter cannot be cheated as it is up to random chance. If you defeat the king you will win the game.
+Consult the logic map too, it will be easier then to make the correct choices.
+
 ## Approach
 
 ### Code structure:

@@ -890,7 +890,7 @@ def main():
                          'larger then the others you have seen.\n\n'
                          'It is adorned in human bones and skulls. '
                          'His bulbous belly protrudes\nfrom '
-                         'beneath a tattered red robe,\nand his skin is a '
+                         'beneath a tattered red robe and his skin is a '
                          'sickly green hue.\n\n'
                          "The king's maw hangs open, revealing a "
                          "mouth full of sharp, rotting teeth.\n"
@@ -908,7 +908,7 @@ def main():
             if player_fight_choice == 'parry' and boss_choice == 'slash':
                 # Player loses
                 clear_screen()
-                player_health -= 10
+                player_health -= 20
                 print_with_delay('You took a hit!\n\n')
                 print('Player Health:', player_health)
                 print('Goblin King Health:', boss_health)
@@ -916,7 +916,7 @@ def main():
             elif player_fight_choice == 'slash' and boss_choice == 'parry':
                 # Player wins
                 clear_screen()
-                boss_health -= 10
+                boss_health -= 20
                 print_with_delay('You landed a hit!\n\n')
                 print('Player Health:', player_health)
                 print('Goblin King Health:', boss_health)
@@ -925,14 +925,14 @@ def main():
             elif player_fight_choice == 'thrust' and boss_choice == 'parry':
                 # Player loses
                 clear_screen()
-                player_health -= 10
+                player_health -= 20
                 print_with_delay('You took a hit!\n\n')
                 print('Player Health:', player_health)
                 print('Goblin King Health:', boss_health)
                 continue
             elif player_fight_choice == 'parry' and boss_choice == 'thrust':
                 # Player wins
-                boss_health -= 10
+                boss_health -= 20
                 clear_screen()
                 print_with_delay('You landed a hit!\n\n')
                 print('Player Health:', player_health)
@@ -941,7 +941,7 @@ def main():
             # Thrust beats slash
             elif player_fight_choice == 'slash' and boss_choice == 'thrust':
                 # Player loses
-                player_health -= 10
+                player_health -= 20
                 clear_screen()
                 print_with_delay('You took a hit!\n\n')
                 print('Player Health:', player_health)
@@ -949,7 +949,7 @@ def main():
                 continue
             elif player_fight_choice == 'thrust' and boss_choice == 'slash':
                 # Player wins
-                boss_health -= 10
+                boss_health -= 20
                 clear_screen()
                 print_with_delay('You landed a hit!\n\n')
                 print('Player Health:', player_health)
