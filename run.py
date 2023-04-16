@@ -882,8 +882,8 @@ def main():
     # Boss room section.
 
     if BOSS_ROOM is True:
-        PLAYER_HEALTH = 100
-        BOSS_HEALTH = 100
+        player_health = 100
+        boss_health = 100
         print_with_delay('You enter a large hall with a '
                          'skull encrusted throne.\n'
                          'Sitting a top the throne is a large goblin,\nmuch '
@@ -898,7 +898,7 @@ def main():
                          "meaty hand,\nready to defend "
                          "his throne at all costs.\n\n"
                          "He lunges off his throne to attack.\n")
-        while PLAYER_HEALTH > 0 and BOSS_HEALTH > 0:
+        while player_health > 0 and boss_health > 0:
             print_with_delay('How do you attack? (slash, parry or thrust)\n')
             choices = ['slash', 'parry', 'thrust']
             player_fight_choice = input()
@@ -908,59 +908,59 @@ def main():
             if player_fight_choice == 'parry' and boss_choice == 'slash':
                 # Player loses
                 clear_screen()
-                PLAYER_HEALTH -= 10
+                player_health -= 10
                 print_with_delay('You took a hit!\n\n')
-                print('Player Health:', PLAYER_HEALTH)
-                print('Goblin King Health:', BOSS_HEALTH)
+                print('Player Health:', player_health)
+                print('Goblin King Health:', boss_health)
                 continue
             elif player_fight_choice == 'slash' and boss_choice == 'parry':
                 # Player wins
                 clear_screen()
-                BOSS_HEALTH -= 10
+                boss_health -= 10
                 print_with_delay('You landed a hit!\n\n')
-                print('Player Health:', PLAYER_HEALTH)
-                print('Goblin King Health:', BOSS_HEALTH)
+                print('Player Health:', player_health)
+                print('Goblin King Health:', boss_health)
                 continue
             # Parry beats thrust
             elif player_fight_choice == 'thrust' and boss_choice == 'parry':
                 # Player loses
                 clear_screen()
-                PLAYER_HEALTH -= 10
+                player_health -= 10
                 print_with_delay('You took a hit!\n\n')
-                print('Player Health:', PLAYER_HEALTH)
-                print('Goblin King Health:', BOSS_HEALTH)
+                print('Player Health:', player_health)
+                print('Goblin King Health:', boss_health)
                 continue
             elif player_fight_choice == 'parry' and boss_choice == 'thrust':
                 # Player wins
-                BOSS_HEALTH -= 10
+                boss_health -= 10
                 clear_screen()
                 print_with_delay('You landed a hit!\n\n')
-                print('Player Health:', PLAYER_HEALTH)
-                print('Goblin King Health:', BOSS_HEALTH)
+                print('Player Health:', player_health)
+                print('Goblin King Health:', boss_health)
                 continue
             # Thrust beats slash
             elif player_fight_choice == 'slash' and boss_choice == 'thrust':
                 # Player loses
-                PLAYER_HEALTH -= 10
+                player_health -= 10
                 clear_screen()
                 print_with_delay('You took a hit!\n\n')
-                print('Player Health:', PLAYER_HEALTH)
-                print('Goblin King Health:', BOSS_HEALTH)
+                print('Player Health:', player_health)
+                print('Goblin King Health:', boss_health)
                 continue
             elif player_fight_choice == 'thrust' and boss_choice == 'slash':
                 # Player wins
-                BOSS_HEALTH -= 10
+                boss_health -= 10
                 clear_screen()
                 print_with_delay('You landed a hit!\n\n')
-                print('Player Health:', PLAYER_HEALTH)
-                print('Goblin King Health:', BOSS_HEALTH)
+                print('Player Health:', player_health)
+                print('Goblin King Health:', boss_health)
                 continue
             elif player_fight_choice == boss_choice:
                 # draw
                 clear_screen()
                 print_with_delay('Your attacks bounce off eachother.\n\n')
-                print('Player Health:', PLAYER_HEALTH)
-                print('Goblin King Health:', BOSS_HEALTH)
+                print('Player Health:', player_health)
+                print('Goblin King Health:', boss_health)
             elif player_fight_choice == '':
                 no_choice()
                 continue
@@ -968,7 +968,7 @@ def main():
                 invalid_input()
                 continue
 
-        if PLAYER_HEALTH == 0:
+        if player_health == 0:
             clear_screen()
             print_with_delay('You have been defeated by the Goblin King!\n')
             player_title = player_name
@@ -977,7 +977,7 @@ def main():
             upload_data(player_title, player_class_upload, death_reason)
             game_over()
 
-        elif BOSS_HEALTH == 0:
+        elif boss_health == 0:
             clear_screen()
             print_with_delay('You have slain the Goblin King!\n'
                              'After taking his crown and riches,\n'

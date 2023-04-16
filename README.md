@@ -185,6 +185,14 @@ A site used for sharing Ascii art.
 
 ## Testing
 
+### CI Python Linter
+
+![An image showing a user viewing past adventures.](assets/images/testing.png)
+
+My code showed no errors in the CI Python Linter.
+
+### User journeys
+
 1. As a first-time user: I want to view past players adventures.
 
 ![An image showing a user viewing past adventures.](assets/images/testing1.png)
