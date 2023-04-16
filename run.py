@@ -373,10 +373,10 @@ def main():
     if RIDDLE_ONE is True and CHEST_ROOM is False:
         clear_screen()
         print_with_delay('The tablet weighs down the '
-                         'plate with a crisp click\n')
+                         'plate with a crisp click.\n')
         print_with_delay('You look to the next riddle:\n')
         while True:
-            riddleTwo = input('I look taller when I am young.\n'
+            riddleTwo = input('I look taller when I am young.'
                               'As I grow old I become shorter.\n'
                               '(coffin, candle or river)\n')
             riddleTwo = riddleTwo.lower().strip()
@@ -401,7 +401,7 @@ def main():
     if RIDDLE_TWO is True and CHEST_ROOM is False:
         clear_screen()
         print_with_delay('The tablet weighs down the '
-                         'plate with a crisp click\n')
+                         'plate with a crisp click.\n')
         print_with_delay('You look to the next riddle:\n')
         while True:
             riddleThree = input('Who makes it, has no need of it.\n'
@@ -414,12 +414,13 @@ def main():
                 invalid_input()
                 continue
         if riddleThree == 'coffin':
+            clear_screen()
             print_with_delay('The tablet weighs down the '
-                             'plate with a crisp click\n')
+                             'plate with a crisp click.\n')
             RIDDLE_THREE = True
         elif riddleThree == 'candle' or 'river':
-            print_with_delay('You hear a loud crunch from above your head')
-            print_with_delay('The ceiling begins to move towards you')
+            print_with_delay('You hear a loud crunch from above your head.')
+            print_with_delay('The ceiling begins to move towards you.')
             print_with_delay('The light begins to fade...')
             player_title = player_name
             player_class_upload = PLAYER_CLASS
@@ -430,7 +431,6 @@ def main():
     RIDDLE_THREE = True
     if RIDDLE_THREE is True and CHEST_ROOM is False:
         while True:
-            clear_screen()
             TABLET_ROOM = False
             CRYSTAL_ROOM = True
             print_with_delay('A large stone door reveals '
@@ -508,7 +508,7 @@ def main():
             elif crystalChoice == 'n':
                 clear_screen()
                 print_with_delay('Mother always said not to '
-                                 'touch glowing crystals,\n'
+                                 'touch glowing crystals.\n'
                                  'Best to move on.\n')
                 GOBLIN_ROOM = True
                 break
