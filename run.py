@@ -27,12 +27,21 @@ SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
 
 def upload_data(player_title, player_class_upload, death_reason):
+    """
+    Defines where to put player data in rows.
+    Then shows on what page the row is placed.
+    Then adds the row when player dies.
+    """
     row = [player_title, player_class_upload, death_reason]
     player_death = SHEET.worksheet('credits')
     player_death.append_row(row)
 
 
 def show_tombstone():
+    """
+    Pulls data from google spreadsheet.
+    Then displays the data in columns.
+    """
     clear_screen()
     player_death = SHEET.worksheet('credits')
     adventurer_name = player_death.col_values(1)
@@ -72,6 +81,11 @@ def no_choice():
 
 
 def print_with_delay(text, delay=0.05):
+    """
+    Delays time inbetween printing characters.
+
+    Delay is the control for seconds inbetween printing.
+    """
     for char in text:
         print(char, end='', flush=True)
         time.sleep(delay)
@@ -108,6 +122,16 @@ def game_over():
 
 
 def main():
+    """
+    Main function that is called in the event
+    of player choosing to play game again.
+
+    Takes all of the variables at the start and
+    sets them back to their original state.
+
+    Which then allows the player to play through
+    again without their last game effecting choices.
+    """
     # Classes
     PLAYER_CLASS = ''
 
@@ -900,7 +924,7 @@ def main():
             # is player dead
             print("Player dead")
             clear_screen()
-            print_with_delay('You have been defeated!')
+            print_with_delay('You have been defeated by the Goblin King!\n')
             player_title = player_name
             player_class_upload = PLAYER_CLASS
             death_reason = 'Cut in half.'
