@@ -909,8 +909,26 @@ def main():
 
     if OUTRO is True:
         while True:
-            print_with_delay('You win the game!')
-            break
-
+            print_with_delay('Congratulations adventurer!\n'
+                             'You bested the Goblin Crypt and\n'
+                             'escaped with your life. You return home'
+                             'with an incredible story to tell!\n\n')
+            play_again = input('Would you like to play again? (y or n)\n')
+            play_again = play_again.lower().strip()
+            if play_again == 'y':
+                clear_screen()
+                main()
+                break
+            elif play_again == 'n':
+                clear_screen()
+                print_with_delay('Farewell adventurer!')
+                exit()
+            elif play_again == '':
+                no_choice()
+                continue
+            else:
+                invalid_input()
+                continue
+            
 
 main()
