@@ -49,6 +49,7 @@ def show_tombstone():
         escape = input('Enter x to return to main menu.')
         escape = escape.lower().strip()
         if escape == 'x':
+            clear_screen()
             main()
             break
         else:
@@ -326,8 +327,8 @@ def main():
         print('The tablet weighs down the plate with a crisp click\n')
         print('You look to the next riddle:\n')
         while True:
-            riddleTwo = input('I look taller when I am young. '
-                              'As I grow old I become shorter. '
+            riddleTwo = input('I look taller when I am young.\n'
+                              'As I grow old I become shorter.\n'
                               '(coffin, candle or river)\n')
             riddleTwo = riddleTwo.lower().strip()
             if riddleTwo in ['candle', 'coffin', 'river']:
@@ -353,8 +354,8 @@ def main():
         print('The tablet weighs down the plate with a crisp click\n')
         print('You look to the next riddle:\n')
         while True:
-            riddleThree = input('Who makes it, has no need of it. '
-                                'Who buys it, has no use for it. '
+            riddleThree = input('Who makes it, has no need of it.\n'
+                                'Who buys it, has no use for it.\n'
                                 '(coffin, candle or river)\n')
             riddleThree = riddleThree.lower().strip()
             if riddleThree in ['candle', 'coffin', 'river']:
