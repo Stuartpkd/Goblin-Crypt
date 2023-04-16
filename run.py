@@ -55,7 +55,7 @@ def show_tombstone():
     # Print data
     for name, adv_class, death in zip(adventurer_name,
                                       adventurer_class, adventurer_death):
-        print(f"""{name:<20} {adv_class:<20} {death:<20}""")
+        print_with_delay(f"""{name:<20} {adv_class:<20} {death:<20}""")
     while True:
         escape = input('Enter x to return to main menu.')
         escape = escape.lower().strip()
@@ -74,7 +74,7 @@ def invalid_input():
     """
     Function for printing invalid choice
     """
-    print("Invalid choice, please try again\n\n")
+    print_with_delay("Invalid choice, please try again\n\n")
 
 
 # Prints that nothing was entered to the user.
@@ -84,7 +84,7 @@ def no_choice():
     """
     Function printing empty input
     """
-    print('You did not enter anything, please try again.\n')
+    print_with_delay('You did not enter anything, please try again.\n')
 
 
 # Function for delaying printing.
@@ -121,8 +121,8 @@ def game_over():
     Resets values and then starts game if yes
     Ends program if no.
     """
-    print('You have perished!\n\n'
-          'Would you like to play again? (y or n)\n')
+    print_with_delay('You have perished!\n\n'
+                     'Would you like to play again? (y or n)\n')
     play_again = input()
     play_again = play_again.lower().strip()
     while True:
@@ -182,7 +182,7 @@ def main():
         Validates input and then starts game.
         """
         clear_screen()
-        print("     ******* Goblin - Crypt ********")
+        print("     ******** Goblin - Crypt ********")
         print("******* Enter S to start the game ********")
         print("******* Enter T to show past adventures ********")
         while True:
@@ -194,8 +194,9 @@ def main():
                 show_tombstone()
                 continue
             else:
-                print("Invalid choice. Please enter 's' to start the game.\n\n"
-                      "Or enter 't' to view past adventurers.")
+                print_with_delay("Invalid choice. Please "
+                                 "enter 's' to start the game.\n\n"
+                                 "Or enter 't' to view past adventurers.")
                 continue
 
     start_game()
@@ -206,16 +207,16 @@ def main():
                             'name? (5 - 12 characters):\n')
         if (len(player_name) <= 4 or
            len(player_name) >= 13 or player_name == ''):
-            print('Invalid name length, please try again.\n')
+            print_with_delay('Invalid name length, please try again.\n')
         else:
             clear_screen()
             break
 
     # Class choice for player
     while True:
-        print("1. Warrior\n")
-        print("2. Mage\n")
-        print("3. Rogue\n")
+        print_with_delay("1. Warrior\n")
+        print_with_delay("2. Mage\n")
+        print_with_delay("3. Rogue\n")
         player_class_choice = input(f"Well then, {player_name} what kind "
                                     "of adventurer are you? (1, 2 or 3)\n\n")
         player_class_choice = player_class_choice.lower().strip()
@@ -245,11 +246,11 @@ def main():
     # Introduction to dungeon
     while True:
         if PLAYER_CLASS == 'warrior':
-            print("Ah, a mighty warrior.\n")
+            print_with_delay("Ah, a mighty warrior.\n")
         elif PLAYER_CLASS == 'mage':
-            print("Ah, a wise mage.\n")
+            print_with_delay("Ah, a wise mage.\n")
         elif PLAYER_CLASS == 'rogue':
-            print('Ah, a cunning rogue.\n')
+            print_with_delay('Ah, a cunning rogue.\n')
         else:
             break
         enter_dungeon = input("You step out of the dark woods "
@@ -265,11 +266,13 @@ def main():
                               "into the depths of the dungeon? (y or n)\n")
         if enter_dungeon.lower().strip() == "y":
             clear_screen()
-            print("You descend the dungeon stairs, to the depths below.\n")
+            print_with_delay("You descend the dungeon stairs, "
+                             "to the depths below.\n")
             break
         elif enter_dungeon.lower().strip() == "n":
             clear_screen()
-            print("You return home and live a very long and boring life.\n")
+            print_with_delay("You return home and live a very "
+                             "long and boring life.\n")
             exit()
         elif enter_dungeon == '':
             no_choice()
@@ -294,11 +297,11 @@ def main():
         mainChamber_choice = mainChamber_choice.lower().strip()
         if mainChamber_choice == "1":
             clear_screen()
-            print("You make your way down the first stairs. "
-                  "You feel\none of the steps sink "
-                  "lower than the others,\n"
-                  "as a poison dart is released "
-                  "from a nearby wall.\n")
+            print_with_delay("You make your way down the first stairs. "
+                             "You feel\none of the steps sink "
+                             "lower than the others,\n"
+                             "as a poison dart is released "
+                             "from a nearby wall.\n")
             player_title = player_name
             player_class_upload = PLAYER_CLASS
             death_reason = 'Poison dart to the neck.'
@@ -308,19 +311,20 @@ def main():
 
         elif mainChamber_choice == "2":
             clear_screen()
-            print("You cautously move down the second stairs.\n"
-                  "Your steps echo against the damp stone walls.\n"
-                  "Bending down through an archway, you are met\n"
-                  "with a large altar with 3 texts carved into it's stone.\n"
-                  "Each text is a riddle to be solved.\n")
+            print_with_delay("You cautously move down the second stairs.\n"
+                             "Your steps echo against the damp stone walls.\n"
+                             "Bending down through an archway, you are met\n"
+                             "with a large altar with 3 "
+                             "texts carved into it's stone.\n"
+                             "Each text is a riddle to be solved.\n")
             TABLET_ROOM = True
             break
         elif mainChamber_choice == "3":
             clear_screen()
-            print("The stairs lead down to a dusty room "
-                  "The air is cold and dank.\n"
-                  "You see a chest in the middle of the room,\n"
-                  "decomposed skeletons are littered around it.\n")
+            print_with_delay("The stairs lead down to a dusty room "
+                             "The air is cold and dank.\n"
+                             "You see a chest in the middle of the room,\n"
+                             "decomposed skeletons are littered around it.\n")
             CHEST_ROOM = True
             break
         elif mainChamber_choice == '':
@@ -333,12 +337,14 @@ def main():
     # Riddle room choices
 
     if TABLET_ROOM is True and CHEST_ROOM is False:
-        print('3 small tablets are laid out in front of you.')
-        print('Each has an engraving carved into it.')
-        print('You see a river, a candle and a coffin.')
-        print('Below each riddle is a plate for each tablet.')
-        print('Solve each riddle and place the tablets correctly.\n')
-        print("Riddle 1: I have a bed but don't sleep, a bank but no money.\n")
+        print_with_delay('3 small tablets are laid out in front of you.')
+        print_with_delay('Each has an engraving carved into it.')
+        print_with_delay('You see a river, a candle and a coffin.')
+        print_with_delay('Below each riddle is a plate for each tablet.')
+        print_with_delay('Solve each riddle and '
+                         'place the tablets correctly.\n')
+        print_with_delay("Riddle 1: I have a bed but "
+                         "don't sleep, a bank but no money.\n")
 
     if TABLET_ROOM is True and CHEST_ROOM is False:
         while True:
@@ -353,9 +359,9 @@ def main():
         if riddleOne == 'river':
             RIDDLE_ONE = True
         elif riddleOne == 'coffin' or riddleOne == 'candle':
-            print('You hear a loud crunch from above your head')
-            print('The ceiling begins to move towards you')
-            print('The light begins to fade...\n')
+            print_with_delay('You hear a loud crunch from above your head')
+            print_with_delay('The ceiling begins to move towards you')
+            print_with_delay('The light begins to fade...\n')
             player_title = player_name
             player_class_upload = PLAYER_CLASS
             death_reason = 'Crushed like a pancake.'
@@ -365,8 +371,9 @@ def main():
     RIDDLE_ONE = True
     if RIDDLE_ONE is True and CHEST_ROOM is False:
         clear_screen()
-        print('The tablet weighs down the plate with a crisp click\n')
-        print('You look to the next riddle:\n')
+        print_with_delay('The tablet weighs down the '
+                         'plate with a crisp click\n')
+        print_with_delay('You look to the next riddle:\n')
         while True:
             riddleTwo = input('I look taller when I am young.\n'
                               'As I grow old I become shorter.\n'
@@ -380,9 +387,9 @@ def main():
         if riddleTwo == 'candle':
             RIDDLE_TWO = True
         elif riddleTwo == 'coffin' or 'river':
-            print('You hear a loud crunch from above your head')
-            print('The ceiling begins to move towards you')
-            print('The light begins to fade...')
+            print_with_delay('You hear a loud crunch from above your head')
+            print_with_delay('The ceiling begins to move towards you')
+            print_with_delay('The light begins to fade...')
             player_title = player_name
             player_class_upload = PLAYER_CLASS
             death_reason = 'Crushed like a pancake.'
@@ -392,8 +399,9 @@ def main():
     RIDDLE_TWO = True
     if RIDDLE_TWO is True and CHEST_ROOM is False:
         clear_screen()
-        print('The tablet weighs down the plate with a crisp click\n')
-        print('You look to the next riddle:\n')
+        print_with_delay('The tablet weighs down the '
+                         'plate with a crisp click\n')
+        print_with_delay('You look to the next riddle:\n')
         while True:
             riddleThree = input('Who makes it, has no need of it.\n'
                                 'Who buys it, has no use for it.\n'
@@ -405,12 +413,13 @@ def main():
                 invalid_input()
                 continue
         if riddleThree == 'coffin':
-            print('The tablet weighs down the plate with a crisp click\n')
+            print_with_delay('The tablet weighs down the '
+                             'plate with a crisp click\n')
             RIDDLE_THREE = True
         elif riddleThree == 'candle' or 'river':
-            print('You hear a loud crunch from above your head')
-            print('The ceiling begins to move towards you')
-            print('The light begins to fade...')
+            print_with_delay('You hear a loud crunch from above your head')
+            print_with_delay('The ceiling begins to move towards you')
+            print_with_delay('The light begins to fade...')
             player_title = player_name
             player_class_upload = PLAYER_CLASS
             death_reason = 'Crushed like a pancake.'
@@ -423,8 +432,9 @@ def main():
             clear_screen()
             TABLET_ROOM = False
             CRYSTAL_ROOM = True
-            print('A large stone door reveals a tunnel with a red glow\n')
-            print('You proceed onwards.\n')
+            print_with_delay('A large stone door reveals '
+                             'a tunnel with a red glow\n')
+            print_with_delay('You proceed onwards.\n')
             break
 
 # Chest room choices
@@ -435,23 +445,24 @@ def main():
             chestChoice = chestChoice.lower().strip()
             if chestChoice == 'y':
                 clear_screen()
-                print('You are greeted with a gleaming '
-                      'sword wrapped in cloth.\n')
-                print('You place it onto your belt.\n')
+                print_with_delay('You are greeted with a gleaming '
+                                 'sword wrapped in cloth.\n')
+                print_with_delay('You place it onto your belt.\n')
                 PLAYER_SWORD = 'held'
                 GOBLIN_ROOM = True
                 break
             elif chestChoice == 'n':
                 clear_screen()
-                print('You think it is probably best to leave it be.\n')
-                print('You continue onwards into the dungeon.\n')
+                print_with_delay('You think it is probably '
+                                 'best to leave it be.\n')
+                print_with_delay('You continue onwards into the dungeon.\n')
                 GOBLIN_ROOM = True
                 break
             elif chestChoice == '':
                 no_choice()
                 continue
             else:
-                print('Invalid input, please try again.')
+                print_with_delay('Invalid input, please try again.')
                 continue
 
     # Crystal room choices
@@ -465,23 +476,29 @@ def main():
             crystalChoice = crystalChoice.lower().strip()
             if crystalChoice == 'y' and PLAYER_CLASS == 'mage':
                 clear_screen()
-                print('You clasp your hand around the crystal.\n'
-                      'A powerful surge rockets through your body!\n'
-                      'The knowledge and history of the goblins '
-                      'begins rushing\nthrough your mind.\n'
-                      'Their culture and language is clear to you now.\n')
+                print_with_delay('You clasp your hand around the crystal.\n'
+                                 'A powerful surge rockets '
+                                 'through your body!\n'
+                                 'The knowledge and history of the goblins '
+                                 'begins rushing\nthrough '
+                                 'your mind.\n'
+                                 'Their culture and language is '
+                                 'clear to you now.\n')
                 GOBLIN_LANGUAGE = True
                 GOBLIN_ROOM = True
                 break
             elif (crystalChoice == 'y' and
                   (PLAYER_CLASS == 'warrior' or PLAYER_CLASS == 'rogue')):
                 clear_screen()
-                print('You clasp your hand around the crystal.\n'
-                      'A powerful surge rockets through your body!\n'
-                      'Thousands of voices begin to pierce your mind,\n'
-                      'unintelligable images and symbols '
-                      'burn into your eyes.\n'
-                      'Your vision fails you and you fall to the floor.\n')
+                print_with_delay('You clasp your hand around the crystal.\n'
+                                 'A powerful surge rockets '
+                                 'through your body!\n'
+                                 'Thousands of voices '
+                                 'begin to pierce your mind,\n'
+                                 'unintelligable images and symbols '
+                                 'burn into your eyes.\n'
+                                 'Your vision fails you and '
+                                 'you fall to the floor.\n')
                 player_title = player_name
                 player_class_upload = PLAYER_CLASS
                 death_reason = 'Mind filled with cosmic horrors.'
@@ -489,8 +506,9 @@ def main():
                 game_over()
             elif crystalChoice == 'n':
                 clear_screen()
-                print('Mother always said not to touch glowing crystals,\n'
-                      'Best to move on.\n')
+                print_with_delay('Mother always said not to '
+                                 'touch glowing crystals,\n'
+                                 'Best to move on.\n')
                 GOBLIN_ROOM = True
                 break
             elif crystalChoice == '':
@@ -503,19 +521,21 @@ def main():
     # Goblin room
     if GOBLIN_ROOM is True:
         while True:
-            print('As you approach the next room, you hear\n'
-                  'strange voices ahead.\n\n'
-                  'Pearing around the small doorway to the room,\n'
-                  'you see a group of goblins.\nThey are gathered '
-                  'around a pile of gold.\n\n'
-                  'The room is covered in various trinkets and objects.\n'
-                  'These goblins clearly have a hoarding issue...\n\n'
-                  'You remain hidden in the doorway.')
-            print('What shall you do? (1, 2, 3 or 4)\n\n'
-                  '1. Fight them?\n'
-                  '2. Sneak by them?\n'
-                  '3. Distract them?\n'
-                  '4. Speak to them?\n')
+            print_with_delay('As you approach the next room, you hear\n'
+                             'strange voices ahead.\n\n'
+                             'Pearing around the small doorway to the room,\n'
+                             'you see a group of goblins.\nThey are gathered '
+                             'around a pile of gold.\n\n'
+                             'The room is covered in various '
+                             'trinkets and objects.\n'
+                             'These goblins clearly have a '
+                             'hoarding issue...\n\n'
+                             'You remain hidden in the doorway.')
+            print_with_delay('What shall you do? (1, 2, 3 or 4)\n\n'
+                             '1. Fight them?\n'
+                             '2. Sneak by them?\n'
+                             '3. Distract them?\n'
+                             '4. Speak to them?\n')
             goblinChoice = input()
             goblinChoice = goblinChoice.lower().strip()
             if (goblinChoice == '1' and
