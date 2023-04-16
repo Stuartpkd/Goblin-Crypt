@@ -225,5 +225,35 @@ Once you have done this, click add.
 
 ![Creating a new Heroku app screen.](assets/images/deployed.png)
 
+## Credits
 
+These are the sources that helped me make my way through this project. I used many pages for troubleshooting and wisdom when it came to creating my game.
+
+### Researching and inspiration:
+
+* [Trinket](https://trinket.io/python/e5a03e7cbc)
+
+* [Ask Python](https://www.askpython.com/python/text-based-adventure-game)
+
+* [PythonCode](https://www.thepythoncode.com/article/make-a-text-adventure-game-with-python)
+
+* [Ascii Art](https://www.asciiart.eu/)
+
+### Code sources and tutorials:
+
+* [Kevin Powell Tutorials](https://www.youtube.com/channel/UCJZv4d5rbIKd4QHMPkcABCw)
+
+* [Bro Code](https://www.youtube.com/channel/UC4SVo0Ue36XCfOyb5Lh1viQ)
+
+* [Programming with Mosh](https://www.youtube.com/@programmingwithmosh)
+
+* [Clear Code](https://www.youtube.com/@ClearCode)
+
+### Content 
+
+All of the content was written by me or was taken from of my favourite fantasy movies.
+
+## Acknowledgements
+
+I would like to pass on a massive thank you to my mentor Harry Dhillon. He provided excellent adivce and was very supportive throughout the whole process. My good friend Daniel Roberts, he is a seasoned front end developer and also provided amazing tips. As well to all my family and friends who had a look at the game at my request. Lastly a huge thank you to Ed at the Code Institute mentors. He always seemed to end up picking up my tickets. He was an enormous help throughout all of this. 
 
