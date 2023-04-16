@@ -147,3 +147,32 @@ The code institute lessons were used many times to troubleshoot.
 
 11. [Slack](https://slack.com/intl/en-ie/)
 Code institute slack channels were very important during this project.
+
+## Testing
+
+1. As a first-time user: I want to view past players adventures.
+
+I wanted to show Pythons usefullness when it came to formating and uploading data. I thought having a 'Tombstone' where others had failed would be a fun and strong way of showing this.
+
+2. As a first-time user: I want to play an adventure game that allows me to make my own choices.
+
+I personally always enjoyed video games that gave you a lot of control when it came to the story. So I wanted to give the user as many options as possible, all while making sure not to over-scope my project.
+
+3. As a first-time user: I want to be able to choose my own class, which effects gameplay.
+
+A way I came up with to include more complicated logic to the game was to add classes to the game. Certain outcomes and options can only happen if you have the correct class in this game.
+
+4. As a recurring or first-time user: I want to be able to play the game over and over to see all outcomes.
+
+This game can be quite punishing, so I included an option to let the player start a new game when they die. With this they can choose new classes and options to learn the best approaches in the game. Also perhaps get to areas they were not able to get to in other play throughs.
+
+5. As a recurring or first-time user: I want to be able to have a custom name for my adventurer.
+
+Being able to name a character is always important. It keeps the player invested in their character, also makes for a funny scenario when the name is etched into the tombstone for other players to see.
+
+## Python Validation
+
+I validated my Python code frequently throughout the development process. I was quite lucky as once I had created a template for each scenario in the game, it was easier to avoid bad code. The only issue that came up sometimes was trailing whitespace.
+
+
+
