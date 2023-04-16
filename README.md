@@ -221,6 +221,12 @@ Bug 1.
 
 ![An image showing my testing check list.](assets/images/bug1.png)
 
+I found this bug while testing on Heroku. It seems that if the Google spreadsheet has more rows than the viewport terminal, it keeps printing the past adventures. I solved this by making sure the spreadsheet wasn't cluttered with names I had used while testing.
+
+Bug 2. 
+
+One thing I noticed is that if you try scroll while the terminal is using delayed printing. It will break the printing and just block out the text one sentance at a time. So be sure to wait until everything is printed until you try to scroll.
+
 ## Deployment
 
 How to set up a Google Api:
