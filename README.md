@@ -112,3 +112,38 @@ To include more complicated logic, I added a class choice at the start of the ga
 ### Player name
 
 Lastly the player is able to name themselves, so that they feel more invested in their character.
+
+# Technologies
+
+1. [Python](https://www.python.org/)
+Used to create the entire game.
+
+2. [Python text adventure tutorial](https://www.youtube.com/watch?v=DEcFCn2ubSg&t=619s)
+I used this tutorial to see how I would go about making my own game.
+
+3. [Delayed text Python](https://stackoverflow.com/questions/4099422/printing-slowly-simulate-typing)
+I used this code to print the text slower for the game.
+
+4. [GitHub](https://github.com/)
+This was used to store all of my code safely.
+
+5. [Heroku](https://www.heroku.com/home?)
+Heroku was the hosting site for my game.
+
+6. [Git](https://git-scm.com/)
+This allowed me to version control my code. As well as push and commit pieces to Github when I needed.
+
+7. [Gitpod](https://www.gitpod.io/)
+I used gitpod as my development environment.
+
+8. [Illustrator](https://en.wikipedia.org/wiki/Adobe_Illustrator)
+I used illustrator to create the logic maps for my game.
+
+9. [Code Institute Python Linter](https://pep8ci.herokuapp.com/)
+The Code Institute Python Linter allowed me to check my code for any errors or issues.
+
+10. [Code Institute](https://codeinstitute.net/ie/)
+The code institute lessons were used many times to troubleshoot.
+
+11. [Slack](https://slack.com/intl/en-ie/)
+Code institute slack channels were very important during this project.
