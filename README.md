@@ -1,31 +1,15 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Goblin Crypt
 
-Welcome Stuartpkd,
+[Please visit the game here.](https://goblin-crypt.herokuapp.com/)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+![An image showing the game on different devices.](assets/docs/mock.png)
 
-## Reminders
+I created this text adventure game to demonstrate my understanding of Python. I have played a lot of fantasy based games like Dungeons and Dragons. Text adventure games were a bit before my time, so creating one sounded like a lot of fun and a good way to learn Python. It is certainly not a typical use for Python, but I think it still contains the same techniques found in a more typical use of Python.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+Goblin Crypt is a text adventure game played through a hosting app called Heroku. It is made up of these sections:
 
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+1. Start screen / title screen.
+2. Past adventures screen / score screen.
+3. Main game sections.
+4. Death screen / play again screen.
+5. Winning screen.
