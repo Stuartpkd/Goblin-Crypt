@@ -208,39 +208,54 @@ Bug 1.
 I deployed my game to Heroku using these steps:
 
 1. Type 'pip3 freeze > requirements.txt' into your terminal. This makes sure Heroku has up to date dependencies before you deploy.
-1. Sign into Heroku.
-2. Select create a new app, name your app and select your region. (You will have to have your payment option set up to do this)
+
+2. Sign into Heroku.
+
+3. Select create a new app, name your app and select your region. (You will have to have your payment option set up to do this)
 
 ![Creating a new Heroku app screen.](assets/images/newApp.png)
 
-3. Navigate to the settings tab, 
-4. Navigate your way to the pages section of settings. Scroll to 'Config Vars' and then select reveal configs.
+4. Navigate to the settings tab.
 
-![Creating a new Heroku app screen.](assets/images/revealConfig.png)
+5. Navigate your way to the pages section of settings. Scroll to 'Config Vars' and then select reveal configs.
 
-5. In the key field enter 'CREDS' (Case sensitive) Then in the value field, paste the contents of your creds.json file.
+![An image showing the config settings in Heroku.](assets/images/revealConfig.png)
 
-![Creating a new Heroku app screen.](assets/images/credsJson.png)
+6. In the key field enter 'CREDS' (Case sensitive) Then in the value field, paste the contents of your creds.json file.
 
-![Creating a new Heroku app screen.](assets/images/creds.png)
+![An image showing the creds settimg in Heroku.](assets/images/credsJson.png)
 
-![Creating a new Heroku app screen.](assets/images/paste.png)
+![An image showing a creds.json file.](assets/images/creds.png)
+
+![An image showing information pasted into the creds and value sections on Heroku.](assets/images/paste.png)
 
 Once you have done this, click add.
 
-6. Next scroll to buildpacks, add Python and nodejs. It is important that Python is placed on top of nodejs.
+7. Next scroll to buildpacks, add Python and nodejs. It is important that Python is placed on top of nodejs.
 
-![Creating a new Heroku app screen.](assets/images/buildpack.png)
+![An image showing the buildpacks on Heroku.](assets/images/buildpack.png)
 
-7. Navigate to the deploy section and select Github. Confirm that you want to connect your Github, then search for your repository code and click connect.
+8. Navigate to the deploy section and select Github. Confirm that you want to connect your Github, then search for your repository code and click connect.
 
-![Creating a new Heroku app screen.](assets/images/deployment.png)
+![An image showing how to deploy an app on Heroku.](assets/images/deployment.png)
 
-8. Scroll to automatic deploys and select enable automatic deploys. This means Heroku will keep up to date with any changes you push on Github. Heroku will then begin building your app.
+9. Scroll to automatic deploys and select enable automatic deploys. This means Heroku will keep up to date with any changes you push on Github. Heroku will then begin building your app.
 
-9. Once finished navigate to the top of the screen and click on app to view your working app.
+10. Once finished navigate to the top of the screen and click on app to view your working app.
 
-![Creating a new Heroku app screen.](assets/images/deployed.png)
+![An image showing a deployed Heroku app.](assets/images/deployed.png)
+
+How to fork a project on Github:
+
+1. Go to the project repository section of your Github account.
+
+![An image showing a Github repository.](assets/images/fork1.png)
+
+2. Select the fork option on the top of the page.
+
+![An image showing the fork button, in the Github repository.](assets/images/fork2.png)
+
+3. This will create a copy of the project so you can make changes without effecting the original.
 
 ## Credits
 
