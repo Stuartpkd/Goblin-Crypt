@@ -121,6 +121,7 @@ def game_over():
     Resets values and then starts game if yes
     Ends program if no.
     """
+    clear_screen()
     print_with_delay('You have perished!\n\n'
                      'Would you like to play again? (y or n)\n')
     play_again = input()
@@ -873,6 +874,7 @@ def main():
                 game_over()
                 break
             else:
+                clear_screen()
                 print_with_delay('Nothing seems to happen...\n\n')
                 wrong_answer_count += 1
                 continue

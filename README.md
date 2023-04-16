@@ -65,6 +65,20 @@ To help the user achieve their desired experience, these features were included:
 * A series of choices allowing the user to rely on probability.
 * The game can be quite difficult, which promotes the player to keep playing to learn the best tactics.
 
+## Approach
+
+### Code structure:
+
+My code structure is definitely not a typical structure that you would see in an average Python project. However I think it ended up suiting my needs for the project itself. The main body of code is broken up into while true statements. These are triggered by certain variables being set to true, after the player has made certain choices. I then thought putting all of this into one function that could be called. This would make resetting the game a lot easier. In the future if I were to make something like this again, I would rely heavier on functions to be called instead of variables.
+
+### Clear screens and Print delays:
+
+I make use of both print delays and screen clearing throughout the game. Some parts of the game were not able to have clear screen as it would remove needed information on the screen. I have done my best to place them in the best places to make sure the terminal does not get too cluttered. I had looked at custom functions to clear certain lines of the screen, however this became too complicated as I would need a unique one for each scenario. Lastly not all print statements print with a delay as it was not possible to include them everywhere that text is printed in the game.
+
+### Naming conventions:
+
+I had stuck to how gitpod was telling me how to name variables. However at some point it wanted me to change the way I had named my variables. I was very late into development at this stage and decided to leave it the way it is. These will show as warnings in gitpod however in the Code Institute Python validation too, it presents no errors at all.
+
 ## Structure 
 
 This is purely a text adventure game viewed through a custom terminal. It contains a start screen to allow the player to either start the game or view the 'Tombstone' section. This contains all of the past players failures. The main game is made up of scenarios and sections. These can be better visuallised by the logic map which will be included below. The game also contains a 'Gameover' section where they can choose to quit which will shut down the game, or play again and allow them to start a new game.
@@ -147,6 +161,9 @@ The code institute lessons were used many times to troubleshoot.
 
 11. [Slack](https://slack.com/intl/en-ie/)
 Code institute slack channels were very important during this project.
+
+12. [Ascii](https://www.asciiart.eu/)
+A site used for sharing Ascii art.
 
 ## Testing
 
