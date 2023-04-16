@@ -1,16 +1,12 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-
-# Goblin Crypt
-
-# Code for google api (For player score sheet)
+# Import dependencies:
 
 import os
 import gspread
 import time
 import random
 from google.oauth2.service_account import Credentials
+
+# Code for google api (For player score sheet)
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -26,6 +22,9 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('goblin-crypt')
 
 
+# Upload data to spread sheet.
+
+
 def upload_data(player_title, player_class_upload, death_reason):
     """
     Defines where to put player data in rows.
@@ -35,6 +34,9 @@ def upload_data(player_title, player_class_upload, death_reason):
     row = [player_title, player_class_upload, death_reason]
     player_death = SHEET.worksheet('credits')
     player_death.append_row(row)
+
+
+# Show past adventures.
 
 
 def show_tombstone():
@@ -65,6 +67,8 @@ def show_tombstone():
             invalid_input()
             continue
 
+# Prints invalid input to user.
+
 
 def invalid_input():
     """
@@ -73,11 +77,17 @@ def invalid_input():
     print("Invalid choice, please try again\n\n")
 
 
+# Prints that nothing was entered to the user.
+
+
 def no_choice():
     """
     Function printing empty input
     """
     print('You did not enter anything, please try again.\n')
+
+
+# Function for delaying printing.
 
 
 def print_with_delay(text, delay=0.05):
@@ -92,11 +102,17 @@ def print_with_delay(text, delay=0.05):
     print()
 
 
+# Function that clears the screen.
+
+
 def clear_screen():
     """
     Clears the terminal screen
     """
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+# Function for when the player dies.
 
 
 def game_over():
@@ -105,7 +121,7 @@ def game_over():
     Resets values and then starts game if yes
     Ends program if no.
     """
-    print('GAMEOVER'
+    print('You have perished!\n\n'
           'Would you like to play again? (y or n)\n')
     play_again = input()
     play_again = play_again.lower().strip()
@@ -119,6 +135,9 @@ def game_over():
         else:
             invalid_input()
             continue
+
+
+# Main function containting all game sections.
 
 
 def main():
@@ -243,9 +262,7 @@ def main():
                               "a dungeon, the stone walls slick\n"
                               "with moisture and the scent of decay.\n\n"
                               "Will you be brave enough to venture "
-                              "into the depths of the dungeon?\n"
-                              "Or will you turn back "
-                              "and seek refuge (y or n)\n")
+                              "into the depths of the dungeon? (y or n)\n")
         if enter_dungeon.lower().strip() == "y":
             clear_screen()
             print("You descend the dungeon stairs, to the depths below.\n")
@@ -656,6 +673,8 @@ def main():
                 invalid_input()
                 continue
 
+    # If player searches the goblins.
+
     if TAKE_KEY is True:
         while True:
             print_with_delay('Do you take the key? (y or n)')
@@ -679,6 +698,8 @@ def main():
             else:
                 invalid_input()
                 continue
+
+    # Locked door section.
 
     if LOCKED_DOOR is True:
         while True:
@@ -706,6 +727,8 @@ def main():
                 invalid_input()
                 continue
 
+    # If player tries to open the door.
+
     if OPEN_LOCKED_DOOR is True:
         while True:
             print_with_delay('Probably for good reason...\n')
@@ -724,6 +747,8 @@ def main():
                                  'get out of this dungeon.\n')
                 BOSS_ROOM = True
                 break
+
+    # Goblin crypt section.
 
     if GOBLIN_CRYPT is True:
         print_with_delay('You descend down the damp and musty '
@@ -786,6 +811,8 @@ def main():
                 game_over()
                 break
 
+    # Crown riddle section.
+
     if CROWN_RIDDLE is True:
         wrong_answer_count = 0
         while True:
@@ -829,6 +856,8 @@ def main():
                 print_with_delay('Nothing seems to happen...\n\n')
                 wrong_answer_count += 1
                 continue
+
+    # Boss room section.
 
     if BOSS_ROOM is True:
         PLAYER_HEALTH = 100
@@ -917,12 +946,7 @@ def main():
                 invalid_input()
                 continue
 
-            # end first if
-            print("Out of the first if statement")
-
         if PLAYER_HEALTH == 0:
-            # is player dead
-            print("Player dead")
             clear_screen()
             print_with_delay('You have been defeated by the Goblin King!\n')
             player_title = player_name
@@ -932,8 +956,6 @@ def main():
             game_over()
 
         elif BOSS_HEALTH == 0:
-            # is boss dead
-            print("boss is dead")
             clear_screen()
             print_with_delay('You have slain the Goblin King!\n'
                              'After taking his crown and riches,\n'
@@ -945,8 +967,7 @@ def main():
                              'You are free!\n')
             OUTRO = True
 
-            # out of second if
-            print("out of second if statement")
+    # Outro section.
 
     if OUTRO is True:
         while True:
