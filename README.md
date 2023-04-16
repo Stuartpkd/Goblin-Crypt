@@ -184,19 +184,46 @@ I validated my Python code frequently throughout the development process. I was 
 
 Bug 1.
 
-![An image showing my testing check list.](assets/images/bug1.png.png)
+![An image showing my testing check list.](assets/images/bug1.png)
 
 ## Deployment
 
 I deployed my game to Heroku using these steps:
 
+1. Type 'pip3 freeze > requirements.txt' into your terminal. This makes sure Heroku has up to date dependencies before you deploy.
 1. Sign into Heroku.
-2. Select create a new app (You will have to have your payment option set up to do this).
-3. At the top of your project select settings.
-4. Navigate your way to the pages section of settings.
-5. Select source and then select "Main" (It can also show up as master for some people)
-6. Click save.
-7. The page will generate a url, this will be where your page is hosted. (Be aware this may take a few minutes.)
+2. Select create a new app, name your app and select your region. (You will have to have your payment option set up to do this)
+
+![Creating a new Heroku app screen.](assets/images/newApp.png)
+
+3. Navigate to the settings tab, 
+4. Navigate your way to the pages section of settings. Scroll to 'Config Vars' and then select reveal configs.
+
+![Creating a new Heroku app screen.](assets/images/revealConfig.png)
+
+5. In the key field enter 'CREDS' (Case sensitive) Then in the value field, paste the contents of your creds.json file.
+
+![Creating a new Heroku app screen.](assets/images/credsJson.png)
+
+![Creating a new Heroku app screen.](assets/images/creds.png)
+
+![Creating a new Heroku app screen.](assets/images/paste.png)
+
+Once you have done this, click add.
+
+6. Next scroll to buildpacks, add Python and nodejs. It is important that Python is placed on top of nodejs.
+
+![Creating a new Heroku app screen.](assets/images/buildpack.png)
+
+7. Navigate to the deploy section and select Github. Confirm that you want to connect your Github, then search for your repository code and click connect.
+
+![Creating a new Heroku app screen.](assets/images/deployment.png)
+
+8. Scroll to automatic deploys and select enable automatic deploys. This means Heroku will keep up to date with any changes you push on Github. Heroku will then begin building your app.
+
+9. Once finished navigate to the top of the screen and click on app to view your working app.
+
+![Creating a new Heroku app screen.](assets/images/deployed.png)
 
 
 
