@@ -92,3 +92,23 @@ This screen lets the user initiate the game when they want. Also it allows them 
 ### Tombstone screen
 
 This screen holds all of the past adventurers that did not make it. When a player dies, the game takes their name, class and death reason and uploads it to a spreadsheet. The information is then pulled and displayed for the user.
+
+### Main game sections
+
+The game is made up of sections where the player is given choices to forge their own path. Most sections will contain puzzles or scenarios where the player will need to think about their best approach.
+
+### Death screen
+
+It is quite easy to die in this game. So a death screen was needed, it allows the player to start a new game. Or they can quit the game if they are feeling too frustrated. 
+
+### Outro screen
+
+This screen is shown when the player manages to fight their way through the dungeon.
+
+### Class choices
+
+To include more complicated logic, I added a class choice at the start of the game. Certain options in the game can only be successfully executed by certain classes. For example, rogues are sneaky so they should go with any sneaking options. I was inpsired by the fallout game series to include a feature like this. It also promotes the player to play again to try different classes and options.
+
+### Player name
+
+Lastly the player is able to name themselves, so that they feel more invested in their character.
