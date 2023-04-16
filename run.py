@@ -316,7 +316,7 @@ def main():
                              "Your steps echo against the damp stone walls.\n"
                              "Bending down through an archway, you are met\n"
                              "with a large altar with 3 "
-                             "texts carved into it's stone.\n"
+                             "texts carved into its stone.\n"
                              "Each text is a riddle to be solved.\n")
             TABLET_ROOM = True
             break
@@ -376,7 +376,7 @@ def main():
                          'plate with a crisp click.\n')
         print_with_delay('You look to the next riddle:\n')
         while True:
-            riddleTwo = input('I look taller when I am young.'
+            riddleTwo = input('I look taller when I am young. '
                               'As I grow old I become shorter.\n'
                               '(coffin, candle or river)\n')
             riddleTwo = riddleTwo.lower().strip()
@@ -434,7 +434,7 @@ def main():
             TABLET_ROOM = False
             CRYSTAL_ROOM = True
             print_with_delay('A large stone door reveals '
-                             'a tunnel with a red glow\n')
+                             'a tunnel with a red glow.\n')
             print_with_delay('You proceed onwards.\n')
             break
 
@@ -641,7 +641,7 @@ def main():
                                  'The goblins are ecstatic with their new '
                                  'found financial powers\n'
                                  'and let you go onwards '
-                                 'through the dungeon. '
+                                 'through the dungeon.\n'
                                  'They even give you some '
                                  'gold for the tip.\n')
                 LOCKED_DOOR = True
@@ -725,7 +725,7 @@ def main():
     if LOCKED_DOOR is True:
         while True:
             print_with_delay('As you make your way '
-                             'along a eerily quiet hallway,\n'
+                             'along an eerily quiet hallway,\n'
                              'you spot a door covered in goblin skulls.\n\n'
                              'Do you try open it? (y or n)\n')
             try_locked_door = input()
@@ -909,7 +909,7 @@ def main():
                 # Player loses
                 clear_screen()
                 PLAYER_HEALTH -= 10
-                print('You took a hit!\n\n')
+                print_with_delay('You took a hit!\n\n')
                 print('Player Health:', PLAYER_HEALTH)
                 print('Goblin King Health:', BOSS_HEALTH)
                 continue
@@ -917,7 +917,7 @@ def main():
                 # Player wins
                 clear_screen()
                 BOSS_HEALTH -= 10
-                print('You landed a hit!\n\n')
+                print_with_delay('You landed a hit!\n\n')
                 print('Player Health:', PLAYER_HEALTH)
                 print('Goblin King Health:', BOSS_HEALTH)
                 continue
@@ -926,7 +926,7 @@ def main():
                 # Player loses
                 clear_screen()
                 PLAYER_HEALTH -= 10
-                print('You took a hit!\n\n')
+                print_with_delay('You took a hit!\n\n')
                 print('Player Health:', PLAYER_HEALTH)
                 print('Goblin King Health:', BOSS_HEALTH)
                 continue
@@ -934,7 +934,7 @@ def main():
                 # Player wins
                 BOSS_HEALTH -= 10
                 clear_screen()
-                print('You landed a hit!\n\n')
+                print_with_delay('You landed a hit!\n\n')
                 print('Player Health:', PLAYER_HEALTH)
                 print('Goblin King Health:', BOSS_HEALTH)
                 continue
@@ -943,7 +943,7 @@ def main():
                 # Player loses
                 PLAYER_HEALTH -= 10
                 clear_screen()
-                print('You took a hit!\n\n')
+                print_with_delay('You took a hit!\n\n')
                 print('Player Health:', PLAYER_HEALTH)
                 print('Goblin King Health:', BOSS_HEALTH)
                 continue
@@ -951,14 +951,14 @@ def main():
                 # Player wins
                 BOSS_HEALTH -= 10
                 clear_screen()
-                print('You landed a hit!\n\n')
+                print_with_delay('You landed a hit!\n\n')
                 print('Player Health:', PLAYER_HEALTH)
                 print('Goblin King Health:', BOSS_HEALTH)
                 continue
             elif player_fight_choice == boss_choice:
                 # draw
                 clear_screen()
-                print('Your attacks bounce off eachother.\n\n')
+                print_with_delay('Your attacks bounce off eachother.\n\n')
                 print('Player Health:', PLAYER_HEALTH)
                 print('Goblin King Health:', BOSS_HEALTH)
             elif player_fight_choice == '':

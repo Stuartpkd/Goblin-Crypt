@@ -69,7 +69,7 @@ To help the user achieve their desired experience, these features were included:
 
 ### Code structure:
 
-My code structure is definitely not a typical structure that you would see in an average Python project. However I think it ended up suiting my needs for the project itself. The main body of code is broken up into while true statements. These are triggered by certain variables being set to true, after the player has made certain choices. I then thought putting all of this into one function that could be called. This would make resetting the game a lot easier. In the future if I were to make something like this again, I would rely heavier on functions to be called instead of variables.
+My code structure is definitely not a typical structure that you would see in an average Python project. However I think it ended up suiting my needs for the project itself. The main body of code is broken up into while true statements. These are triggered by certain variables being set to true, after the player has made certain choices. I then thought of putting all of this into one function that could be called. This would make resetting the game a lot easier. In the future if I were to make something like this again, I would rely more on functions to be called instead of variables.
 
 ### Clear screens and Print delays:
 
@@ -77,11 +77,11 @@ I make use of both print delays and screen clearing throughout the game. Some pa
 
 ### Naming conventions:
 
-I had stuck to how gitpod was telling me how to name variables. However at some point it wanted me to change the way I had named my variables. I was very late into development at this stage and decided to leave it the way it is. These will show as warnings in gitpod however in the Code Institute Python validation too, it presents no errors at all.
+I had stuck to how gitpod was telling me how to name variables. However at some point it wanted me to change the way I had named my variables. I was very late into development at this stage and decided to leave it the way it is. These will show as warnings in gitpod however in the Code Institute Python validation, it presents no errors at all.
 
 ## Structure 
 
-This is purely a text adventure game viewed through a custom terminal. It contains a start screen to allow the player to either start the game or view the 'Tombstone' section. This contains all of the past players failures. The main game is made up of scenarios and sections. These can be better visuallised by the logic map which will be included below. The game also contains a 'Gameover' section where they can choose to quit which will shut down the game, or play again and allow them to start a new game.
+This is purely a text adventure game viewed through a custom terminal. It contains a start screen to allow the player to either start the game or view the 'Tombstone' section. This contains all of the past players failures. The main game is made up of scenarios and sections. These can be better visualised by the logic map which will be included below. The game also contains a 'Gameover' section where they can choose to quit which will shut down the game, or play again and allow them to start a new game.
 
 ### Skeleton 
 
@@ -93,11 +93,11 @@ Please be aware, the logic map may not contain every option in the final game. A
 
 ## Surface
 
-Since it is just a text adventure game, there is not much to it's surface. If I had more time I would have liked to have included more ascii art and some basic uses of colour. However since there was a vast ocean of options to code, I made the logic of the game my main focus. I think the games setting and theme makes up for its lack of style.
+Since it is just a text adventure game, there is not much to its surface. If I had more time I would have liked to have included more ascii art and some basic uses of colour. However since there was a vast ocean of options to code, I made the logic of the game my main focus. I think the games setting and theme makes up for its lack of style.
 
 ## Features
 
-When creating this game, I wanted to make sure that it included real life uses of Python code. Where I could show how it would be used in a more typical situation for Python. 
+When creating this game, I wanted to make sure that it included real life uses of Python code, where I could show how it would be used in a more typical situation for Python. 
 
 ### Start screen
 
@@ -139,11 +139,11 @@ This import allowed me to hook up my game to my Google spreadsheet. This way I w
 
 ## Import Random
 
-This import was used to create random number generation when the computer needed to make a choice of it's own.
+This import was used to create random number generation when the computer needed to make a choice of its own.
 
 ## Google Auth
 
-Lastly this was put in place to give my code access to the Google sheets Api.
+Lastly, this was put in place to give my code access to the Google sheets Api.
 
 # Technologies
 
@@ -217,13 +217,13 @@ Being able to name a character is always important. It keeps the player invested
 
 ### Testing check list
 
-As there is a lot of outcomes and options in my game. I needed a way to make sure each section was being tested properly and being held to good standards. So I created a simple checklist to go through each section.
+As there is a lot of outcomes and options in my game, I needed a way to make sure each section was being tested properly and being held to good standards. So I created a simple checklist to go through each section.
 
 ![An image showing my testing check list.](assets/images/checkList.png)
 
 ## Python Validation
 
-I validated my Python code frequently throughout the development process. I was quite lucky as once I had created a template for each scenario in the game, it was easier to avoid bad code. The only issue that came up sometimes was trailing whitespace.
+I validated my Python code frequently throughout the development process. I had created a template for each scenario in the game, so it was easier to avoid bad code. The only issue that came up sometimes was trailing whitespace.
 
 ## Bugs
 
@@ -235,7 +235,7 @@ I found this bug while testing on Heroku. It seems that if the Google spreadshee
 
 Bug 2. 
 
-One thing I noticed is that if you try scroll while the terminal is using delayed printing. It will break the printing and just block out the text one sentance at a time. So be sure to wait until everything is printed until you try to scroll.
+One thing I noticed is that if you try to scroll while the terminal is using delayed printing it will break the printing and just block out the text one sentance at a time. So be sure to wait until everything is printed until you try to scroll.
 
 ## Deployment
 
@@ -373,5 +373,5 @@ All of the content was written by me or was taken from of my favourite fantasy m
 
 ## Acknowledgements
 
-I would like to pass on a massive thank you to my mentor Harry Dhillon. He provided excellent adivce and was very supportive throughout the whole process. My good friend Daniel Roberts, he is a seasoned front end developer and also provided amazing tips. As well to all my family and friends who had a look at the game at my request. Lastly a huge thank you to Ed at the Code Institute mentors. He always seemed to end up picking up my tickets. He was an enormous help throughout all of this. 
+I would like to pass on a massive thank you to my mentor Harry Dhillon. He provided excellent advice and was very supportive throughout the whole process. My good friend Daniel Roberts, he is a seasoned front end developer and also provided amazing tips. As well to all my family and friends who had a look at the game at my request. Lastly a huge thank you to Ed at the Code Institute mentors. He always seemed to end up picking up my tickets. He was an enormous help throughout all of this. 
 
